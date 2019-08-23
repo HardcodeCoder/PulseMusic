@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/fancy_toolbar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Headline20"
+                android:layout_marginBottom="@dimen/spacing_header_item"
+                android:paddingTop="16dp"
+                android:text="@string/random" />
+
+            <include
+                android:id="@+id/home_suggested_rv"
+                layout="@layout/recycler_view_home" />
+
+            <TextView
+                style="@style/Headline20"
+                android:layout_marginTop="@dimen/spacing_item_next_header"
+                android:layout_marginBottom="@dimen/spacing_header_item"
+                android:text="@string/new_in_library" />
+
+            <include
+                android:id="@+id/new_in_library_rv"
+                layout="@layout/recycler_view_home" />
+
+            <TextView
+                style="@style/Headline20"
+                android:layout_marginTop="@dimen/spacing_item_next_header"
+                android:layout_marginBottom="@dimen/spacing_header_item"
+                android:text="@string/recent_artist" />
+
+            <include
+                android:id="@+id/home_recent_artist_rv"
+                layout="@layout/recycler_view_home" />
+
+            <TextView
+                android:id="@+id/home_heading_recent"
+                style="@style/Headline20"
+                android:layout_marginTop="@dimen/spacing_item_next_header"
+                android:layout_marginBottom="@dimen/spacing_header_item"
+                android:text="@string/recent" />
+
+            <include
+                android:id="@+id/home_recent_rv"
+                layout="@layout/recycler_view_home" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

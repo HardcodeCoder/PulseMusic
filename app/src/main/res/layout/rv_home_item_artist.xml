@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingStart="8dp"
+    android:paddingEnd="12dp">
+
+    <ImageView
+        android:layout_width="136dp"
+        android:layout_height="136dp"
+        android:background="@drawable/circle_background"
+        android:paddingStart="16dp"
+        android:paddingEnd="0dp"
+        android:src="@drawable/ic_artist"
+        android:tint="?secondaryColor"
+        tools:ignore="contentDescription" />
+
+    <include layout="@layout/rv_home_item_title_text_view" />
+
+    <include layout="@layout/rv_home_item_sub_text_view" />
+
+</LinearLayout>

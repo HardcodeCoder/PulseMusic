@@ -1,0 +1,122 @@
+<resources>
+    <string name="app_name">Pulse Music</string>
+
+    <string name="channel_name">Pulse Music Notification</string>
+
+    <string name="iv_content_desc">Album art image</string>
+    <string name="iv_btn_close_description">Close button</string>
+
+    <string name="library">Library</string>
+    <string name="home">Home</string>
+    <string name="albums">Albums</string>
+    <string name="artist">Artist</string>
+
+    <string name="artist_head">Artist  \u25CF </string>
+    <string name="album_head">Album  \u25Cf </string>
+
+    <string name="settings">Settings</string>
+    <string name="select_tracks">Select tracks</string>
+    <string name="random">You may like</string>
+    <string name="new_in_library">New in library</string>
+    <string name="recent">Recent tracks</string>
+    <string name="recent_artist">Recent artist</string>
+    <string name="playlist_nav">Playlist</string>
+    <string name="equalizer">Equalizer</string>
+
+    <string name="play_next">Play Next</string>
+    <string name="add_to_queue">Add to queue</string>
+    <string name="info">Song info</string>
+    <string name="add_to_playlist">Add to playlist</string>
+
+    <string name="play_next_toast">Track added and will be played next</string>
+    <string name="add_to_queue_toast">Track added to playing queue</string>
+    <string name="item_removed">Song removed from queue !!!</string>
+    <string name="removed_from_fav">Track removed from favorites</string>
+    <string name="added_to_fav">Track added to favorites</string>
+    <string name="repeat_enabled">Current track will be repeated once</string>
+    <string name="repeat_disabled">Repeat mode turned off</string>
+    <string name="equalizer_error">Default equalizer not found</string>
+
+    <string name="create_playlist">Create playlist</string>
+    <string name="edit_playlist">Edit playlist title</string>
+    <string name="create">Okay</string>
+    <string name="cancel">Cancel</string>
+    <string name="create_playlist_hint">Enter playlist\'s name</string>
+    <string name="set">Set</string>
+
+    <string name="playlist_current_queue">Playing queue</string>
+    <string name="favorite_playlist">Favorite</string>
+
+    <string name="searchHint">Search for artist, songs or albums\.\.\.</string>
+    <string name="search_null">No results found</string>
+
+    <!-- Transition names -->
+
+    <!-- User's greeting -->
+
+    <!-- Home drawer contents -->
+    <string name="library_info">Get to know about your library</string>
+    <string name="source_code">Check out the source code</string>
+    <string name="gitlab_profile">Check out my Github profile</string>
+    <string name="app_info">App info</string>
+    <string name="note">Made with \u2665 in India</string>
+    <string name="enter_name">Enter your name</string>
+    <string name="enter_name_toast">Please enter your name</string>
+
+
+    <!-- Settings Activity -->
+    <string name="light_on">Turn on dark theme</string>
+    <string name="dark_on">Turn off dark theme</string>
+    <string name="auto_theme_disabled">Enable auto theme</string>
+    <string name="auto_theme_enabled">Auto theme enabled</string>
+    <string name="select_columns">Select number of grid columns</string>
+    <string name="select_theme_title">Select your preferred theme</string>
+    <string name="select_light_theme">Select your preferred light theme</string>
+    <string name="select_dark_theme">Select your preferred dark theme</string>
+    <string name="def_theme_light">Default</string>
+    <string name="black_and_white">Black and white</string>
+    <string name="sweet_morning_light">Sweet Morning</string>
+    <string name="portrait">Portrait Mode</string>
+    <string name="landscape">Landscape Mode</string>
+    <string name="two">Two</string>
+    <string name="three">Three</string>
+    <string name="four">Four</string>
+    <string name="five">Five</string>
+    <string name="six">Six</string>
+    <string name="def_theme_dark">Default</string>
+    <string name="app_dark_theme">Kinda dark</string>
+    <string name="charcoal_dark">Charcoal Dark</string>
+
+    <!-- Details Activity -->
+    <string name="details_activity_rv_title">Tracks</string>
+
+    <!-- Perhaps temporary placeholder text -->
+
+    <!-- Profile Links -->
+    <string name="github_link">https://github.com/HardcodeCoder</string>
+    <string name="source_code_link">https://github.com/HardcodeCoder/PulseMusic</string>
+
+    <!-- App info -->
+    <string name="app_version">App version</string>
+
+    <string name="app_release">Release date</string>
+    <string name="app_release_desc">23rd August 2019</string>
+
+    <string name="build_number">Build code</string>
+
+    <string name="app_version_old">Previous stable release</string>
+    <string name="app_version_old_desc">v1.1.3</string>
+
+    <string name="app_developer">Developed by</string>
+
+    <string name="app_designer">Designed by</string>
+
+    <string name="app_tester">Testers</string>
+
+    <string name="app_author">\@HardcodeCoder (Ashutosh patoa)</string>
+
+    <string name="donate_title">Liked my work? Buy me a cup of coffee</string>
+    <string name="donate">Buy me a Coffee</string>
+
+
+</resources>

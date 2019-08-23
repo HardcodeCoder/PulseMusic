@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingStart="0dp"
+    android:paddingEnd="16dp">
+
+    <TextView
+        android:id="@+id/details_item_title"
+        style="@style/RecyclerViewItemTitle"
+        android:textSize="18sp"
+        android:layout_width="0dp"
+        android:layout_marginEnd="32dp"
+        android:layout_weight="0.8" />
+
+    <ImageView
+        android:id="@+id/details_iv_options"
+        style="@style/ButtonStyle24"
+        android:layout_marginStart="8dp"
+        android:padding="16dp"
+        android:src="?attr/iconOptions"
+        tools:ignore="contentDescription" />
+
+</LinearLayout>

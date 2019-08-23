@@ -1,0 +1,80 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    package="com.hardcodecoder.pulsemusic">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="false"
+        android:theme="@style/ActivityThemeLight"
+        tools:targetApi="O"
+        android:appCategory="audio">
+
+        <activity android:name=".activities.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:clearTaskOnLaunch="true"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".activities.NowPlayingActivity"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".activities.SearchActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".activities.PlaylistDataActivity"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".activities.TrackPickerActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".activities.DetailsActivity"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".activities.AppInfo"
+            android:launchMode="singleTop" />
+
+        <service
+            android:name=".PMS"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService" />
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

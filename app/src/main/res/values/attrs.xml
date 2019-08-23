@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Base">
+        <attr name="primaryColor" format="color" />
+        <attr name="primaryVariantColor" format="color" />
+
+        <attr name="secondaryColor" format="color" />
+        <attr name="colorOnSecondary" format="color" />
+
+        <attr name="primaryTextColor" format="color" />
+        <attr name="secondaryTextColor" format="color" />
+        <attr name="disabledTextColor" format="color" />
+
+        <attr name="windowBackgroundColor" format="color" />
+        <attr name="elevatedSurfaceColor" format="color" />
+
+        <attr name="focusedDrawableColor" format="color" />
+        <attr name="unFocusedDrawableColor" format="color" />
+
+        <attr name="selectedItemBackground" format="color" />
+        <attr name="imageElevationShadow" format="integer" />
+        <attr name="dividerColor" format="integer" />
+
+        <attr name="iconOptions" format="integer" />
+
+        <attr name="isLightMode" format="boolean" />
+
+        <attr name="overlayColor" format="color" />
+
+    </declare-styleable>
+</resources>

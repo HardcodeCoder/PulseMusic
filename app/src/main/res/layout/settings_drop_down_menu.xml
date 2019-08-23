@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/radio_group"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingTop="16dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="16dp">
+
+    <TextView
+        android:id="@+id/radio_group_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/product_medium"
+        android:textColor="?primaryTextColor"
+        android:textSize="18sp" />
+
+    <RadioButton
+        android:id="@+id/rd_btn_1"
+        style="@style/RadioBtnText"
+        tools:text="Option 1" />
+
+    <RadioButton
+        android:id="@+id/rd_btn_2"
+        style="@style/RadioBtnText"
+        tools:text="Option 2" />
+
+    <RadioButton
+        android:id="@+id/rd_btn_3"
+        style="@style/RadioBtnText"
+        tools:text="Option 3" />
+
+    <Button
+        android:id="@+id/radio_group_btn_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:background="@android:color/transparent"
+        android:text="@string/set"
+        android:textColor="?secondaryColor"
+        android:textSize="18sp" />
+
+</RadioGroup>

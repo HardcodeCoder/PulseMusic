@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/settings_close_btn"
+            style="@style/ButtonStyle24"
+            android:src="@drawable/ic_close"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toTopOf="@id/settings"
+            android:contentDescription="@string/iv_content_desc" />
+
+        <TextView
+            android:id="@+id/settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:fontFamily="@font/product_black"
+            android:textSize="36sp"
+            android:textColor="?attr/primaryTextColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_close_btn" />
+
+        <TextView
+            android:id="@+id/setting_switch_1_title"
+            style="@style/SettingItemTextStyle"
+            android:text="@string/dark_on"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings" />
+
+        <Switch
+            android:id="@+id/settings_switch_1"
+            style="@style/SettingItemSwitchStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/setting_switch_1_title"
+            app:layout_constraintBottom_toBottomOf="@id/setting_switch_1_title" />
+
+        <TextView
+            android:id="@+id/settings_switch_2_title"
+            style="@style/SettingItemTextStyle"
+            android:text="@string/auto_theme_disabled"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/setting_switch_1_title" />
+
+        <Switch
+            android:id="@+id/settings_switch_2"
+            style="@style/SettingItemSwitchStyle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/settings_switch_2_title"
+            app:layout_constraintBottom_toBottomOf="@id/settings_switch_2_title" />
+
+        <TextView
+            android:id="@+id/settings_columns_title"
+            style="@style/SettingItemHeadline18"
+            app:layout_constraintTop_toBottomOf="@id/settings_switch_2_title"
+            android:text="@string/select_columns"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/columns_portrait"
+            style="@style/SettingItemTextStyle"
+            android:text="@string/portrait"
+            android:drawableEnd="@drawable/ic_arrow_drop_down"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_columns_title" />
+
+        <TextView
+            android:id="@+id/columns_landscape"
+            style="@style/SettingItemTextStyle"
+            android:text="@string/landscape"
+            android:drawableEnd="@drawable/ic_arrow_drop_down"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/columns_portrait" />
+
+        <TextView
+            android:id="@+id/settings_theme_title"
+            style="@style/SettingItemHeadline18"
+            app:layout_constraintTop_toBottomOf="@id/columns_landscape"
+            android:text="@string/select_theme_title"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/light_theme_options"
+            style="@style/SettingItemTextStyle"
+            android:text="@string/select_light_theme"
+            android:drawableEnd="@drawable/ic_arrow_drop_down"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_theme_title" />
+
+        <TextView
+            android:id="@+id/dark_theme_options"
+            style="@style/SettingItemTextStyle"
+            android:text="@string/select_dark_theme"
+            android:drawableEnd="@drawable/ic_arrow_drop_down"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/light_theme_options" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

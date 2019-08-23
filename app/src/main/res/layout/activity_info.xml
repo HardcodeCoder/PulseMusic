@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/fancy_toolbar" />
+
+        <TextView
+            style="@style/AppInfoTitleTextStyle"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/app_version" />
+
+        <TextView
+            android:id="@+id/app_version_desc"
+            style="@style/AppInfoSubTitleTextStyle"
+            android:layout_marginStart="16dp" />
+
+        <TextView
+            style="@style/AppInfoTitleTextStyle"
+            android:layout_marginStart="16dp"
+            android:text="@string/app_release" />
+
+        <TextView
+            android:id="@+id/app_release_desc"
+            style="@style/AppInfoSubTitleTextStyle"
+            android:layout_marginStart="16dp"
+            android:text="@string/app_release_desc" />
+
+        <TextView
+            style="@style/AppInfoTitleTextStyle"
+            android:layout_marginStart="16dp"
+            android:text="@string/build_number" />
+
+        <TextView
+            android:id="@+id/app_build_desc"
+            style="@style/AppInfoSubTitleTextStyle"
+            android:layout_marginStart="16dp" />
+
+        <TextView
+            style="@style/AppInfoTitleTextStyle"
+            android:layout_marginStart="16dp"
+            android:text="@string/app_version_old" />
+
+        <TextView
+            style="@style/AppInfoSubTitleTextStyle"
+            android:layout_marginStart="16dp"
+            android:text="@string/app_version_old_desc" />
+
+        <TextView
+            style="@style/AppInfoTitleTextStyle"
+            android:layout_marginStart="16dp"
+            android:text="@string/app_developer" />
+
+        <TextView
+            android:id="@+id/app_dev_desc"
+            style="@style/AppInfoSubTitleTextStyle"
+            android:layout_marginStart="16dp"
+            android:text="@string/app_author" />
+
+        <TextView
+            style="@style/AppInfoTitleTextStyle"
+            android:layout_marginStart="16dp"
+            android:text="@string/app_designer" />
+
+        <TextView
+            android:id="@+id/app_designer_desc"
+            style="@style/AppInfoSubTitleTextStyle"
+            android:layout_marginStart="16dp"
+            android:text="@string/app_author" />
+
+        <TextView
+            style="@style/AppInfoTitleTextStyle"
+            android:layout_marginStart="16dp"
+            android:text="@string/app_tester" />
+
+        <TextView
+            android:id="@+id/app_testers_desc"
+            style="@style/AppInfoSubTitleTextStyle"
+            android:layout_marginStart="16dp"
+            android:text="@string/app_author" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/product_black"
+            android:gravity="center"
+            android:text="@string/donate_title"
+            android:textColor="?secondaryColor"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/donate_btn"
+            style="@style/MaterialButtonStyleFilled"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:layout_gravity="center_horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/donate"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.NowPlayingActivity">
+
+    <TextView
+        android:id="@+id/activity_np_song_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:paddingStart="72dp"
+        android:paddingEnd="72dp"
+        android:requiresFadingEdge="horizontal"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textAppearance="@style/Headline20TextAppearance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/activity_np_album_art"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:background="?attr/imageElevationShadow"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@id/activity_np_seekBar"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toBottomOf="@id/activity_np_song_title"
+        tools:ignore="contentDescription">
+
+    </ImageView>
+
+    <SeekBar
+        android:id="@+id/activity_np_seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:progressDrawable="@drawable/seekbar_drawable"
+        android:thumb="@drawable/seek_bar_thumb_shadow"
+        android:thumbOffset="1dp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@id/activity_np_album_art" />
+
+    <TextView
+        android:id="@+id/activity_np_start_time"
+        style="@style/RecyclerViewItemTitle.Sub"
+        android:layout_margin="16dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="0dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/activity_np_seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/activity_np_seekBar"
+        tools:text="00:00" />
+
+    <TextView
+        android:id="@+id/activity_np_end_time"
+        style="@style/RecyclerViewItemTitle.Sub"
+        android:layout_margin="16dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="6dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/activity_np_seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/activity_np_seekBar"
+        tools:text="05:00" />
+
+    <TextView
+        android:id="@+id/activity_np_album_artist_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="56dp"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textAppearance="@style/ItemTitleTextAppearance"
+        app:layout_constraintTop_toBottomOf="@+id/activity_np_start_time"
+        tools:text="Artist \u25CF Album Name" />
+
+    <ImageButton
+        android:id="@+id/activity_np_btn_repeat"
+        style="@style/ButtonStyle24"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_repeat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_np_album_artist_name"
+        tools:ignore="contentDescription" />
+
+    <ImageButton
+        android:id="@+id/activity_np_skip_prev_btn"
+        style="@style/ButtonStyle36"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_round_skip_previous"
+        app:layout_constraintEnd_toStartOf="@+id/activity_np_play_pause_btn"
+        app:layout_constraintStart_toEndOf="@id/activity_np_btn_repeat"
+        app:layout_constraintTop_toBottomOf="@id/activity_np_album_artist_name"
+        tools:ignore="contentDescription" />
+
+    <ImageButton
+        android:id="@+id/activity_np_play_pause_btn"
+        style="@style/ButtonStyle48"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/play_button_background"
+        android:padding="8dp"
+        android:stateListAnimator="@animator/focused_elevation_up"
+        android:tint="?attr/colorOnSecondary"
+        app:layout_constraintEnd_toStartOf="@+id/activity_np_skip_next_btn"
+        app:layout_constraintStart_toEndOf="@+id/activity_np_skip_prev_btn"
+        app:layout_constraintTop_toBottomOf="@id/activity_np_album_artist_name"
+        tools:ignore="contentDescription"
+        tools:src="@drawable/ic_round_pause_white" />
+
+    <ImageButton
+        android:id="@+id/activity_np_skip_next_btn"
+        style="@style/ButtonStyle36"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_round_skip_next"
+        app:layout_constraintEnd_toStartOf="@id/activity_np_favourite_btn"
+        app:layout_constraintStart_toEndOf="@+id/activity_np_play_pause_btn"
+        app:layout_constraintTop_toBottomOf="@id/activity_np_album_artist_name"
+        tools:ignore="contentDescription" />
+
+    <ImageButton
+        android:id="@+id/activity_np_favourite_btn"
+        style="@style/ButtonStyle24"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_np_album_artist_name"
+        tools:ignore="contentDescription" />
+
+    <ImageButton
+        android:id="@+id/activity_np_close_btn"
+        style="@style/ButtonStyle24"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/iv_content_desc"
+        android:src="@drawable/ic_close"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

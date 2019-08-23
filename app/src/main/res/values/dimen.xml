@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Must be equal to or greater than half of {@floating_image_height}-->
+    <dimen name="material_btn_width">128dp</dimen>
+    <dimen name="material_btn_height">48dp</dimen>
+    <dimen name="default_elevation">8dp</dimen>
+
+    <!-- Dimens for Home layout -->
+    <dimen name="spacing_header_item">18dp</dimen>
+    <dimen name="spacing_item_next_header">36dp</dimen>
+
+
+</resources>

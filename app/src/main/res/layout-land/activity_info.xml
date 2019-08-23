@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/app_info_close_btn"
+            style="@style/ButtonStyle36"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/iv_btn_close_description" />
+
+        <TextView
+            android:id="@+id/app_name_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/product_black"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/app_name"
+            android:textColor="?secondaryColor"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/app_version"
+            style="@style/AppInfoTitleTextStyle"
+            android:text="@string/app_version"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_name_head" />
+
+        <TextView
+            android:id="@+id/app_version_desc"
+            style="@style/AppInfoSubTitleTextStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_version" />
+
+        <TextView
+            android:id="@+id/app_release"
+            style="@style/AppInfoTitleTextStyle"
+            android:text="@string/app_release"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_version_desc" />
+
+        <TextView
+            android:id="@+id/app_release_desc"
+            style="@style/AppInfoSubTitleTextStyle"
+            android:text="@string/app_release_desc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_release" />
+
+        <TextView
+            android:id="@+id/app_version_old"
+            style="@style/AppInfoTitleTextStyle"
+            android:text="@string/app_version_old"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_release_desc" />
+
+        <TextView
+            android:id="@+id/app_version_old_desc"
+            style="@style/AppInfoSubTitleTextStyle"
+            android:text="@string/app_version_old_desc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_version_old" />
+
+        <TextView
+            android:id="@+id/app_dev"
+            style="@style/AppInfoTitleTextStyle"
+            android:text="@string/app_developer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_version_old_desc" />
+
+        <TextView
+            android:id="@+id/app_dev_desc"
+            style="@style/AppInfoSubTitleTextStyle"
+            android:text="@string/app_author"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_dev" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/divider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:id="@+id/app_build_number"
+            style="@style/AppInfoTitleTextStyle"
+            android:text="@string/build_number"
+            app:layout_constraintTop_toBottomOf="@id/app_name_head"
+            app:layout_constraintStart_toStartOf="@id/divider" />
+
+        <TextView
+            android:id="@+id/app_build_desc"
+            style="@style/AppInfoSubTitleTextStyle"
+            app:layout_constraintTop_toBottomOf="@id/app_build_number"
+            app:layout_constraintStart_toStartOf="@id/divider" />
+
+        <TextView
+            android:id="@+id/app_designer"
+            style="@style/AppInfoTitleTextStyle"
+            android:text="@string/app_designer"
+            app:layout_constraintStart_toStartOf="@id/divider"
+            app:layout_constraintTop_toBottomOf="@id/app_build_desc" />
+
+        <TextView
+            android:id="@+id/app_designer_desc"
+            style="@style/AppInfoSubTitleTextStyle"
+            android:text="@string/app_author"
+            app:layout_constraintStart_toStartOf="@id/divider"
+            app:layout_constraintTop_toBottomOf="@id/app_designer" />
+
+        <TextView
+            android:id="@+id/app_testers"
+            style="@style/AppInfoTitleTextStyle"
+            android:text="@string/app_tester"
+            app:layout_constraintStart_toStartOf="@id/divider"
+            app:layout_constraintTop_toBottomOf="@id/app_designer_desc" />
+
+        <TextView
+            android:id="@+id/app_testers_desc"
+            style="@style/AppInfoSubTitleTextStyle"
+            android:text="@string/app_author"
+            app:layout_constraintStart_toStartOf="@id/divider"
+            app:layout_constraintTop_toBottomOf="@id/app_testers" />
+
+        <TextView
+            android:id="@+id/app_donate_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/product_black"
+            android:gravity="center"
+            android:text="@string/donate_title"
+            android:textColor="?secondaryColor"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/divider"
+            app:layout_constraintTop_toBottomOf="@id/app_testers_desc" />
+
+        <Button
+            style="@style/MaterialButtonStyleFilled"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/donate"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/app_donate_title"
+            app:layout_constraintStart_toStartOf="@id/divider" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

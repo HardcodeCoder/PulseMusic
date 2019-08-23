@@ -1,0 +1,225 @@
+<resources>
+
+    <!-- Specific Feed activity theme -->
+    <style name="ActivityThemeLight" parent="AppTheme.NoActionBar.LightMode" />
+
+    <style name="ActivityThemeDark" parent="AppTheme.NoActionBar.DarkMode" />
+
+    <style name="ActivityThemeBlackWhite" parent="AppTheme.NoActionBar.LightMode.BlackWhite" />
+
+    <style name="ActivityThemeKindaDark" parent="AppTheme.NoActionBar.DarkMode.Kinda" />
+
+    <style name="ActivityThemeSweetMorning" parent="AppTheme.NoActionBar.LightMode.SweetMorning" />
+
+    <style name="ActivityThemeCharcoal" parent="AppTheme.NoActionBar.DarkMode.Charcoal" />
+
+    <style name="PopupMenu">
+        <item name="android:textColor">?primaryTextColor</item>
+        <item name="android:popupBackground">@drawable/popup_menu_background</item>
+        <item name="android:elevation">@dimen/default_elevation</item>
+        <item name="android:popupElevation">@dimen/default_elevation</item>
+        <item name="android:fontFamily">@font/product_regular</item>
+    </style>
+
+    <style name="ToolbarPopupTheme">
+        <item name="android:colorBackground">?elevatedSurfaceColor</item>
+        <item name="android:textColor">?primaryTextColor</item>
+        <item name="android:fontFamily">@font/product_medium</item>
+    </style>
+
+    <style name="ToolbarTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textColor">?primaryTextColor</item>
+        <item name="android:fontFamily">@font/product_black</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="Headline20TextAppearance">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/product_medium</item>
+        <item name="android:textColor">?primaryTextColor</item>
+    </style>
+
+    <style name="Headline20">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:textAppearance">@style/Headline20TextAppearance</item>
+    </style>
+
+    <style name="ItemTitleTextAppearance">
+        <item name="android:fontFamily">@font/product_medium</item>
+        <item name="android:textColor">?primaryTextColor</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ItemSubTextAppearance">
+        <item name="android:fontFamily">@font/product_regular</item>
+        <item name="android:textColor">?secondaryTextColor</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="RecyclerViewItemTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">32dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textAppearance">@style/ItemTitleTextAppearance</item>
+    </style>
+
+    <style name="RecyclerViewItemTitle.Sub">
+        <item name="android:textAppearance">@style/ItemSubTextAppearance</item>
+    </style>
+
+    <style name="HomeItemTitle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">136dp
+        </item> <!-- Width matches the image view width excluding padding -->
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textAppearance">@style/ItemTitleTextAppearance</item>
+    </style>
+
+    <style name="HomeItemTitle.Sub">
+        <item name="android:textAppearance">@style/ItemSubTextAppearance</item>
+    </style>
+
+    <style name="SettingsStyleBlock">
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:background">@drawable/settings_item_background</item>
+    </style>
+
+    <style name="SettingItemHeadline18">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">32dp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:textAppearance">@style/ItemTitleTextAppearance</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="SettingItemTextStyle" parent="SettingsStyleBlock">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:fontFamily">@font/product_medium</item>
+        <item name="android:textColor">?primaryTextColor</item>
+    </style>
+
+    <style name="SettingItemSwitchStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="RadioBtnText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:textColor">?primaryTextColor</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/product_regular</item>
+    </style>
+
+    <style name="ButtonStyleBase">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">?selectableItemBackgroundBorderless</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="ButtonStyle48" parent="ButtonStyleBase" />
+
+    <style name="ButtonStyle36" parent="ButtonStyleBase">
+        <item name="android:padding">6dp</item>
+    </style>
+
+    <style name="ButtonStyle24" parent="ButtonStyleBase">
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="MenuItemTextStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textAppearance">@style/ItemTitleTextAppearance</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingStart">32dp</item>
+        <item name="android:paddingEnd">32dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="LibraryItemMenuTextStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textAppearance">@style/ItemTitleTextAppearance</item>
+        <item name="android:padding">18dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:gravity">center</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="BottomSheetDialog" parent="Theme.MaterialComponents.BottomSheetDialog">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:colorBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="MaterialButtonStyleBase">
+        <item name="android:layout_width">@dimen/material_btn_width</item>
+        <item name="android:layout_height">@dimen/material_btn_height</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textAppearance">@style/MaterialButtonTextAppearance</item>
+    </style>
+
+    <style name="MaterialButtonTextAppearance">
+        <item name="android:textColor">?secondaryColor</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:fontFamily">@font/product_regular</item>
+    </style>
+
+    <style name="MaterialButtonStyleOutline" parent="MaterialButtonStyleBase">
+        <item name="android:background">@drawable/border_btn</item>
+    </style>
+
+    <style name="MaterialButtonStyleFilled" parent="MaterialButtonStyleBase">
+        <item name="android:background">@drawable/contained_btn</item>
+        <item name="android:textColor">?colorOnSecondary</item>
+    </style>
+
+    <style name="AppInfoTitleTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textColor">?primaryTextColor</item>
+        <item name="android:fontFamily">@font/product_medium</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="AppInfoSubTitleTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">?secondaryTextColor</item>
+        <item name="android:fontFamily">@font/product_regular</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+</resources>
+
