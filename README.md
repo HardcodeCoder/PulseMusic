@@ -1,8 +1,8 @@
 # PulseMusic
 
-### A simple modern looking music player that gets the work done without disturbing you
+ A simple modern looking music player that gets the work done without disturbing you
 
-Pre-requisites
+## Pre-requisites
 - Minimum SDK Version v21 (Lollipop)
 - Target SDK Version  v29
 - Compile SDK Version v29
@@ -13,12 +13,11 @@ Pre-requisites
 This sample uses the Gradle build system. To build this project, use the
 "gradlew build" command or use "Import Project" in Android Studio.
 
-
 ## LICENSE
 
-See LICENSE.txt file or [](https://www.gnu.org/licenses/gpl-3.0.en.html)
+See LICENSE file or [GNU GENERAL PUBLIC LICENSE](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-#Features
+# Features
 
 ## Home
 Rediscover your offline collection with new suggestions based on your music preference
