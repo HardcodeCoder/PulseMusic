@@ -44,8 +44,12 @@ public class ArtistFragment extends Fragment implements TransitionClickListener 
     private List<ArtistModel> mList;
     private ArtistAdapter adapter;
     private int spanCount;
-    private int currentConfig = Configuration.ORIENTATION_PORTRAIT;
+    private int currentConfig;
     private GridLayoutManager layoutManager;
+    private enum ID {
+        PORTRAIT,
+        LANDSCAPE
+    }
 
     public ArtistFragment() {
     }
@@ -54,6 +58,7 @@ public class ArtistFragment extends Fragment implements TransitionClickListener 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
+        currentConfig = getResources().getConfiguration().orientation;
         return inflater.inflate(R.layout.fragment_artist, container, false);
     }
 
@@ -93,18 +98,6 @@ public class ArtistFragment extends Fragment implements TransitionClickListener 
     }
 
     @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        if (currentConfig == Configuration.ORIENTATION_PORTRAIT) {
-            if (spanCount != UserInfo.getPortraitGridSpanCount(getContext()))
-                layoutManager.setSpanCount(UserInfo.getPortraitGridSpanCount(getContext()));
-        } else if (currentConfig == Configuration.ORIENTATION_LANDSCAPE) {
-            if (spanCount != UserInfo.getLandscapeGridSpanCount(getContext()))
-                layoutManager.setSpanCount(UserInfo.getLandscapeGridSpanCount(getContext()));
-        }
-    }
-
-    @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu_album_artist_fragment, menu);
     }
@@ -129,8 +122,41 @@ public class ArtistFragment extends Fragment implements TransitionClickListener 
             case R.id.menu_action_setting:
                 startActivity(new Intent(getContext(), SettingsActivity.class));
                 break;
+
+            case R.id.two:
+                updateGridSize(ID.PORTRAIT, 2);
+                break;
+            case R.id.three:
+                updateGridSize(ID.PORTRAIT, 3);
+                break;
+            case R.id.four:
+                updateGridSize(ID.PORTRAIT, 4);
+                break;
+
+            case R.id.l_four:
+                updateGridSize(ID.LANDSCAPE, 4);
+                break;
+            case R.id.l_five:
+                updateGridSize(ID.LANDSCAPE, 5);
+                break;
+            case R.id.l_six:
+                updateGridSize(ID.LANDSCAPE, 6);
+                break;
         }
         return true;
+    }
+
+    private void updateGridSize(ID id, int spanCount){
+        if(id == ID.PORTRAIT) {
+            UserInfo.savePortraitGridSpanCount(spanCount);
+            if(currentConfig == Configuration.ORIENTATION_PORTRAIT)
+                layoutManager.setSpanCount(spanCount);
+        }
+        else {
+            UserInfo.saveLandscapeGridSpanCount(spanCount);
+            if(currentConfig == Configuration.ORIENTATION_LANDSCAPE)
+                layoutManager.setSpanCount(spanCount);
+        }
     }
 
     @Override

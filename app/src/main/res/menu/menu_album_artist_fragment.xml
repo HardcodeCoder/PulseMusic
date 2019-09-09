@@ -6,10 +6,56 @@
         android:icon="@drawable/ic_search"
         android:title="@string/searchHint"
         app:showAsAction="always" />
+
     <item
         android:id="@+id/menu_action_setting"
         android:icon="@drawable/ic_settings"
         android:title="@string/settings" />
+
+    <item
+        android:id="@+id/columns"
+        android:title="@string/columns">
+
+        <menu>
+            <item
+                android:id="@+id/portrait_mode"
+                android:title="@string/portrait" >
+
+                <menu>
+                    <item android:id="@+id/two"
+                        android:title="@string/two"/>
+
+                    <item android:id="@+id/three"
+                        android:title="@string/three"/>
+
+                    <item android:id="@+id/four"
+                        android:title="@string/four"/>
+
+                </menu>
+
+            </item>
+
+            <item
+                android:id="@+id/landscape_mode"
+                android:title="@string/landscape" >
+
+                <menu>
+                    <item android:id="@+id/l_four"
+                        android:title="@string/four"/>
+
+                    <item android:id="@+id/l_five"
+                        android:title="@string/five"/>
+
+                    <item android:id="@+id/l_six"
+                        android:title="@string/six"/>
+
+                </menu>
+
+            </item>
+
+        </menu>
+
+    </item>
 
     <item
         android:id="@+id/menu_action_equalizer"
