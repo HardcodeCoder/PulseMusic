@@ -64,7 +64,7 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.MyLibrar
     static class MyLibraryViewHolder extends RecyclerView.ViewHolder {
 
         private TextView songName, artist;
-        private ImageView albumArt, optionsMenu;
+        private ImageView albumArt;
         private LibraryItemClickListener mListener;
 
 
@@ -74,11 +74,10 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.MyLibrar
             songName = itemView.findViewById(R.id.library_item_tv1);
             artist = itemView.findViewById(R.id.library_item_tv2);
             albumArt = itemView.findViewById(R.id.library_item_iv1);
-            optionsMenu = itemView.findViewById(R.id.library_item_iv2);
 
             itemView.setOnClickListener(v -> mListener.onItemClick(getAdapterPosition()));
 
-            optionsMenu.setOnClickListener(v -> v.post(() -> mListener.onOptionsClick(getAdapterPosition())));
+            itemView.findViewById(R.id.library_item_iv2).setOnClickListener(v -> v.post(() -> mListener.onOptionsClick(getAdapterPosition())));
         }
 
         void setItemData(MusicModel md) {
