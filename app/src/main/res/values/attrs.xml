@@ -27,5 +27,7 @@
 
         <attr name="overlayColor" format="color" />
 
+        <attr name="statusBarOpacity" format="color"/>
+
     </declare-styleable>
 </resources>

@@ -4,7 +4,8 @@
     <style name="AppTheme.NoActionBarBase">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">?attr/isLightMode</item>
+        <item name="android:statusBarColor">?statusBarOpacity</item>
+        <item name="android:windowLightStatusBar">?isLightMode</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 </resources>

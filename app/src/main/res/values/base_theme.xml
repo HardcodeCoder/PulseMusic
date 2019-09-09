@@ -25,7 +25,7 @@
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowTranslucentStatus">true</item>
-        <!-- <item name="android:windowTranslucentNavigation">true</item> -->
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme.NoActionBarBase">
@@ -63,6 +63,8 @@
         <item name="imageElevationShadow">@drawable/iv_shadow_light</item>
 
         <item name="overlayColor">#14000000</item>
+
+        <item name="statusBarOpacity">#D6FFFFFF</item>
     </style>
 
     <!-- Base Activity theme for Dark UI -->
@@ -91,6 +93,8 @@
         <item name="imageElevationShadow">@drawable/iv_shadow_dark</item>
 
         <item name="overlayColor">#14FFFFFF</item>
+
+        <item name="statusBarOpacity">@android:color/transparent</item>
     </style>
 
     <!-- Base Activity theme for Light UI -->
