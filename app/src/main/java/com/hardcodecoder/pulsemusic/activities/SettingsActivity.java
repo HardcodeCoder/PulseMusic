@@ -21,8 +21,6 @@ import com.hardcodecoder.pulsemusic.utils.UserInfo;
 
 public class SettingsActivity extends Activity {
 
-    private final short ID_PORTRAIT = 1;
-    private final short ID_LANDSCAPE = 2;
     private final short ID_LIGHT = 10;
     private final short ID_DARK = 20;
     private boolean autoModeEnable;
@@ -95,87 +93,8 @@ public class SettingsActivity extends Activity {
             }
         });
 
-
-        findViewById(R.id.columns_portrait).setOnClickListener(v -> openRowSelector(v, ID_PORTRAIT));
-        findViewById(R.id.columns_landscape).setOnClickListener(v -> openRowSelector(v, ID_LANDSCAPE));
-
         findViewById(R.id.light_theme_options).setOnClickListener(v -> openThemeSelector(v, ID_LIGHT));
         findViewById(R.id.dark_theme_options).setOnClickListener(v -> openThemeSelector(v, ID_DARK));
-    }
-
-    private void openRowSelector(View v, short id) {
-        View windowView = View.inflate(this, R.layout.settings_drop_down_menu, null);
-        PopupWindow window = new PopupWindow(windowView, RadioGroup.LayoutParams.WRAP_CONTENT, RadioGroup.LayoutParams.WRAP_CONTENT, true);
-        RadioGroup radioGroup = windowView.findViewById(R.id.radio_group);
-        ((TextView) windowView.findViewById(R.id.radio_group_title)).setText(R.string.select_columns);
-
-        int currentCount;
-        if (id == ID_PORTRAIT) {
-            currentCount = UserInfo.getPortraitGridSpanCount(this);
-            switch (currentCount) {
-                case 2:
-                    ((RadioButton) radioGroup.findViewById(R.id.rd_btn_1)).setChecked(true);
-                    break;
-                case 3:
-                    ((RadioButton) radioGroup.findViewById(R.id.rd_btn_2)).setChecked(true);
-                    break;
-                case 4:
-                    ((RadioButton) radioGroup.findViewById(R.id.rd_btn_3)).setChecked(true);
-                    break;
-            }
-            RadioButton tempBtn = radioGroup.findViewById(R.id.rd_btn_1);
-            tempBtn.setText(R.string.two);
-
-            tempBtn = radioGroup.findViewById(R.id.rd_btn_2);
-            tempBtn.setText(R.string.three);
-
-            tempBtn = radioGroup.findViewById(R.id.rd_btn_3);
-            tempBtn.setText(R.string.four);
-        } else {
-            currentCount = UserInfo.getLandscapeGridSpanCount(this);
-            switch (currentCount) {
-                case 4:
-                    ((RadioButton) radioGroup.findViewById(R.id.rd_btn_1)).setChecked(true);
-                    break;
-                case 5:
-                    ((RadioButton) radioGroup.findViewById(R.id.rd_btn_2)).setChecked(true);
-                    break;
-                case 6:
-                    ((RadioButton) radioGroup.findViewById(R.id.rd_btn_3)).setChecked(true);
-                    break;
-            }
-            RadioButton tempBtn = radioGroup.findViewById(R.id.rd_btn_1);
-            tempBtn.setText(R.string.four);
-
-            tempBtn = radioGroup.findViewById(R.id.rd_btn_2);
-            tempBtn.setText(R.string.five);
-
-            tempBtn = radioGroup.findViewById(R.id.rd_btn_3);
-            tempBtn.setText(R.string.six);
-        }
-
-        windowView.findViewById(R.id.radio_group_btn_set).setOnClickListener(v1 -> {
-            switch (radioGroup.getCheckedRadioButtonId()) {
-                case R.id.rd_btn_1:
-                    if (id == ID_PORTRAIT) UserInfo.savePortraitGridSpanCount(2);
-                    else UserInfo.saveLandscapeGridSpanCount(4);
-                    break;
-                case R.id.rd_btn_2:
-                    if (id == ID_PORTRAIT) UserInfo.savePortraitGridSpanCount(3);
-                    else UserInfo.saveLandscapeGridSpanCount(5);
-                    break;
-                case R.id.rd_btn_3:
-                    if (id == ID_PORTRAIT) UserInfo.savePortraitGridSpanCount(4);
-                    else UserInfo.saveLandscapeGridSpanCount(6);
-                    break;
-            }
-            if (window.isShowing())
-                window.dismiss();
-
-        });
-        window.setBackgroundDrawable(getDrawable(R.drawable.popup_menu_background));
-        window.showAtLocation(v, Gravity.CENTER, 0, 0);
-        dimBackgroundOnPopupWindow(window);
     }
 
     private void openThemeSelector(View v, short id) {
@@ -266,8 +185,9 @@ public class SettingsActivity extends Activity {
         WindowManager wm = (WindowManager) window.getContentView().getContext().getSystemService(Context.WINDOW_SERVICE);
         WindowManager.LayoutParams p = (WindowManager.LayoutParams) container.getLayoutParams();
         p.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        p.dimAmount = 0.4f;
-        wm.updateViewLayout(container, p);
+        p.dimAmount = 0.60f;
+        if(null != wm)
+            wm.updateViewLayout(container, p);
     }
 
     private boolean needToToggleTheme() {

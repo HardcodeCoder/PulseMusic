@@ -16,7 +16,7 @@
             android:src="@drawable/ic_close"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintBottom_toTopOf="@id/settings"
             android:contentDescription="@string/iv_content_desc" />
 
@@ -60,34 +60,9 @@
             app:layout_constraintBottom_toBottomOf="@id/settings_switch_2_title" />
 
         <TextView
-            android:id="@+id/settings_columns_title"
-            style="@style/SettingItemHeadline18"
-            app:layout_constraintTop_toBottomOf="@id/settings_switch_2_title"
-            android:text="@string/select_columns"
-            android:layout_marginTop="16dp"
-            android:padding="8dp"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/columns_portrait"
-            style="@style/SettingItemTextStyle"
-            android:text="@string/portrait"
-            android:drawableEnd="@drawable/ic_arrow_drop_down"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/settings_columns_title" />
-
-        <TextView
-            android:id="@+id/columns_landscape"
-            style="@style/SettingItemTextStyle"
-            android:text="@string/landscape"
-            android:drawableEnd="@drawable/ic_arrow_drop_down"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/columns_portrait" />
-
-        <TextView
             android:id="@+id/settings_theme_title"
             style="@style/SettingItemHeadline18"
-            app:layout_constraintTop_toBottomOf="@id/columns_landscape"
+            app:layout_constraintTop_toBottomOf="@id/settings_switch_2"
             android:text="@string/select_theme_title"
             android:layout_marginTop="16dp"
             android:padding="8dp"
@@ -97,7 +72,6 @@
             android:id="@+id/light_theme_options"
             style="@style/SettingItemTextStyle"
             android:text="@string/select_light_theme"
-            android:drawableEnd="@drawable/ic_arrow_drop_down"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/settings_theme_title" />
 
@@ -105,7 +79,6 @@
             android:id="@+id/dark_theme_options"
             style="@style/SettingItemTextStyle"
             android:text="@string/select_dark_theme"
-            android:drawableEnd="@drawable/ic_arrow_drop_down"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/light_theme_options" />
 
