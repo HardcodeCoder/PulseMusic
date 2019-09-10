@@ -15,6 +15,7 @@
         android:paddingStart="148dp"
         android:paddingTop="16dp"
         android:paddingEnd="148dp"
+        android:layout_marginTop="24dp"
         android:requiresFadingEdge="horizontal"
         android:scrollHorizontally="true"
         android:singleLine="true"

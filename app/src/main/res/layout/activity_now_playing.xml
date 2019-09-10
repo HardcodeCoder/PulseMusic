@@ -16,6 +16,7 @@
         android:marqueeRepeatLimit="marquee_forever"
         android:paddingStart="72dp"
         android:paddingEnd="72dp"
+        android:layout_marginTop="24dp"
         android:requiresFadingEdge="horizontal"
         android:scrollHorizontally="true"
         android:singleLine="true"
