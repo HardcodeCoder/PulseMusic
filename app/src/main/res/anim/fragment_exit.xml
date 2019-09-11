@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<set xmlns:android="http://schemas.android.com/apk/res/android"
-    android:duration="@integer/window_exit_duration">
+<set
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="@integer/window_transition_exit_alpha_duration">
+
     <alpha
         android:fromAlpha="1.0"
-        android:interpolator="@android:anim/decelerate_interpolator"
         android:toAlpha="0.0" />
+
 </set>

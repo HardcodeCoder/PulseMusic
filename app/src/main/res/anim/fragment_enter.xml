@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<set xmlns:android="http://schemas.android.com/apk/res/android"
+
+<set
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:duration="@integer/window_enter_duration"
-    android:fillBefore="true"
     android:fillAfter="true"
-    android:fillEnabled="true">
+    android:fillBefore="true"
+    android:fillEnabled="true"
+    android:shareInterpolator="false">
+
     <alpha
-        android:fromAlpha="0.0"
-        android:interpolator="@android:anim/decelerate_interpolator"
+        android:fromAlpha="0.4"
+        android:interpolator="@android:interpolator/fast_out_slow_in"
         android:toAlpha="1.0" />
+
+    <scale
+        android:fromXScale="0.98"
+        android:fromYScale="0.98"
+        android:interpolator="@android:interpolator/fast_out_slow_in"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toXScale="1.0"
+        android:toYScale="1.0" />
+
 </set>
