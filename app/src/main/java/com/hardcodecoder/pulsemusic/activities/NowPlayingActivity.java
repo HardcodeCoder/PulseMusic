@@ -19,7 +19,6 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.bumptech.glide.GenericTransitionOptions;
 import com.hardcodecoder.pulsemusic.GlideApp;
 import com.hardcodecoder.pulsemusic.GlideConstantArtifacts;
 import com.hardcodecoder.pulsemusic.PMS;
@@ -194,7 +193,6 @@ public class NowPlayingActivity extends Activity {
             GlideApp
                     .with(this)
                     .load(metadata.getBitmap(PlaybackManager.METADATA_ALBUM_ART))
-                    .transition(GenericTransitionOptions.with(R.anim.fade_in_image))
                     .error(R.drawable.np_album_art)
                     .transform(GlideConstantArtifacts.getDefaultRoundingRadius())
                     .into((ImageView) findViewById(R.id.activity_np_album_art));
@@ -228,6 +226,7 @@ public class NowPlayingActivity extends Activity {
             mState = state;
             Drawable d;
             switch (state.getState()) {
+
                 case PlaybackState.STATE_PLAYING:
                     d = getDrawable(R.drawable.avd_play_to_pause);
                     mPlayPause.setImageDrawable(d);
@@ -236,6 +235,7 @@ public class NowPlayingActivity extends Activity {
                     scheduleSeekBarUpdate();
                     updateRepeatBtn();
                     break;
+
                 case PlaybackState.STATE_STOPPED:
                     d = getDrawable(R.drawable.avd_pause_to_play);
                     mPlayPause.setImageDrawable(d);
@@ -245,6 +245,7 @@ public class NowPlayingActivity extends Activity {
                     progress = 0;
                     seekBar.setProgress(progress);
                     break;
+
                 case PlaybackState.STATE_PAUSED:
                     d = getDrawable(R.drawable.avd_pause_to_play);
                     mPlayPause.setImageDrawable(d);
@@ -253,22 +254,15 @@ public class NowPlayingActivity extends Activity {
                     stopSeekBarUpdate();
                     --progress;
                     break;
+
                 case PlaybackState.STATE_BUFFERING:
-                    break;
                 case PlaybackState.STATE_CONNECTING:
-                    break;
                 case PlaybackState.STATE_ERROR:
-                    break;
                 case PlaybackState.STATE_FAST_FORWARDING:
-                    break;
                 case PlaybackState.STATE_NONE:
-                    break;
                 case PlaybackState.STATE_REWINDING:
-                    break;
                 case PlaybackState.STATE_SKIPPING_TO_NEXT:
-                    break;
                 case PlaybackState.STATE_SKIPPING_TO_PREVIOUS:
-                    break;
                 case PlaybackState.STATE_SKIPPING_TO_QUEUE_ITEM:
                     break;
             }
