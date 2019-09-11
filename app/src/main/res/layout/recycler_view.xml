@@ -7,5 +7,4 @@
     android:scrollbarStyle="insideOverlay"
     android:scrollbars="vertical"
     android:scrollbarThumbVertical="@drawable/recycler_view_scroll_thumb"
-    android:layoutAnimation="@anim/rv_layout_animation_dummy"
     app:layout_behavior="@string/appbar_scrolling_view_behavior" />
