@@ -12,14 +12,10 @@
         android:icon="@drawable/ic_settings"
         android:title="@string/settings" />
 
-    <item
-        android:id="@+id/columns"
-        android:title="@string/columns">
+    <item android:title="@string/columns">
 
         <menu>
-            <item
-                android:id="@+id/portrait_mode"
-                android:title="@string/portrait" >
+            <item android:title="@string/portrait" >
 
                 <menu>
                     <item android:id="@+id/two"
@@ -35,9 +31,7 @@
 
             </item>
 
-            <item
-                android:id="@+id/landscape_mode"
-                android:title="@string/landscape" >
+            <item android:title="@string/landscape" >
 
                 <menu>
                     <item android:id="@+id/l_four"
