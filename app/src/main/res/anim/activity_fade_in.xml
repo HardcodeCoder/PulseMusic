@@ -6,6 +6,6 @@
     android:fillEnabled="true">
     <alpha
         android:fromAlpha="0.8"
-        android:interpolator="@android:anim/decelerate_interpolator"
+        android:interpolator="@android:interpolator/fast_out_slow_in"
         android:toAlpha="1.0" />
 </set>
