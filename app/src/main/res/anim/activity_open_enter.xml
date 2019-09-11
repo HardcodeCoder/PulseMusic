@@ -3,26 +3,27 @@
 <!-- Animation for new activity open on top of current -->
 
 <set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="@integer/window_enter_duration"
     android:shareInterpolator="false">
+
     <alpha
-        android:duration="@integer/window_transition_enter_alpha_duration"
         android:fillAfter="true"
         android:fillBefore="true"
         android:fillEnabled="true"
-        android:fromAlpha="0.4"
-        android:startOffset="50"
+        android:fromAlpha="0.5"
         android:interpolator="@android:interpolator/fast_out_slow_in"
         android:toAlpha="1.0" />
+
     <scale
-        android:duration="@integer/window_enter_duration"
-        android:interpolator="@android:interpolator/fast_out_slow_in"
         android:fillAfter="true"
         android:fillBefore="true"
         android:fillEnabled="true"
-        android:fromXScale="0.92"
-        android:fromYScale="0.92"
+        android:fromXScale="0.96"
+        android:fromYScale="0.96"
+        android:interpolator="@android:interpolator/fast_out_slow_in"
         android:pivotX="50.0%"
         android:pivotY="50.0%"
         android:toXScale="1.0"
         android:toYScale="1.0" />
+
 </set>

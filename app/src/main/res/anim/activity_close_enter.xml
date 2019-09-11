@@ -3,15 +3,15 @@
 <!-- Animation for previous activity enter when current activity is closed-->
 
 <set xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shareInterpolator="false">
+    android:shareInterpolator="false"
+    android:duration="@integer/window_enter_duration">
     <scale
-        android:duration="@integer/window_enter_duration"
         android:interpolator="@android:interpolator/fast_out_slow_in"
         android:fillAfter="true"
         android:fillBefore="true"
         android:fillEnabled="true"
-        android:fromXScale="1.1"
-        android:fromYScale="1.1"
+        android:fromXScale="1.05"
+        android:fromYScale="1.05"
         android:pivotX="50.0%"
         android:pivotY="50.0%"
         android:toXScale="1.0"
