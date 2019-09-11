@@ -3,7 +3,6 @@
     <integer name="default_anim_duration_medium">400</integer>
     <integer name="window_enter_duration">300</integer>
     <integer name="window_exit_duration">250</integer>
-    <integer name="window_transition_enter_alpha_duration">50</integer>
     <integer name="window_transition_exit_alpha_duration">60</integer>
     <integer name="fragment_slide_duration">200</integer>
 </resources>

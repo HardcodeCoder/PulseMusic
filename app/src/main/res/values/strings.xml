@@ -22,6 +22,7 @@
     <string name="recent_artist">Recent artist</string>
     <string name="playlist_nav">Playlist</string>
     <string name="equalizer">Equalizer</string>
+    <string name="columns">Columns</string>
 
     <string name="play_next">Play Next</string>
     <string name="add_to_queue">Add to queue</string>
@@ -69,10 +70,9 @@
     <string name="dark_on">Turn off dark theme</string>
     <string name="auto_theme_disabled">Enable auto theme</string>
     <string name="auto_theme_enabled">Auto theme enabled</string>
-    <string name="select_columns">Select number of grid columns</string>
     <string name="select_theme_title">Select your preferred theme</string>
-    <string name="select_light_theme">Select your preferred light theme</string>
-    <string name="select_dark_theme">Select your preferred dark theme</string>
+    <string name="select_light_theme">Preferred light theme</string>
+    <string name="select_dark_theme">Preferred dark theme</string>
     <string name="def_theme_light">Default</string>
     <string name="black_and_white">Black and white</string>
     <string name="sweet_morning_light">Sweet Morning</string>
@@ -100,12 +100,12 @@
     <string name="app_version">App version</string>
 
     <string name="app_release">Release date</string>
-    <string name="app_release_desc">23rd August 2019</string>
+    <string name="app_release_desc">Testing....</string>
 
     <string name="build_number">Build code</string>
 
     <string name="app_version_old">Previous stable release</string>
-    <string name="app_version_old_desc">v1.1.3</string>
+    <string name="app_version_old_desc">v1.1.4</string>
 
     <string name="app_developer">Developed by</string>
 
