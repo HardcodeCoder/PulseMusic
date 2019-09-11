@@ -46,9 +46,9 @@ public class HomeWalliProvider {
         int hourOfDay = rightNow.get(Calendar.HOUR_OF_DAY);
         if (hourOfDay >= 5 && hourOfDay < 12)
             return Day.MORNING;
-        else if (hourOfDay >= 12 && hourOfDay < 19)
+        else if (hourOfDay >= 12 && hourOfDay < 17)
             return Day.AFTERNOON;
-        else if (hourOfDay >= 19 && hourOfDay < 20)
+        else if (hourOfDay >= 17 && hourOfDay < 20)
             return Day.EVENING;
         else
             return Day.NIGHT;
