@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.audiofx.AudioEffect;
 import android.media.session.MediaController;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -56,7 +57,8 @@ public class LibraryFragment extends Fragment implements LibraryItemClickListene
 
         if (null != getActivity())
             ((MainActivity) getActivity()).setSupportActionBar(toolbar);
-        setRv(view);
+
+        new Handler().postDelayed(() -> setRv(view), 310);
     }
 
     @Override
@@ -94,8 +96,8 @@ public class LibraryFragment extends Fragment implements LibraryItemClickListene
             RecyclerView recyclerView = v.findViewById(R.id.rv_library_fragment);
             recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext(), RecyclerView.VERTICAL, false));
             recyclerView.setHasFixedSize(true);
-            recyclerView.setItemAnimator(new DefaultItemAnimator());
             LibraryAdapter adapter = new LibraryAdapter(mList, getLayoutInflater(), this);
+            adapter.setHasStableIds(true);
             recyclerView.setAdapter(adapter);
         }
     }

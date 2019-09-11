@@ -71,8 +71,10 @@ public class AlbumFragment extends Fragment implements TransitionClickListener {
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
             spanCount = UserInfo.getLandscapeGridSpanCount(getContext());
-        else spanCount = UserInfo.getPortraitGridSpanCount(getContext());
-        setRv(view);
+        else
+            spanCount = UserInfo.getPortraitGridSpanCount(getContext());
+
+        new Handler().postDelayed(() -> setRv(view), 310);
     }
 
     @Override

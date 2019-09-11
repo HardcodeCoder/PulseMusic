@@ -74,7 +74,8 @@ public class ArtistFragment extends Fragment implements TransitionClickListener 
             spanCount = UserInfo.getLandscapeGridSpanCount(getContext());
         else
             spanCount = UserInfo.getPortraitGridSpanCount(getContext());
-        setRv(view);
+
+        new Handler().postDelayed(() -> setRv(view), 310);
     }
 
     private void setRv(View view) {

@@ -31,6 +31,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.hardcodecoder.pulsemusic.GlideApp;
 import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.activities.AppInfo;
@@ -86,7 +87,8 @@ public class HomeFragment extends Fragment {
         if (null != getActivity())
             ((MainActivity) getActivity()).setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(v -> openDrawer());
-        loadContents(view);
+
+        mHandler.postDelayed(() -> loadContents(view), 310);
     }
 
     @Override
@@ -285,8 +287,8 @@ public class HomeFragment extends Fragment {
         Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
         getIntent.setType("image/*");
 
-        Intent pickIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        pickIntent.setType("image/*");
+        Intent pickIntent = new Intent(Intent.ACTION_PICK);
+        pickIntent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
 
         Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
         chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{pickIntent});
@@ -319,8 +321,8 @@ public class HomeFragment extends Fragment {
         sheetDialog.show();
 
         ((TextView) layout.findViewById(R.id.header)).setText(getResources().getString(R.string.enter_name));
+        ((TextInputLayout) layout.findViewById(R.id.edit_text_container)).setHint(getResources().getString(R.string.enter_name));
         TextInputEditText et = layout.findViewById(R.id.text_input_field);
-        et.setHint(getResources().getString(R.string.enter_name));
 
         layout.findViewById(R.id.confirm_btn)
                 .setOnClickListener(v -> {
