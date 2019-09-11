@@ -26,6 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.activities.MainActivity;
 import com.hardcodecoder.pulsemusic.activities.PlaylistDataActivity;
@@ -185,8 +186,10 @@ public class PlaylistCardFragment extends Fragment implements ItemClickListener.
             TextView header = layout.findViewById(R.id.header);
             header.setText(getResources().getString(isEdit ? R.string.edit_playlist : R.string.create_playlist));
 
+            TextInputLayout til = layout.findViewById(R.id.edit_text_container);
+            til.setHint(getResources().getString(R.string.create_playlist_hint));
+
             TextInputEditText et = layout.findViewById(R.id.text_input_field);
-            et.setHint(getResources().getString(R.string.create_playlist_hint));
 
             Button create = layout.findViewById(R.id.confirm_btn);
             create.setOnClickListener(v ->
