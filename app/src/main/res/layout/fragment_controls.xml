@@ -3,10 +3,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="horizontal"
+    android:layout_height="56dp"
+    android:background="?windowBackgroundColor"
+    android:elevation="2dp"
     android:gravity="center"
-    android:layout_height="56dp">
+    android:orientation="horizontal">
 
+    <!--
     <ImageView
         android:id="@+id/cf_iv"
         android:layout_width="48dp"
@@ -14,18 +17,20 @@
         android:layout_marginStart="16dp"
         android:scaleType="fitXY"
         tools:ignore="ContentDescription" />
+        -->
 
     <TextView
         android:id="@+id/song_name"
         style="@style/RecyclerViewItemTitle"
         android:layout_width="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_weight="1"
         android:ellipsize="marquee"
         android:marqueeRepeatLimit="marquee_forever"
         android:requiresFadingEdge="horizontal"
         android:scrollHorizontally="true"
         android:singleLine="true"
         android:textSize="14sp"
-        android:layout_weight="1"
         tools:text="Song Name" />
 
     <ImageButton

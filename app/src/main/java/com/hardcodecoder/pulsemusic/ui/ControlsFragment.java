@@ -10,23 +10,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.bumptech.glide.GenericTransitionOptions;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.hardcodecoder.pulsemusic.GlideApp;
 import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.activities.NowPlayingActivity;
 import com.hardcodecoder.pulsemusic.playback.PlaybackManager;
 
 public class ControlsFragment extends Fragment {
 
-    private ImageView iv;
     private TextView tv1;
     private ImageButton playPause;
     private MediaController mController;
@@ -65,7 +60,7 @@ public class ControlsFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View v, @Nullable Bundle savedInstanceState) {
-        iv = v.findViewById(R.id.cf_iv);
+        //iv = v.findViewById(R.id.cf_iv);
         tv1 = v.findViewById(R.id.song_name);
         tv1.setSelected(true);
         playPause = v.findViewById(R.id.cf_play_pause_btn);
@@ -101,13 +96,13 @@ public class ControlsFragment extends Fragment {
 
     private void updateMetadata() {
         if (mMetadata != null) {
-            GlideApp
+            /*GlideApp
                     .with(iv.getContext())
                     .load(mMetadata.getBitmap(PlaybackManager.METADATA_ALBUM_ART))
                     .error(R.drawable.album_art_error)
                     .transform(new RoundedCorners(12))
                     .transition(GenericTransitionOptions.with(R.anim.fade_in_image))
-                    .into(iv);
+                    .into(iv);*/
             tv1.setText(mMetadata.getText(PlaybackManager.METADATA_TITLE_KEY));
         }
     }
