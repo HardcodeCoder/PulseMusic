@@ -1,11 +1,11 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
-    android:viewportWidth="61.363636"
-    android:viewportHeight="61.363636">
+    android:viewportWidth="61"
+    android:viewportHeight="61">
     <group
-        android:translateX="21.681818"
-        android:translateY="16.329546">
+        android:translateX="22"
+        android:translateY="16">
 
         <path
             android:fillColor="@color/secondary_color_light"
