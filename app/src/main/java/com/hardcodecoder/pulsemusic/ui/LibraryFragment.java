@@ -17,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -97,7 +96,6 @@ public class LibraryFragment extends Fragment implements LibraryItemClickListene
             recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext(), RecyclerView.VERTICAL, false));
             recyclerView.setHasFixedSize(true);
             LibraryAdapter adapter = new LibraryAdapter(mList, getLayoutInflater(), this);
-            adapter.setHasStableIds(true);
             recyclerView.setAdapter(adapter);
         }
     }
