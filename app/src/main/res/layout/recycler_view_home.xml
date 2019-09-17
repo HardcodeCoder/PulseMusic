@@ -4,6 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:nestedScrollingEnabled="false"
-    android:paddingStart="10dp"
+    android:paddingStart="8dp"
     android:paddingEnd="0dp"
     android:clipToPadding="false" />
