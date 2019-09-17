@@ -19,8 +19,7 @@
 
             <TextView
                 style="@style/Headline20"
-                android:layout_marginBottom="@dimen/spacing_header_item"
-                android:paddingTop="16dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/random" />
 
             <include
@@ -29,8 +28,6 @@
 
             <TextView
                 style="@style/Headline20"
-                android:layout_marginTop="@dimen/spacing_item_next_header"
-                android:layout_marginBottom="@dimen/spacing_header_item"
                 android:text="@string/new_in_library" />
 
             <include
@@ -39,8 +36,6 @@
 
             <TextView
                 style="@style/Headline20"
-                android:layout_marginTop="@dimen/spacing_item_next_header"
-                android:layout_marginBottom="@dimen/spacing_header_item"
                 android:text="@string/recent_artist" />
 
             <include
@@ -50,8 +45,6 @@
             <TextView
                 android:id="@+id/home_heading_recent"
                 style="@style/Headline20"
-                android:layout_marginTop="@dimen/spacing_item_next_header"
-                android:layout_marginBottom="@dimen/spacing_header_item"
                 android:text="@string/recent" />
 
             <include
