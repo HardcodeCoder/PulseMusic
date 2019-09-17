@@ -12,13 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.GenericTransitionOptions;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.hardcodecoder.pulsemusic.GlideApp;
 import com.hardcodecoder.pulsemusic.GlideConstantArtifacts;
@@ -47,8 +45,6 @@ public class DetailsActivity extends Activity implements AsyncTaskCallback.Simpl
     public static final int CATEGORY_ALBUM = 1;
     public static final int CATEGORY_ARTIST = 2;
     private int mCategory;
-    @DrawableRes
-    private int artRes;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,16 +56,18 @@ public class DetailsActivity extends Activity implements AsyncTaskCallback.Simpl
         String art = getIntent().getStringExtra(KEY_ART_URL);
         title = getIntent().getStringExtra(KEY_TITLE);
         mCategory = getIntent().getIntExtra(KEY_ITEM_CATEGORY, -1);
-        if (mCategory == CATEGORY_ALBUM) artRes = R.drawable.album_art_error;
-        else if (mCategory == CATEGORY_ARTIST) artRes = R.drawable.artist_art_error;
-
-        GlideApp
-                .with(this)
-                .load(art)
-                .error(artRes)
-                .transform(GlideConstantArtifacts.getDefaultRoundingRadius())
-                .transition(GenericTransitionOptions.with(R.anim.fade_in_image))
-                .into((ImageView) findViewById(R.id.details_activity_art));
+        if (mCategory == CATEGORY_ALBUM) {
+            GlideApp.with(this)
+                    .load(art)
+                    .transform(GlideConstantArtifacts.getDefaultRoundingRadius())
+                    .error(getDrawable(R.drawable.album_art_error))
+                    .into((ImageView) findViewById(R.id.details_activity_art));
+        }
+        else if (mCategory == CATEGORY_ARTIST) {
+            GlideApp.with(this)
+                    .load(getDrawable(R.drawable.artist_art_error))
+                    .into((ImageView) findViewById(R.id.details_activity_art));
+        }
 
         findViewById(R.id.details_activity_btn_close).setOnClickListener(v -> finish());
 
@@ -89,7 +87,7 @@ public class DetailsActivity extends Activity implements AsyncTaskCallback.Simpl
             TextView temp = findViewById(R.id.details_activity_title);
             temp.setText(title);
             temp = findViewById(R.id.details_activity_title_sub);
-            temp.setText("Number of tracks \u25CF  " + mList.size());
+            temp.setText(getString(R.string.num_tracks).concat(String.valueOf(mList.size())));
 
             RecyclerView rv = findViewById(R.id.details_activity_rv);
             rv.setHasFixedSize(true);
