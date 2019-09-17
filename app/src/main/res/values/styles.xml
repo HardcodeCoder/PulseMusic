@@ -43,7 +43,9 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:singleLine">true</item>
-        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginStart">18dp</item>
+        <item name="android:layout_marginTop">@dimen/spacing_item_next_header</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_header_item</item>
         <item name="android:textAppearance">@style/Headline20TextAppearance</item>
     </style>
 
@@ -74,7 +76,7 @@
 
     <style name="HomeItemTitle">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">136dp
+        <item name="android:layout_width">124dp
         </item> <!-- Width matches the image view width excluding padding -->
         <item name="android:singleLine">true</item>
         <item name="android:gravity">center_horizontal</item>
