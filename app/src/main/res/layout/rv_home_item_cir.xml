@@ -10,10 +10,6 @@
     android:paddingEnd="12dp"
     android:gravity="center_horizontal">
 
-    <!--
-     Background is a 9 patch image with content area of 136x136 and actual size of 151x151
-     shadow blur = 6, x offset = 1 and y offset = 2
-     -->
     <ImageView
         android:id="@+id/rv_item_album_art"
         android:layout_width="128dp"

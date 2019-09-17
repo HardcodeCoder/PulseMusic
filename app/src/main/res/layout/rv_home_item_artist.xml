@@ -11,11 +11,11 @@
     android:paddingEnd="12dp">
 
     <ImageView
-        android:layout_width="136dp"
-        android:layout_height="136dp"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
         android:background="@drawable/circle_background"
-        android:paddingStart="16dp"
-        android:paddingEnd="0dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="4dp"
         android:src="@drawable/ic_artist"
         android:tint="?secondaryColor"
         tools:ignore="contentDescription" />

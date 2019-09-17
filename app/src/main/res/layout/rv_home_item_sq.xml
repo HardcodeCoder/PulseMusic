@@ -11,13 +11,13 @@
     android:gravity="center_horizontal">
 
     <!--
-     Background is a 9 patch image with content area of 136x136 and actual size of 151x151
+     Background is a 9 patch image with content area of 124x124 and actual size of 139 x 139
      shadow blur = 6, x offset = 1 and y offset = 2
      -->
     <ImageView
         android:id="@+id/rv_item_album_art"
-        android:layout_width="145dp"
-        android:layout_height="145dp"
+        android:layout_width="139dp"
+        android:layout_height="139dp"
         android:scaleType="fitXY"
         android:background="?attr/imageElevationShadow"
         tools:ignore="contentDescription" />
