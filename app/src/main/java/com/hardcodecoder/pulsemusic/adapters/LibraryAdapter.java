@@ -46,12 +46,6 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.MyLibrar
     }
 
     @Override
-    public void onViewDetachedFromWindow(@NonNull MyLibraryViewHolder holder) {
-        super.onViewDetachedFromWindow(holder);
-        holder.itemView.clearAnimation();
-    }
-
-    @Override
     public int getItemCount() {
         if (mList != null)
             return mList.size();
