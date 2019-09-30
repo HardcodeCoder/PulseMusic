@@ -29,8 +29,8 @@ import com.hardcodecoder.pulsemusic.interfaces.RecyclerViewGestures;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.singleton.TrackCache;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
+import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 import com.hardcodecoder.pulsemusic.utils.PlaylistStorageManager;
-import com.hardcodecoder.pulsemusic.utils.UserInfo;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -54,7 +54,7 @@ public class PlaylistDataActivity extends Activity implements ClickDragRvListene
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setTheme(UserInfo.getThemeToApply());
+        setTheme(ThemeManager.getThemeToApply());
         super.onCreate(savedInstanceState);
         connectToSession();
         tm = TrackManager.getInstance();

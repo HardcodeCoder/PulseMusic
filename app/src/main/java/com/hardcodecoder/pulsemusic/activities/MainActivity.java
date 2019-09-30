@@ -20,13 +20,13 @@ import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
 import com.hardcodecoder.pulsemusic.tasks.TrackFetcherFromStorage;
 import com.hardcodecoder.pulsemusic.tasks.TrackFetcherFromStorage.Sort;
+import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 import com.hardcodecoder.pulsemusic.ui.AlbumFragment;
 import com.hardcodecoder.pulsemusic.ui.ArtistFragment;
 import com.hardcodecoder.pulsemusic.ui.ControlsFragment;
 import com.hardcodecoder.pulsemusic.ui.HomeFragment;
 import com.hardcodecoder.pulsemusic.ui.LibraryFragment;
 import com.hardcodecoder.pulsemusic.ui.PlaylistCardFragment;
-import com.hardcodecoder.pulsemusic.utils.UserInfo;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        mCurrentTheme = UserInfo.getThemeToApply();
+        mCurrentTheme = ThemeManager.getThemeToApply();
         setTheme(mCurrentTheme);
 
         super.onCreate(null); // Pass null to prevent restoration of fragments on activity recreate
@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        if (mCurrentTheme != UserInfo.getThemeToApply()) {
+        if (mCurrentTheme != ThemeManager.getThemeToApply()) {
             supportInvalidateOptionsMenu();
             recreate();
         }

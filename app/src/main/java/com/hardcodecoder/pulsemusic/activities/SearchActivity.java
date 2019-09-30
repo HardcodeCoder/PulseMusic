@@ -30,7 +30,7 @@ import com.hardcodecoder.pulsemusic.interfaces.AsyncTaskCallback;
 import com.hardcodecoder.pulsemusic.interfaces.ItemClickListener;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
-import com.hardcodecoder.pulsemusic.utils.UserInfo;
+import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +50,7 @@ public class SearchActivity extends Activity implements ItemClickListener.Simple
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setTheme(UserInfo.getThemeToApply());
+        setTheme(ThemeManager.getThemeToApply());
         overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
 
         super.onCreate(savedInstanceState);

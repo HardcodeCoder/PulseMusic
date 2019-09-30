@@ -26,8 +26,8 @@ import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.playback.PlaybackManager;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
+import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 import com.hardcodecoder.pulsemusic.utils.PlaylistStorageManager;
-import com.hardcodecoder.pulsemusic.utils.UserInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +78,7 @@ public class NowPlayingActivity extends Activity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setTheme(UserInfo.getThemeToApply());
+        setTheme(ThemeManager.getThemeToApply());
 
         super.onCreate(savedInstanceState);
 
