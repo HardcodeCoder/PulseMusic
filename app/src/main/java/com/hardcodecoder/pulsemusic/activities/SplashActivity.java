@@ -16,7 +16,7 @@ import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
 import com.hardcodecoder.pulsemusic.tasks.TrackFetcherFromStorage;
-import com.hardcodecoder.pulsemusic.utils.UserInfo;
+import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 
 import java.util.List;
 
@@ -27,8 +27,7 @@ public class SplashActivity extends Activity implements TrackFetcherFromStorage.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        UserInfo.initSharedPrefs(this);
-        setTheme(UserInfo.getThemeToApply());
+        setTheme(ThemeManager.getThemeToApply());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         getPermission();
