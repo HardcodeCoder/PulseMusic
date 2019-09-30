@@ -28,8 +28,8 @@ import com.hardcodecoder.pulsemusic.interfaces.LibraryItemClickListener;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
 import com.hardcodecoder.pulsemusic.tasks.ItemsLoader;
+import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 import com.hardcodecoder.pulsemusic.ui.CustomBottomSheet;
-import com.hardcodecoder.pulsemusic.utils.UserInfo;
 
 import java.util.List;
 
@@ -48,7 +48,7 @@ public class DetailsActivity extends Activity implements AsyncTaskCallback.Simpl
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setTheme(UserInfo.getThemeToApply());
+        setTheme(ThemeManager.getThemeToApply());
 
         super.onCreate(savedInstanceState);
         connectToSession();
@@ -64,9 +64,8 @@ public class DetailsActivity extends Activity implements AsyncTaskCallback.Simpl
                     .into((ImageView) findViewById(R.id.details_activity_art));
         }
         else if (mCategory == CATEGORY_ARTIST) {
-            GlideApp.with(this)
-                    .load(getDrawable(R.drawable.artist_art_error))
-                    .into((ImageView) findViewById(R.id.details_activity_art));
+            ImageView iv = findViewById(R.id.details_activity_art);
+            iv.setImageResource(R.drawable.artist_art_error);
         }
 
         findViewById(R.id.details_activity_btn_close).setOnClickListener(v -> finish());
