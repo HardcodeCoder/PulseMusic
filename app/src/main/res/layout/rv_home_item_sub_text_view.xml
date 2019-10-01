@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rv_item_artist"
     style="@style/HomeItemTitle.Sub"
-    android:layout_marginTop="8dp"
+    android:layout_marginTop="6dp"
     android:textColor="?attr/secondaryTextColor"
     tools:text="Song name can be very long" />

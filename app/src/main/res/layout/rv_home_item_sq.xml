@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="196dp"
     android:background="?attr/selectableItemBackground"
     android:paddingStart="8dp"
     android:paddingEnd="12dp"
@@ -19,7 +18,7 @@
         android:layout_width="139dp"
         android:layout_height="139dp"
         android:scaleType="fitXY"
-        android:background="?attr/imageElevationShadow"
+        android:background="?imageViewBackgroundDrawable"
         tools:ignore="contentDescription" />
 
     <include layout="@layout/rv_home_item_title_text_view" />
