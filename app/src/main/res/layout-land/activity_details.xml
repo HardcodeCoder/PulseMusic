@@ -17,7 +17,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="32dp"
-        android:background="?attr/imageElevationShadow"
+        android:background="?attr/imageViewBackgroundDrawable"
         android:contentDescription="@string/iv_content_desc"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@id/details_activity_title"
