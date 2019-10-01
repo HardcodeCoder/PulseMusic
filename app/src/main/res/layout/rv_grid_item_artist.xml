@@ -10,7 +10,7 @@
         android:id="@+id/grid_item_artist_iv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="?attr/imageElevationShadow"
+        android:background="?imageViewBackgroundDrawable"
         android:contentDescription="@string/iv_content_desc"
         android:scaleType="fitXY"
         android:src="@drawable/artist_art_error"
