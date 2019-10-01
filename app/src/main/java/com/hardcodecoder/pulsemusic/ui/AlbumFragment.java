@@ -34,7 +34,7 @@ import com.hardcodecoder.pulsemusic.adapters.AlbumsAdapter;
 import com.hardcodecoder.pulsemusic.interfaces.AlbumDataFetchCompletionCallback;
 import com.hardcodecoder.pulsemusic.interfaces.TransitionClickListener;
 import com.hardcodecoder.pulsemusic.model.AlbumModel;
-import com.hardcodecoder.pulsemusic.utils.UserInfo;
+import com.hardcodecoder.pulsemusic.utils.AppSettings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,9 +70,9 @@ public class AlbumFragment extends Fragment implements TransitionClickListener {
             ((MainActivity) getActivity()).setSupportActionBar(t);
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)
-            spanCount = UserInfo.getLandscapeGridSpanCount(getContext());
+            spanCount = AppSettings.getLandscapeGridSpanCount(getContext());
         else
-            spanCount = UserInfo.getPortraitGridSpanCount(getContext());
+            spanCount = AppSettings.getPortraitGridSpanCount(getContext());
 
         new Handler().postDelayed(() -> setRv(view), 310);
     }
@@ -129,12 +129,12 @@ public class AlbumFragment extends Fragment implements TransitionClickListener {
 
     private void updateGridSize(ID id, int spanCount){
         if(id == ID.PORTRAIT) {
-            UserInfo.savePortraitGridSpanCount(spanCount);
+           AppSettings.savePortraitGridSpanCount(getContext(), spanCount);
             if(currentConfig == Configuration.ORIENTATION_PORTRAIT)
                 layoutManager.setSpanCount(spanCount);
         }
         else {
-            UserInfo.saveLandscapeGridSpanCount(spanCount);
+            AppSettings.saveLandscapeGridSpanCount(getContext(), spanCount);
             if(currentConfig == Configuration.ORIENTATION_LANDSCAPE)
                 layoutManager.setSpanCount(spanCount);
         }
@@ -145,11 +145,11 @@ public class AlbumFragment extends Fragment implements TransitionClickListener {
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             currentConfig = Configuration.ORIENTATION_LANDSCAPE;
-            spanCount = UserInfo.getLandscapeGridSpanCount(getContext());
+            spanCount = AppSettings.getLandscapeGridSpanCount(getContext());
             layoutManager.setSpanCount(spanCount);
         } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
             currentConfig = Configuration.ORIENTATION_PORTRAIT;
-            spanCount = UserInfo.getPortraitGridSpanCount(getContext());
+            spanCount = AppSettings.getPortraitGridSpanCount(getContext());
             layoutManager.setSpanCount(spanCount);
         }
     }
