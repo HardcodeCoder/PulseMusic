@@ -54,7 +54,7 @@ public class SearchActivity extends Activity implements ItemClickListener.Simple
         overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_result);
+        setContentView(R.layout.activity_search);
         connectToSession();
 
         findViewById(R.id.search_activity_close_btn).setOnClickListener(v -> {

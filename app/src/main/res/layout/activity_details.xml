@@ -22,7 +22,7 @@
         android:layout_width="172dp"
         android:layout_height="172dp"
         android:layout_marginTop="36dp"
-        android:background="?attr/imageElevationShadow"
+        android:background="?attr/imageViewBackgroundDrawable"
         android:contentDescription="@string/iv_content_desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
