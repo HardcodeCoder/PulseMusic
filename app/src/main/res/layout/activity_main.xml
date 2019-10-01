@@ -16,15 +16,23 @@
         android:id="@+id/controls_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/divider" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?dividerColor"
         app:layout_constraintBottom_toTopOf="@id/google_bottom_nav" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/google_bottom_nav"
         android:layout_width="match_parent"
-        android:layout_height="54dp"
+        android:layout_height="wrap_content"
         app:itemHorizontalTranslationEnabled="false"
-        app:itemIconSize="20dp"
         app:itemIconTint="@drawable/nav_selector"
+        app:itemTextAppearanceActive="@style/NavBarActiveTextAppearance"
+        app:itemTextAppearanceInactive="@style/NavBarActiveTextAppearance"
         app:itemTextColor="@drawable/nav_selector"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
