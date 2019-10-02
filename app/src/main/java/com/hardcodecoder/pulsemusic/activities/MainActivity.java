@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(null); // Pass null to prevent restoration of fragments on activity recreate
 
-        setContentView(R.layout.activity_main_new);
+        setContentView(R.layout.activity_main);
 
         if (TrackManager.getInstance().getMainList() == null) {
             TrackFetcherFromStorage ml = new TrackFetcherFromStorage(getContentResolver(), list -> {

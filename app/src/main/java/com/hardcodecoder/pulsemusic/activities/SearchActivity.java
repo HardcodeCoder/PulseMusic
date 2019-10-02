@@ -2,7 +2,6 @@ package com.hardcodecoder.pulsemusic.activities;
 
 import android.app.Activity;
 import android.content.ComponentName;
-import android.content.Context;
 import android.graphics.Color;
 import android.media.browse.MediaBrowser;
 import android.media.session.MediaController;
@@ -11,7 +10,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -135,8 +133,7 @@ public class SearchActivity extends Activity implements ItemClickListener.Simple
 
     @Override
     public void onOptionsClick(View v, int position) {
-        Context wrapper = new ContextThemeWrapper(this, R.style.PopupMenu);
-        PopupMenu pm = new PopupMenu(wrapper, v);
+        PopupMenu pm = new PopupMenu(this, v);
         pm.getMenuInflater().inflate(R.menu.item_overflow__menu, pm.getMenu());
         pm.setOnMenuItemClickListener(item -> {
             switch (item.getItemId()) {
