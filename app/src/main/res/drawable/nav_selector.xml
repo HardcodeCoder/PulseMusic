@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="?attr/secondaryColor" android:state_selected="true" />
-    <item android:color="?attr/unFocusedDrawableColor" android:state_selected="false" />
+    <item android:color="?secondaryColor" android:state_selected="true" />
+    <item android:color="?unFocusedDrawableColor" android:state_selected="false" />
 </selector>

@@ -5,7 +5,7 @@
     android:viewportHeight="24">
 
     <path
-        android:fillColor="?elevatedSurfaceColor"
+        android:fillColor="?attr/surfaceColor"
         android:pathData="M22.59,0C23.37,0 24,0.63 24,1.41C24,5.93 24,18.07 24,22.59C24,23.37 23.37,24 22.59,24C18.07,24 5.93,24 1.41,24C0.63,24 0,23.37 0,22.59C0,18.07 0,5.93 0,1.41C0,0.63 0.63,0 1.41,0C5.93,0 18.07,0 22.59,0Z" />
     <path
         android:fillColor="?secondaryColor"

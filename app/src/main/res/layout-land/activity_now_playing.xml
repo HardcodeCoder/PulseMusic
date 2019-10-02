@@ -30,7 +30,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
-        android:background="?attr/imageElevationShadow"
+        android:background="?attr/imageViewBackgroundDrawable"
         android:contentDescription="@string/iv_content_desc"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"

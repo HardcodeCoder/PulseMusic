@@ -4,7 +4,7 @@
     <size
         android:width="24dp"
         android:height="24dp" />
-    <solid android:color="?elevatedSurfaceColor" />
+    <solid android:color="?attr/surfaceColor" />
     <stroke
         android:color="#80000000"
         android:width="1dp" />
