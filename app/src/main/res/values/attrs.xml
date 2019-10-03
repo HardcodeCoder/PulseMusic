@@ -1,33 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="Base">
-        <attr name="primaryColor" format="color" />
-        <attr name="primaryVariantColor" format="color" />
+        <attr name="primaryColor" format="color|reference" />
+        <attr name="primaryVariantColor" format="color|reference" />
 
-        <attr name="secondaryColor" format="color" />
-        <attr name="colorOnSecondary" format="color" />
+        <attr name="secondaryColor" format="color|reference" />
+        <attr name="colorOnSecondary" format="color|reference" />
 
-        <attr name="primaryTextColor" format="color" />
-        <attr name="secondaryTextColor" format="color" />
-        <attr name="disabledTextColor" format="color" />
+        <attr name="primaryTextColor" format="color|reference" />
+        <attr name="secondaryTextColor" format="color|reference" />
+        <attr name="disabledTextColor" format="color|reference" />
 
-        <attr name="windowBackgroundColor" format="color" />
-        <attr name="elevatedSurfaceColor" format="color" />
+        <attr name="windowBackgroundColor" format="color|reference" />
+        <attr name="primaryColorOnBackground" format="color|reference"/>
+        <attr name="secondaryColorOnBackground" format="color|reference"/>
 
-        <attr name="focusedDrawableColor" format="color" />
-        <attr name="unFocusedDrawableColor" format="color" />
+        <attr name="surfaceColor" format="color|reference" />
+        <attr name="colorOnSurface" format="color|reference"/>
 
-        <attr name="selectedItemBackground" format="color" />
-        <attr name="imageElevationShadow" format="integer" />
-        <attr name="dividerColor" format="integer" />
+        <attr name="focusedDrawableColor" format="color|reference" />
+        <attr name="unFocusedDrawableColor" format="color|reference" />
 
+        <attr name="colorStroke" format="color|reference" />
+
+        <attr name="selectedItemBackground" format="color|reference" />
+
+        <attr name="overlayColor" format="color|reference" />
+
+        <attr name="statusBarColor" format="color|reference"/>
+
+        <attr name="imageViewBackgroundDrawable" format="integer" />
         <attr name="iconOptions" format="integer" />
-
         <attr name="isLightMode" format="boolean" />
-
-        <attr name="overlayColor" format="color" />
-
-        <attr name="statusBarOpacity" format="color"/>
 
     </declare-styleable>
 </resources>
