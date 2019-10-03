@@ -6,6 +6,6 @@
         android:height="24dp" />
     <solid android:color="?attr/surfaceColor" />
     <stroke
-        android:color="#80000000"
+        android:color="?colorStroke"
         android:width="1dp" />
 </shape>
