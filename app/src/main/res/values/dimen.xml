@@ -6,8 +6,8 @@
     <dimen name="default_elevation">8dp</dimen>
 
     <!-- Dimens for Home layout -->
-    <dimen name="spacing_header_item">18dp</dimen>
-    <dimen name="spacing_item_next_header">36dp</dimen>
+    <dimen name="spacing_header_item">16dp</dimen>
+    <dimen name="spacing_item_next_header">32dp</dimen>
 
 
 </resources>
