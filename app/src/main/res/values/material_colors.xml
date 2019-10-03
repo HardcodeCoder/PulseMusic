@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Grey -->
+    <color name="md_grey_50">#FAFAFA</color>
+    <color name="md_grey_200">#EEEEEE</color>
+    <color name="md_grey_400">#BDBDBD</color>
+    <color name="md_grey_500">#9E9E9E</color>
+    <color name="md_grey_600">#757575</color>
+    <color name="md_grey_700">#616161</color>
+    <color name="md_grey_800">#424242</color>
+    <color name="md_grey_900">#212121</color>
+
+    <!-- Blue Grey -->
+    <color name="md_blue_grey_50">#ECEFF1</color>
+
+    <!-- Black -->
+    <color name="md_black">#000000</color>
+    <!-- White -->
+    <color name="md_white">#FFFFFF</color>
+
+</resources>
