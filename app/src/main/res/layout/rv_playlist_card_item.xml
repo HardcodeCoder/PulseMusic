@@ -12,7 +12,7 @@
     android:clickable="true"
     android:clipToPadding="false"
     android:focusable="true"
-    app:cardBackgroundColor="?attr/elevatedSurfaceColor"
+    app:cardBackgroundColor="?attr/surfaceColor"
     app:cardCornerRadius="8dp"
     app:cardElevation="3dp">
 
