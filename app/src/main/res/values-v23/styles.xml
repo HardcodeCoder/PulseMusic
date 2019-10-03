@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTheme.NoActionBarBase">
+    <style name="Theme.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
-        <item name="android:statusBarColor">?statusBarOpacity</item>
+        <item name="android:statusBarColor">?attr/statusBarColor</item>
         <item name="android:windowLightStatusBar">?isLightMode</item>
         <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+        <item name="android:windowAnimationStyle">@style/WindowTransitions</item>
+
+        <item name="android:textViewStyle">@style/ProductRegularTextViewStyle</item>
+        <item name="android:buttonStyle">@style/ProductRegularButtonStyle</item>
     </style>
+
+    <style name="Theme.Dark" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:statusBarColor">?attr/statusBarColor</item>
+        <item name="android:windowLightStatusBar">?isLightMode</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+        <item name="android:windowAnimationStyle">@style/WindowTransitions</item>
+
+        <item name="android:textViewStyle">@style/ProductRegularTextViewStyle</item>
+        <item name="android:buttonStyle">@style/ProductRegularButtonStyle</item>
+    </style>
+
 </resources>

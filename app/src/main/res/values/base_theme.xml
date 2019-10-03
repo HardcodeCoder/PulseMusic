@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.Design.Light.NoActionBar">
-        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+    <style name="ProductRegularTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/product_regular</item>
+        <item name="fontFamily">@font/product_regular</item>
+    </style>
 
-        <item name="android:windowAnimationStyle">@style/WindowTransitions</item>
+    <style name="ProductRegularButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:fontFamily">@font/product_regular</item>
+        <item name="fontFamily">@font/product_regular</item>
     </style>
 
     <style name="WindowTransitions" parent="@android:style/Animation.Activity">
@@ -20,105 +23,129 @@
         <item name="android:activityCloseExitAnimation">@anim/activity_close_exit</item>
     </style>
 
-    <!-- Base Theme for NoActionBar style -->
-    <style name="AppTheme.NoActionBarBase">
+
+    <style name="Theme.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+        <item name="android:windowAnimationStyle">@style/WindowTransitions</item>
+        <item name="android:textViewStyle">@style/ProductRegularTextViewStyle</item>
+        <item name="android:buttonStyle">@style/ProductRegularButtonStyle</item>
     </style>
 
-    <style name="AppTheme.NoActionBar" parent="AppTheme.NoActionBarBase">
-        <item name="android:textColorHint">?disabledTextColor
-        </item> <!-- Defines the searchView hint textColor -->
-        <item name="android:editTextColor">?primaryTextColor
-        </item> <!-- Defines the searchView entered textColor -->
-        <item name="android:textColorSecondary">?focusedDrawableColor
-        </item> <!-- Defines the toolbar options menu icon color -->
+
+    <style name="Theme.Dark" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+        <item name="android:windowAnimationStyle">@style/WindowTransitions</item>
+        <item name="android:textViewStyle">@style/ProductRegularTextViewStyle</item>
+        <item name="android:buttonStyle">@style/ProductRegularButtonStyle</item>
     </style>
 
-    <!-- Base Activity theme for Light UI -->
-    <style name="AppTheme.NoActionBar.LightMode">
+
+    <style name="PulseMusic.Theme.Light" parent="Theme.Light">
         <item name="android:windowBackground">@color/window_background_light</item>
+
         <item name="colorPrimary">@color/color_primary_light</item>
         <item name="colorPrimaryDark">@color/color_primary_variant_light</item>
         <item name="colorAccent">@color/secondary_color_light</item>
+
         <item name="secondaryColor">@color/secondary_color_light</item>
         <item name="colorOnSecondary">@color/on_secondary_light</item>
+
+        <item name="windowBackgroundColor">@color/window_background_light</item>
+        <item name="primaryColorOnBackground">@color/primary_color_on_background_light</item>
+        <item name="secondaryColorOnBackground">@color/secondary_color_on_background_light</item>
+
+        <item name="surfaceColor">@color/surface_color_light</item>
+        <item name="colorOnSurface">@color/color_on_surface_light</item>
+
+        <item name="unFocusedDrawableColor">@color/unfocused_drawable_light</item>
+        <item name="focusedDrawableColor">@color/focused_drawable_light</item>
 
         <item name="primaryTextColor">@color/primary_text_light</item>
         <item name="secondaryTextColor">@color/secondary_text_light</item>
         <item name="disabledTextColor">@color/disabled_text_light</item>
 
-        <item name="windowBackgroundColor">@color/window_background_light</item>
-
-        <item name="unFocusedDrawableColor">@color/unfocused_drawable_light</item>
-        <item name="focusedDrawableColor">@color/focused_drawable_light</item>
         <item name="selectedItemBackground">?attr/secondaryColor</item>
-        <item name="dividerColor">@color/divider_color_light</item>
-        <item name="iconOptions">@drawable/ic_options_light</item>
-        <item name="elevatedSurfaceColor">@color/elevated_surface_light</item>
-
-        <item name="isLightMode">true</item>
-        <item name="imageElevationShadow">@drawable/iv_shadow_light</item>
-
         <item name="overlayColor">#14000000</item>
 
-        <item name="statusBarOpacity">#D6FFFFFF</item>
+        <item name="colorStroke">@color/color_stroke_light</item>
+
+        <item name="iconOptions">@drawable/ic_options_light</item>
+
+        <item name="imageViewBackgroundDrawable">@drawable/iv_shadow_light</item>
+
+        <item name="isLightMode">true</item>
+        <item name="statusBarColor">#CCFFFFFF</item>
     </style>
 
-    <!-- Base Activity theme for Dark UI -->
-    <style name="AppTheme.NoActionBar.DarkMode">
+
+    <style name="PulseMusic.Theme.Dark" parent="Theme.Dark">
         <item name="android:windowBackground">@color/window_background_dark</item>
+
         <item name="colorPrimary">@color/color_primary_dark</item>
         <item name="colorPrimaryDark">@color/color_primary_variant_dark</item>
         <item name="colorAccent">@color/secondary_color_dark</item>
+
         <item name="secondaryColor">@color/secondary_color_dark</item>
         <item name="colorOnSecondary">@color/on_secondary_dark</item>
 
-        <item name="primaryTextColor">@color/primary_text_dark</item>
-        <item name="secondaryTextColor">@color/secondary_text_dark</item>
-        <item name="disabledTextColor">@color/disabled_text_dark</item>
-
         <item name="windowBackgroundColor">@color/window_background_dark</item>
+        <item name="primaryColorOnBackground">@color/primary_color_on_background_dark</item>
+        <item name="secondaryColorOnBackground">@color/secondary_color_on_background_dark</item>
+
+        <item name="surfaceColor">@color/surface_color_dark</item>
+        <item name="colorOnSurface">@color/color_on_surface_dark</item>
 
         <item name="unFocusedDrawableColor">@color/unfocused_drawable_dark</item>
         <item name="focusedDrawableColor">@color/focused_drawable_dark</item>
+
+        <item name="primaryTextColor">@color/primary_color_on_background_dark</item>
+        <item name="secondaryTextColor">@color/secondary_text_dark</item>
+        <item name="disabledTextColor">@color/disabled_text_dark</item>
+
+
         <item name="selectedItemBackground">?attr/secondaryColor</item>
-        <item name="dividerColor">@color/divider_color_dark</item>
+        <item name="overlayColor">#33FFFFFF</item>
+
+        <item name="colorStroke">@color/color_stroke_dark</item>
+
         <item name="iconOptions">@drawable/ic_options_dark</item>
-        <item name="elevatedSurfaceColor">@color/elevated_surface_dark</item>
+
+        <item name="imageViewBackgroundDrawable">@drawable/iv_shadow_dark</item>
 
         <item name="isLightMode">false</item>
-        <item name="imageElevationShadow">@drawable/iv_shadow_dark</item>
-
-        <item name="overlayColor">#14FFFFFF</item>
-
-        <item name="statusBarOpacity">@android:color/transparent</item>
+        <item name="statusBarColor">@android:color/transparent</item>
     </style>
 
-    <!-- Base Activity theme for Light UI -->
-    <style name="AppTheme.NoActionBar.LightMode.BlackWhite">
+
+    <style name="PulseMusic.Theme.Light.BlackWhite">
         <item name="colorAccent">@color/secondary_color_black_white</item>
         <item name="secondaryColor">@color/secondary_color_black_white</item>
         <item name="colorOnSecondary">@color/on_secondary_black_white</item>
     </style>
 
-    <style name="AppTheme.NoActionBar.DarkMode.Kinda">
+    <style name="PulseMusic.Theme.Dark.Kinda">
         <item name="android:windowBackground">@color/window_background_kinda_dark</item>
         <item name="colorPrimary">@color/color_primary_kinda_dark</item>
         <item name="colorPrimaryDark">@color/color_primary_variant_kinda_dark</item>
         <item name="windowBackgroundColor">@color/window_background_kinda_dark</item>
-        <item name="elevatedSurfaceColor">@color/elevated_surface_kinda_dark</item>
+        <item name="surfaceColor">@color/surface_color_kinda_dark</item>
     </style>
 
-    <style name="AppTheme.NoActionBar.LightMode.SweetMorning">
+    <style name="PulseMusic.Theme.Light.SweetMorning">
         <item name="colorAccent">@color/secondary_color_sweet_white</item>
         <item name="secondaryColor">@color/secondary_color_sweet_white</item>
         <item name="colorOnSecondary">@color/on_secondary_sweet_white</item>
     </style>
 
-    <style name="AppTheme.NoActionBar.DarkMode.Charcoal">
+    <style name="PulseMusic.Theme.Dark.Charcoal">
         <item name="android:windowBackground">@color/window_background_charcoal_dark</item>
         <item name="colorPrimary">@color/color_primary_charcoal_dark</item>
         <item name="colorPrimaryDark">@color/color_primary_variant_charcoal_dark</item>
@@ -126,7 +153,7 @@
         <item name="secondaryColor">@color/secondary_color_charcoal_dark</item>
         <item name="colorOnSecondary">@color/on_secondary_charcoal_dark</item>
         <item name="windowBackgroundColor">@color/window_background_charcoal_dark</item>
-        <item name="elevatedSurfaceColor">@color/elevated_surface_charcoal_dark</item>
+        <item name="surfaceColor">@color/surface_color_charcoal_dark</item>
     </style>
 
 </resources>

@@ -4,84 +4,101 @@
     <!-- ********************************************* -->
     <!-- *********** COLORS FOR LIGHT MODE *********** -->
     <color name="color_primary_light">@color/window_background_light</color>
-
     <!-- For a flat ui design status bar and window background must be same -->
     <color name="color_primary_variant_light">@color/window_background_light</color>
 
-    <color name="secondary_color_light">#6200EE</color>
 
+    <color name="secondary_color_light">#6200EA</color>
     <!-- Color that appear over secondary -->
-    <color name="on_secondary_light">@color/window_background_light</color>
+    <color name="on_secondary_light">@color/md_white</color>
 
-    <color name="window_background_light">#FFFFFF</color>
 
-    <!-- High-emphasis text opacity of 87% -->
-    <color name="primary_text_light">#DE000000</color>
+    <color name="window_background_light">@color/md_white</color>
+    <!--Primary Color that appears over background color -->
+    <color name="primary_color_on_background_light">@color/md_grey_900</color>
+    <!--Secondary Color that appears over background color -->
+    <color name="secondary_color_on_background_light">@color/md_grey_600</color>
 
-    <!-- Medium-emphasis text opacity of 54% -->
-    <color name="secondary_text_light">#8A000000</color>
-
-    <!-- Disabled/Hint text opacity of 38% -->
-    <color name="disabled_text_light">#61000000</color>
 
     <!--  For light theme elevation shadow is dark so the surface color can be same as window background -->
-    <color name="elevated_surface_light">@color/window_background_light</color>
+    <color name="surface_color_light">@color/window_background_light</color>
+    <!--Color that appears over surface -->
+    <color name="color_on_surface_light">@color/primary_color_on_background_light</color>
 
-    <color name="unfocused_drawable_light">#73000000</color>
 
-    <!-- same for light(if this mode uses anon white color for toolbar) and dark mode used in toolbar -->
-    <color name="focused_drawable_light">#DE000000</color>
+    <color name="unfocused_drawable_light">@color/md_grey_700</color>
+    <color name="focused_drawable_light">@color/color_on_surface_light</color>
 
-    <!-- 12% Opacity over black -->
-    <color name="divider_color_light">#1F000000</color>
+
+    <color name="color_stroke_light">@color/md_grey_200</color>
+
+
+    <!-- High-emphasis text opacity of 87% -->
+    <color name="primary_text_light">@color/primary_color_on_background_light</color>
+
+    <!-- Medium-emphasis text opacity of 54% -->
+    <color name="secondary_text_light">@color/secondary_color_on_background_light</color>
+
+    <!-- Disabled/Hint text opacity of 38% -->
+    <color name="disabled_text_light">@color/md_grey_400</color>
+
+
 
 
     <!-- ********************************************* -->
     <!-- ************ COLORS FOR DARK MODE *********** -->
 
     <color name="color_primary_dark">@color/window_background_dark</color>
-
     <!-- For a flat ui design status bar and window background must be same -->
     <color name="color_primary_variant_dark">@color/window_background_dark</color>
 
-    <color name="secondary_color_dark">#b794f6</color>
 
+    <color name="secondary_color_dark">#B388FF</color>
     <!-- Color that appear over secondary -->
-    <color name="on_secondary_dark">#121212</color>
+    <color name="on_secondary_dark">@color/md_grey_900</color>
 
-    <!-- High-emphasis text opacity of 90% -->
-    <color name="primary_text_dark">#DEFFFFFF</color>
-
-    <!-- Medium-emphasis text opacity of 70% -->
-    <color name="secondary_text_dark">#B3FFFFFF</color>
-
-    <!-- Low-emphasis/Disabled/Hint text opacity of 50% -->
-    <color name="disabled_text_dark">#80FFFFFF</color>
 
     <!-- material design dark theme recommended background -->
-    <color name="window_background_dark">#121212</color>
+    <color name="window_background_dark">@color/md_grey_900</color>
+    <!--Primary Color that appears over background color -->
+    <color name="primary_color_on_background_dark">@color/md_grey_50</color>
+    <!--Secondary Color that appears over background color -->
+    <color name="secondary_color_on_background_dark">@color/md_grey_500</color>
 
-    <!-- Since dark background cannot show shadow use different color for elevated surfaces
-    4dp elevated surface -->
-    <color name="elevated_surface_dark">#292929</color>
 
-    <!-- Picked from material example used when buttons has accented color for disable state-->
-    <color name="unfocused_drawable_dark">#73FFFFFF</color>
+    <!--  For dark theme shadow is dark so use a light surface color to show elevation-->
+    <color name="surface_color_dark">@color/md_grey_800</color>
+    <!--Color that appears over surface -->
+    <color name="color_on_surface_dark">@color/md_blue_grey_50</color>
 
-    <!-- Used in toolbar icons and other contextual icons -->
-    <color name="focused_drawable_dark">@color/primary_text_dark</color>
 
-    <!-- 12% Opacity over white -->
-    <color name="divider_color_dark">#1FFFFFFF</color>
+    <color name="unfocused_drawable_dark">@color/md_grey_400</color>
+    <color name="focused_drawable_dark">@color/color_on_surface_dark</color>
+
+
+    <color name="color_stroke_dark">@color/md_grey_800</color>
+
+    <!-- High-emphasis text opacity of 90% -->
+    <color name="primary_text_dark">@color/primary_color_on_background_dark</color>
+
+    <!-- Medium-emphasis text opacity of 70% -->
+    <color name="secondary_text_dark">@color/secondary_color_on_background_dark</color>
+
+    <!-- Low-emphasis/Disabled/Hint text opacity of 50% -->
+    <color name="disabled_text_dark">@color/md_grey_600</color>
+
+
 
 
     <!-- ******************************************************** -->
-    <!-- ************ COLORS FOR BLACK AND WHITE MODE *********** -->
+    <!-- ************ COLORS FOR BRIGHT MORNING MODE ************ -->
 
-    <color name="secondary_color_black_white">#000000</color>
+    <color name="secondary_color_black_white">#0091EA</color>
 
     <!-- Color that appear over secondary -->
     <color name="on_secondary_black_white">#FFFFFF</color>
+
+
 
 
     <!-- ******************************************************** -->
@@ -93,12 +110,14 @@
     <color name="window_background_kinda_dark">#1F1B24</color>
 
     <!--4dp elevated surface 9% alpha over white -->
-    <color name="elevated_surface_kinda_dark">#36323B</color>
+    <color name="surface_color_kinda_dark">#36323B</color>
 
     <color name="color_primary_kinda_dark">@color/window_background_kinda_dark</color>
 
     <!-- For a flat ui design status bar and window background must be same -->
     <color name="color_primary_variant_kinda_dark">@color/window_background_kinda_dark</color>
+
+
 
 
     <!-- ******************************************************** -->
@@ -107,6 +126,8 @@
 
     <!-- Color that appear over secondary -->
     <color name="on_secondary_sweet_white">#FFFFFF</color>
+
+
 
 
     <!-- ******************************************************** -->
@@ -118,12 +139,12 @@
 
     <color name="window_background_charcoal_dark">#202020</color>
 
-    <color name="secondary_color_charcoal_dark">#fcb045</color>
+    <color name="secondary_color_charcoal_dark">#FFAB40</color>
 
     <!-- Color that appear over secondary -->
     <color name="on_secondary_charcoal_dark">#202020</color>
 
     <!--4dp elevated surface 9% alpha over white -->
-    <color name="elevated_surface_charcoal_dark">#434343</color>
+    <color name="surface_color_charcoal_dark">#434343</color>
 
 </resources>

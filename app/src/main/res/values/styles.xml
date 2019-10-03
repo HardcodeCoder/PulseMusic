@@ -1,36 +1,37 @@
 <resources>
 
     <!-- Specific Feed activity theme -->
-    <style name="ActivityThemeLight" parent="AppTheme.NoActionBar.LightMode" />
+    <style name="ActivityThemeLight" parent="PulseMusic.Theme.Light" />
 
-    <style name="ActivityThemeDark" parent="AppTheme.NoActionBar.DarkMode" />
+    <style name="ActivityThemeDark" parent="PulseMusic.Theme.Dark" />
 
-    <style name="ActivityThemeBlackWhite" parent="AppTheme.NoActionBar.LightMode.BlackWhite" />
+    <style name="ActivityThemeBlackWhite" parent="PulseMusic.Theme.Light.BlackWhite" />
 
-    <style name="ActivityThemeKindaDark" parent="AppTheme.NoActionBar.DarkMode.Kinda" />
+    <style name="ActivityThemeKindaDark" parent="PulseMusic.Theme.Dark.Kinda" />
 
-    <style name="ActivityThemeSweetMorning" parent="AppTheme.NoActionBar.LightMode.SweetMorning" />
+    <style name="ActivityThemeSweetMorning" parent="PulseMusic.Theme.Light.SweetMorning" />
 
-    <style name="ActivityThemeCharcoal" parent="AppTheme.NoActionBar.DarkMode.Charcoal" />
+    <style name="ActivityThemeCharcoal" parent="PulseMusic.Theme.Dark.Charcoal" />
 
     <style name="PopupMenu">
-        <item name="android:textColor">?primaryTextColor</item>
+        <item name="android:textColor">?colorOnSurface</item>
         <item name="android:popupBackground">@drawable/popup_menu_background</item>
-        <item name="android:elevation">@dimen/default_elevation</item>
         <item name="android:popupElevation">@dimen/default_elevation</item>
-        <item name="android:fontFamily">@font/product_regular</item>
+    </style>
+
+    <style name="NavBarActiveTextAppearance">
+    </style>
+    <style name="NavBarInActiveTextAppearance">
     </style>
 
     <style name="ToolbarPopupTheme">
-        <item name="android:colorBackground">?elevatedSurfaceColor</item>
-        <item name="android:textColor">?primaryTextColor</item>
-        <item name="android:fontFamily">@font/product_medium</item>
+        <item name="android:popupBackground">?surfaceColor</item>
     </style>
 
     <style name="ToolbarTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textColor">?primaryTextColor</item>
+        <item name="android:textColor">?colorOnSurface</item>
         <item name="android:fontFamily">@font/product_black</item>
-        <item name="android:textSize">22sp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="Headline20TextAppearance">
@@ -39,24 +40,29 @@
         <item name="android:textColor">?primaryTextColor</item>
     </style>
 
-    <style name="Headline20">
+    <style name="HomeCategoryHeading">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:singleLine">true</item>
-        <item name="android:layout_marginStart">18dp</item>
+        <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginTop">@dimen/spacing_item_next_header</item>
         <item name="android:layout_marginBottom">@dimen/spacing_header_item</item>
-        <item name="android:textAppearance">@style/Headline20TextAppearance</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?secondaryColorOnBackground</item>
+        <item name="android:background">@drawable/capsule</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="ItemTitleTextAppearance">
-        <item name="android:fontFamily">@font/product_medium</item>
         <item name="android:textColor">?primaryTextColor</item>
         <item name="android:textSize">16sp</item>
     </style>
 
     <style name="ItemSubTextAppearance">
-        <item name="android:fontFamily">@font/product_regular</item>
         <item name="android:textColor">?secondaryTextColor</item>
         <item name="android:textSize">14sp</item>
     </style>
@@ -76,8 +82,7 @@
 
     <style name="HomeItemTitle">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">124dp
-        </item> <!-- Width matches the image view width excluding padding -->
+        <item name="android:layout_width">124dp</item> <!-- Width matches the image view width excluding padding -->
         <item name="android:singleLine">true</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textAppearance">@style/ItemTitleTextAppearance</item>
@@ -93,14 +98,14 @@
         <item name="android:paddingTop">12dp</item>
         <item name="android:paddingBottom">12dp</item>
         <item name="android:layout_marginTop">16dp</item>
-        <item name="android:background">@drawable/settings_item_background</item>
+        <item name="android:background">@drawable/capsule</item>
     </style>
 
     <style name="SettingItemHeadline18">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginEnd">32dp</item>
-        <item name="android:maxLines">2</item>
+        <item name="android:maxLines">1</item>
         <item name="android:textAppearance">@style/ItemTitleTextAppearance</item>
         <item name="android:textSize">18sp</item>
     </style>
@@ -129,7 +134,6 @@
         <item name="android:gravity">start|center_vertical</item>
         <item name="android:textColor">?primaryTextColor</item>
         <item name="android:textSize">18sp</item>
-        <item name="android:fontFamily">@font/product_regular</item>
     </style>
 
     <style name="ButtonStyleBase">
@@ -182,29 +186,6 @@
         <item name="android:colorBackground">@android:color/transparent</item>
     </style>
 
-    <style name="MaterialButtonStyleBase">
-        <item name="android:layout_width">@dimen/material_btn_width</item>
-        <item name="android:layout_height">@dimen/material_btn_height</item>
-        <item name="android:layout_marginTop">16dp</item>
-        <item name="android:textAppearance">@style/MaterialButtonTextAppearance</item>
-    </style>
-
-    <style name="MaterialButtonTextAppearance">
-        <item name="android:textColor">?secondaryColor</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:textAlignment">center</item>
-        <item name="android:fontFamily">@font/product_regular</item>
-    </style>
-
-    <style name="MaterialButtonStyleOutline" parent="MaterialButtonStyleBase">
-        <item name="android:background">@drawable/border_btn</item>
-    </style>
-
-    <style name="MaterialButtonStyleFilled" parent="MaterialButtonStyleBase">
-        <item name="android:background">@drawable/contained_btn</item>
-        <item name="android:textColor">?colorOnSecondary</item>
-    </style>
-
     <style name="AppInfoTitleTextStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -219,7 +200,6 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">?secondaryTextColor</item>
-        <item name="android:fontFamily">@font/product_regular</item>
         <item name="android:textSize">15sp</item>
     </style>
 
