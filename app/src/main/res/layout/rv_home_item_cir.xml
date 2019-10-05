@@ -14,7 +14,8 @@
         android:id="@+id/rv_item_album_art"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        tools:ignore="contentDescription" />
+        tools:ignore="contentDescription"
+        android:layout_marginBottom="6dp"/>
 
     <include layout="@layout/rv_home_item_title_text_view" />
 
