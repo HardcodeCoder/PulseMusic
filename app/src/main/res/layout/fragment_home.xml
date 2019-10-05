@@ -18,7 +18,7 @@
             android:orientation="vertical">
 
             <TextView
-                style="@style/Headline20"
+                style="@style/HomeCategoryHeading"
                 android:layout_marginTop="16dp"
                 android:text="@string/random" />
 
@@ -27,7 +27,7 @@
                 layout="@layout/recycler_view_home" />
 
             <TextView
-                style="@style/Headline20"
+                style="@style/HomeCategoryHeading"
                 android:text="@string/new_in_library" />
 
             <include
@@ -35,20 +35,11 @@
                 layout="@layout/recycler_view_home" />
 
             <TextView
-                style="@style/Headline20"
+                style="@style/HomeCategoryHeading"
                 android:text="@string/recent_artist" />
 
             <include
                 android:id="@+id/home_recent_artist_rv"
-                layout="@layout/recycler_view_home" />
-
-            <TextView
-                android:id="@+id/home_heading_recent"
-                style="@style/Headline20"
-                android:text="@string/recent" />
-
-            <include
-                android:id="@+id/home_recent_rv"
                 layout="@layout/recycler_view_home" />
 
         </LinearLayout>
