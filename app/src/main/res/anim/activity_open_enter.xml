@@ -10,7 +10,7 @@
         android:fillAfter="true"
         android:fillBefore="true"
         android:fillEnabled="true"
-        android:fromAlpha="0.65"
+        android:fromAlpha="0.7"
         android:interpolator="@android:interpolator/fast_out_slow_in"
         android:toAlpha="1.0" />
 

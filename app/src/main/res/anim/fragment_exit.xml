@@ -4,7 +4,8 @@
     android:duration="@integer/window_transition_exit_alpha_duration">
 
     <alpha
-        android:fromAlpha="1.0"
-        android:toAlpha="0.0" />
+        android:fromAlpha="0.4"
+        android:toAlpha="0.0"
+        android:interpolator="@android:interpolator/fast_out_slow_in"/>
 
 </set>
