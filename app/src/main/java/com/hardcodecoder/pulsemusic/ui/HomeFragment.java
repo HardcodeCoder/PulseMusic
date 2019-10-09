@@ -73,6 +73,7 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        postponeEnterTransition();
         tm = TrackManager.getInstance();
         setHasOptionsMenu(true);
         mModel = HomeContentVM.getInstance();
@@ -90,6 +91,7 @@ public class HomeFragment extends Fragment {
         toolbar.setNavigationOnClickListener(v -> openDrawer());
 
         mHandler.postDelayed(() -> updateUi(view), 310);
+        startPostponedEnterTransition();
     }
 
     @Override

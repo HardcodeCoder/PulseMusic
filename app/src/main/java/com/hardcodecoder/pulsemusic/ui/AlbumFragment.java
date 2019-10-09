@@ -57,6 +57,7 @@ public class AlbumFragment extends Fragment implements TransitionClickListener {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        postponeEnterTransition();
         setHasOptionsMenu(true);
         currentConfig = getResources().getConfiguration().orientation;
         return inflater.inflate(R.layout.fragment_album, container, false);
@@ -75,6 +76,7 @@ public class AlbumFragment extends Fragment implements TransitionClickListener {
             spanCount = AppSettings.getPortraitGridSpanCount(getContext());
 
         new Handler().postDelayed(() -> setRv(view), 310);
+        startPostponedEnterTransition();
     }
 
     @Override

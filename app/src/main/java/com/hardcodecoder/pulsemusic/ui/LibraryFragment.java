@@ -44,6 +44,7 @@ public class LibraryFragment extends Fragment implements LibraryItemClickListene
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        postponeEnterTransition();
         tm = TrackManager.getInstance();
         setHasOptionsMenu(true);
         return inflater.inflate(R.layout.fragment_library, container, false);
@@ -58,6 +59,7 @@ public class LibraryFragment extends Fragment implements LibraryItemClickListene
             ((MainActivity) getActivity()).setSupportActionBar(toolbar);
 
         new Handler().postDelayed(() -> setRv(view), 310);
+        startPostponedEnterTransition();
     }
 
     @Override
@@ -93,6 +95,7 @@ public class LibraryFragment extends Fragment implements LibraryItemClickListene
         mList = tm.getMainList();
         if (null != mList) {
             RecyclerView recyclerView = v.findViewById(R.id.rv_library_fragment);
+            recyclerView.setVisibility(View.VISIBLE);
             recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext(), RecyclerView.VERTICAL, false));
             recyclerView.setHasFixedSize(true);
             LibraryAdapter adapter = new LibraryAdapter(mList, getLayoutInflater(), this);
