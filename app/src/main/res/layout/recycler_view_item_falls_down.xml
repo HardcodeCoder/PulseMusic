@@ -7,4 +7,5 @@
     android:layoutAnimation="@anim/item_falls_down_animation"
     android:scrollbarStyle="insideOverlay"
     android:scrollbars="vertical"
+    android:scrollbarThumbVertical="@drawable/recycler_view_scroll_thumb"
     app:layout_behavior="@string/appbar_scrolling_view_behavior" />

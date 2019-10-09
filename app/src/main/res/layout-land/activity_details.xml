@@ -71,7 +71,7 @@
 
     <include
         android:id="@+id/details_activity_rv"
-        layout="@layout/recycler_view"
+        layout="@layout/recycler_view_item_falls_down"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="36dp"

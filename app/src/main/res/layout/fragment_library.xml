@@ -8,6 +8,7 @@
 
     <include
         android:id="@+id/rv_library_fragment"
-        layout="@layout/recycler_view" />
+        layout="@layout/recycler_view_item_falls_down"
+        android:visibility="gone"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
