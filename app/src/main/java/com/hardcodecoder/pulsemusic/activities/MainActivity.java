@@ -155,23 +155,25 @@ public class MainActivity extends AppCompatActivity {
 
             if (switchTo != null && activeFrag != null) {
                 fm.beginTransaction()
-                        .add(R.id.fragment_container, switchTo, tag).setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit)
+                        .add(R.id.fragment_container, switchTo, tag)
+                        .setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit)
                         .hide(activeFrag)
                         .show(switchTo)
                         .commit();
             } else if (switchTo != null) {
                 fm.beginTransaction()
-                        .add(R.id.fragment_container, switchTo, tag).setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit)
+                        .add(R.id.fragment_container, switchTo, tag)
+                        .setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit)
                         .show(switchTo)
                         .commit();
             }
         } else
-            fm.beginTransaction().setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit).hide(activeFrag).show(switchTo).commit();
+            fm.beginTransaction()
+                    .setCustomAnimations(R.anim.fragment_enter, R.anim.fragment_exit)
+                    .hide(activeFrag)
+                    .show(switchTo)
+                    .commit();
         activeFrag = switchTo;
-        if (activeFrag != playlistCardFrag && null != playlistCardFrag) {
-            fm.beginTransaction().remove(playlistCardFrag).commit();
-            playlistCardFrag = null;
-        }
     }
 
     private void connectToSession() {
@@ -208,7 +210,10 @@ public class MainActivity extends AppCompatActivity {
     private void showControlsFragment() {
         if (controlsFrag == null) {
             controlsFrag = new ControlsFragment();
-            fm.beginTransaction().setCustomAnimations(R.anim.slide_up_enter, R.anim.slide_down_exit).replace(R.id.controls_fragment_container, controlsFrag).commit();
+            fm.beginTransaction()
+                    .setCustomAnimations(R.anim.slide_up_enter, R.anim.slide_down_exit)
+                    .replace(R.id.controls_fragment_container, controlsFrag)
+                    .commit();
         }
     }
 
