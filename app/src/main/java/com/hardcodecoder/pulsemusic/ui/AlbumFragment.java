@@ -1,14 +1,10 @@
 package com.hardcodecoder.pulsemusic.ui;
 
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.database.Cursor;
 import android.media.audiofx.AudioEffect;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,15 +26,14 @@ import com.hardcodecoder.pulsemusic.activities.MainActivity;
 import com.hardcodecoder.pulsemusic.activities.SearchActivity;
 import com.hardcodecoder.pulsemusic.activities.SettingsActivity;
 import com.hardcodecoder.pulsemusic.adapters.AlbumsAdapter;
-import com.hardcodecoder.pulsemusic.interfaces.AlbumDataFetchCompletionCallback;
-import com.hardcodecoder.pulsemusic.interfaces.TransitionClickListener;
+import com.hardcodecoder.pulsemusic.interfaces.ItemClickListener;
 import com.hardcodecoder.pulsemusic.model.AlbumModel;
+import com.hardcodecoder.pulsemusic.tasks.AlbumFetcher;
 import com.hardcodecoder.pulsemusic.utils.AppSettings;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class AlbumFragment extends Fragment implements TransitionClickListener {
+public class AlbumFragment extends Fragment implements ItemClickListener.SingleEvent {
 
     private List<AlbumModel> mList;
     private AlbumsAdapter adapter;
@@ -157,81 +151,26 @@ public class AlbumFragment extends Fragment implements TransitionClickListener {
     }
 
     private void setRv(View view) {
-        final Handler h = new Handler();
         if (null != getActivity()) new AlbumFetcher(getActivity().getContentResolver(), list -> {
             if (null != list && list.size() > 0) {
                 mList = list;
-                h.post(() -> {
-                    RecyclerView rv = view.findViewById(R.id.rv_album_fragment);
-                    layoutManager = new GridLayoutManager(rv.getContext(), spanCount);
-                    rv.setLayoutManager(layoutManager);
-                    rv.setHasFixedSize(true);
-                    rv.setItemAnimator(new DefaultItemAnimator());
-                    adapter = new AlbumsAdapter(list, getLayoutInflater(), this);
-                    rv.setAdapter(adapter);
-                });
+                RecyclerView rv = view.findViewById(R.id.rv_album_fragment);
+                rv.setVisibility(View.VISIBLE);
+                layoutManager = new GridLayoutManager(rv.getContext(), spanCount);
+                rv.setLayoutManager(layoutManager);
+                rv.setHasFixedSize(true);
+                adapter = new AlbumsAdapter(list, getLayoutInflater(), this);
+                rv.setAdapter(adapter);
             }
-        }).execute();
+        }, AlbumFetcher.SORT.TITLE_ASC).execute();
     }
 
     @Override
-    public void onItemClick(View v, int pos) {
+    public void onClickItem(int pos) {
         Intent i = new Intent(getContext(), DetailsActivity.class);
         i.putExtra(DetailsActivity.KEY_ART_URL, mList.get(pos).getAlbumArt());
         i.putExtra(DetailsActivity.KEY_TITLE, mList.get(pos).getAlbumName());
         i.putExtra(DetailsActivity.KEY_ITEM_CATEGORY, DetailsActivity.CATEGORY_ALBUM);
         startActivity(i);
-    }
-
-    static class AlbumFetcher extends AsyncTask<Void, Void, List<AlbumModel>> {
-
-        private AlbumDataFetchCompletionCallback mCallback;
-        private List<AlbumModel> data = new ArrayList<>();
-        private ContentResolver mContentResolver;
-
-        AlbumFetcher(ContentResolver mContentResolver, AlbumDataFetchCompletionCallback mCallback) {
-            this.mCallback = mCallback;
-            this.mContentResolver = mContentResolver;
-        }
-
-        @Override
-        protected List<AlbumModel> doInBackground(Void... voids) {
-            String[] col = {MediaStore.Audio.Albums._ID,
-                    MediaStore.Audio.Albums.ALBUM,
-                    MediaStore.Audio.Albums.ALBUM_ART,
-                    MediaStore.Audio.Albums.NUMBER_OF_SONGS};
-            final Cursor cursor = mContentResolver.query(
-                    MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI,
-                    col,
-                    null,
-                    null,
-                    MediaStore.Audio.Albums.ALBUM + " ASC");
-
-            if (cursor != null && cursor.moveToFirst()) {
-                do {
-                    int id = cursor.getInt(cursor
-                            .getColumnIndexOrThrow(MediaStore.Audio.Albums._ID));
-
-                    String album = cursor.getString(cursor
-                            .getColumnIndexOrThrow(MediaStore.Audio.Albums.ALBUM));
-
-                    String albumArt = cursor.getString(cursor
-                            .getColumnIndexOrThrow(MediaStore.Audio.Albums.ALBUM_ART));
-
-                    int num = cursor.getInt(cursor
-                            .getColumnIndexOrThrow(MediaStore.Audio.Albums.NUMBER_OF_SONGS));
-
-                    data.add(new AlbumModel(id, album, num, albumArt));
-                } while (cursor.moveToNext());
-                cursor.close();
-            }
-            return data;
-        }
-
-        @Override
-        protected void onPostExecute(List<AlbumModel> albumModels) {
-            mCallback.onTaskComplete(albumModels);
-        }
-
     }
 }
