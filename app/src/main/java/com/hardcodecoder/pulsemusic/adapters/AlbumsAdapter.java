@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hardcodecoder.pulsemusic.GlideApp;
 import com.hardcodecoder.pulsemusic.GlideConstantArtifacts;
 import com.hardcodecoder.pulsemusic.R;
-import com.hardcodecoder.pulsemusic.interfaces.TransitionClickListener;
+import com.hardcodecoder.pulsemusic.interfaces.ItemClickListener;
 import com.hardcodecoder.pulsemusic.model.AlbumModel;
 
 import java.util.List;
@@ -20,10 +20,10 @@ import java.util.List;
 public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.AlbumsSVH> {
 
     private List<AlbumModel> data;
-    private TransitionClickListener mListener;
+    private ItemClickListener.SingleEvent mListener;
     private LayoutInflater mInflater;
 
-    public AlbumsAdapter(List<AlbumModel> list, LayoutInflater mInflater, TransitionClickListener mListener) {
+    public AlbumsAdapter(List<AlbumModel> list, LayoutInflater mInflater, ItemClickListener.SingleEvent mListener) {
         this.mInflater = mInflater;
         this.mListener = mListener;
         this.data = list;
@@ -52,11 +52,11 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.AlbumsSVH>
         private TextView title;
         private ImageView art;
 
-        AlbumsSVH(@NonNull View itemView, TransitionClickListener mListener) {
+        AlbumsSVH(@NonNull View itemView, ItemClickListener.SingleEvent mListener) {
             super(itemView);
             art = itemView.findViewById(R.id.grid_item_iv);
             title = itemView.findViewById(R.id.grid_item_tv);
-            itemView.setOnClickListener(v -> mListener.onItemClick(art, getAdapterPosition()));
+            itemView.setOnClickListener(v -> mListener.onClickItem(getAdapterPosition()));
         }
 
         void setData(AlbumModel am) {
