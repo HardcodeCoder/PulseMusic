@@ -28,17 +28,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
     private LayoutStyle mLayoutStyle;
     private LayoutInflater mInflater;
 
-    public HomeAdapter(LayoutInflater inflater, List<MusicModel> list, ItemClickListener.Simple clickListener) {
-        this(inflater, list, clickListener, LayoutStyle.ROUNDED_RECTANGLE);
-    }
-
     public HomeAdapter(LayoutInflater inflater, List<MusicModel> list, ItemClickListener.Simple clickListener, LayoutStyle style) {
         this.mListener = clickListener;
         this.mList = list;
         this.mLayoutStyle = style;
         this.mInflater = inflater;
         if (style == LayoutStyle.CIRCLE) mLayout = R.layout.rv_home_item_cir;
-        else if (style == LayoutStyle.ROUNDED_RECTANGLE) mLayout = R.layout.rv_home_item_sq;
+        else mLayout = R.layout.rv_home_item_sq;
     }
 
     @NonNull
@@ -65,36 +61,35 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
     static class MyViewHolder extends RecyclerView.ViewHolder {
 
         private TextView songName, artist;
-        private ImageView albumArt/*, optionsMenu*/;
-        private ItemClickListener.Simple mListener;
+        private ImageView albumArt;
 
         MyViewHolder(View itemView, ItemClickListener.Simple listener) {
             super(itemView);
-            mListener = listener;
             songName = itemView.findViewById(R.id.rv_item_title);
             artist = itemView.findViewById(R.id.rv_item_artist);
             albumArt = itemView.findViewById(R.id.rv_item_album_art);
             itemView.setOnLongClickListener(v -> {
-                mListener.onOptionsClick(v, getAdapterPosition());
+                listener.onOptionsClick(v, getAdapterPosition());
                 return true;
             });
-            itemView.setOnClickListener(v -> mListener.onItemClick(getAdapterPosition()));
+            itemView.setOnClickListener(v -> listener.onItemClick(getAdapterPosition()));
         }
 
         void setItemData(MusicModel md, LayoutStyle style) {
             songName.setText(md.getSongName());
             artist.setText(md.getArtist());
             if (style == LayoutStyle.ROUNDED_RECTANGLE)
-                GlideApp.with(itemView.getContext())
+                GlideApp.with(albumArt)
                         .load(md.getAlbumArtUrl())
                         .error(R.drawable.album_art_error)
                         .transform(GlideConstantArtifacts.getDefaultRoundingRadius())
                         .transition(GenericTransitionOptions.with(R.anim.fade_in_image))
                         .into(albumArt);
-            else if (style == LayoutStyle.CIRCLE)
-                GlideApp.with(itemView.getContext())
+
+            else //if (style == LayoutStyle.CIRCLE)
+                GlideApp.with(albumArt)
                         .load(md.getAlbumArtUrl())
-                        .error(R.drawable.album_art_error)
+                        .error(R.drawable.album_art_error_circle)
                         .circleCrop()
                         .transition(GenericTransitionOptions.with(R.anim.fade_in_image))
                         .into(albumArt);
