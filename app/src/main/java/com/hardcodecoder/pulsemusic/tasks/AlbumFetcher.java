@@ -24,7 +24,7 @@ public class AlbumFetcher extends AsyncTask<Void, Void, List<AlbumModel>> {
         if(sort == SORT.TITLE_ASC)
             mSort = MediaStore.Audio.Albums.ALBUM + " ASC";
         else if(sort == SORT.DATE_ASC)
-            mSort = MediaStore.Audio.Albums.LAST_YEAR + " DESC";
+            mSort = MediaStore.Audio.Albums.FIRST_YEAR + " DESC";
     }
 
     @Override
