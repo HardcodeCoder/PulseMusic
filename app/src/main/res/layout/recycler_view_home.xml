@@ -6,4 +6,5 @@
     android:nestedScrollingEnabled="false"
     android:paddingStart="8dp"
     android:paddingEnd="0dp"
-    android:clipToPadding="false" />
+    android:clipToPadding="false"
+    android:visibility="gone"/>
