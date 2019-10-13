@@ -6,9 +6,9 @@
 
     <include layout="@layout/fancy_toolbar" />
 
-
     <include
         android:id="@+id/rv_artist_fragment"
-        layout="@layout/recycler_view_grid" />
+        layout="@layout/recycler_view_grid"
+        android:visibility="gone"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
