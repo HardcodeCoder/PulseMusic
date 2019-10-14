@@ -2,6 +2,8 @@ package com.hardcodecoder.pulsemusic.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -51,8 +53,9 @@ public class TrackPickerActivity extends Activity implements ItemClickListener.S
         RecyclerView recyclerView = findViewById(R.id.track_picker_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(recyclerView.getContext(), R.anim.item_falls_down_animation);
+        recyclerView.setLayoutAnimation(controller);
         TrackPickerAdapter adapter = new TrackPickerAdapter(masterList, getLayoutInflater(), this);
-
         recyclerView.setAdapter(adapter);
     }
 

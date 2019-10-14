@@ -8,6 +8,8 @@ import android.media.session.MediaController;
 import android.media.session.MediaSession;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -89,6 +91,8 @@ public class PlaylistDataActivity extends Activity implements ClickDragRvListene
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(recyclerView.getContext(), R.anim.item_falls_down_animation);
+        recyclerView.setLayoutAnimation(controller);
         adapter = new PlaylistDataAdapter(this, getLayoutInflater());
         recyclerView.setAdapter(adapter);
 
