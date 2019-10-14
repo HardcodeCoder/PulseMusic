@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/track_picker_rv"
-        layout="@layout/recycler_view_item_falls_down" />
+        layout="@layout/recycler_view_vertical" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_done"
