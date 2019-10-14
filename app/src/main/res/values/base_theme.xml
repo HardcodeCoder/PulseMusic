@@ -33,6 +33,7 @@
         <item name="android:windowAnimationStyle">@style/WindowTransitions</item>
         <item name="android:textViewStyle">@style/ProductRegularTextViewStyle</item>
         <item name="android:buttonStyle">@style/ProductRegularButtonStyle</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
 
@@ -45,6 +46,7 @@
         <item name="android:windowAnimationStyle">@style/WindowTransitions</item>
         <item name="android:textViewStyle">@style/ProductRegularTextViewStyle</item>
         <item name="android:buttonStyle">@style/ProductRegularButtonStyle</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
 

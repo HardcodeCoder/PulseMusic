@@ -9,7 +9,7 @@
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:popupMenuStyle">@style/PopupMenu</item>
         <item name="android:windowAnimationStyle">@style/WindowTransitions</item>
-
+        <item name="android:windowContentTransitions">true</item>
         <item name="android:textViewStyle">@style/ProductRegularTextViewStyle</item>
         <item name="android:buttonStyle">@style/ProductRegularButtonStyle</item>
     </style>
@@ -22,7 +22,7 @@
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:popupMenuStyle">@style/PopupMenu</item>
         <item name="android:windowAnimationStyle">@style/WindowTransitions</item>
-
+        <item name="android:windowContentTransitions">true</item>
         <item name="android:textViewStyle">@style/ProductRegularTextViewStyle</item>
         <item name="android:buttonStyle">@style/ProductRegularButtonStyle</item>
     </style>
