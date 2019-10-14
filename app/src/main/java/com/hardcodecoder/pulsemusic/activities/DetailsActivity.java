@@ -1,25 +1,30 @@
 package com.hardcodecoder.pulsemusic.activities;
 
-import android.app.Activity;
 import android.content.ComponentName;
+import android.graphics.drawable.Drawable;
 import android.media.browse.MediaBrowser;
 import android.media.session.MediaController;
 import android.media.session.MediaSession;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.hardcodecoder.pulsemusic.GlideApp;
-import com.hardcodecoder.pulsemusic.GlideConstantArtifacts;
 import com.hardcodecoder.pulsemusic.PMS;
 import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.adapters.DetailsAdapter;
@@ -33,7 +38,7 @@ import com.hardcodecoder.pulsemusic.ui.CustomBottomSheet;
 
 import java.util.List;
 
-public class DetailsActivity extends Activity implements AsyncTaskCallback.Simple, LibraryItemClickListener {
+public class DetailsActivity extends AppCompatActivity implements AsyncTaskCallback.Simple, LibraryItemClickListener {
 
     private MediaBrowser mMediaBrowser;
     private String title;
@@ -49,29 +54,43 @@ public class DetailsActivity extends Activity implements AsyncTaskCallback.Simpl
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setTheme(ThemeManager.getThemeToApply());
-
+        supportPostponeEnterTransition();
         super.onCreate(savedInstanceState);
         connectToSession();
         setContentView(R.layout.activity_details);
+        tm = TrackManager.getInstance();
         String art = getIntent().getStringExtra(KEY_ART_URL);
         title = getIntent().getStringExtra(KEY_TITLE);
         mCategory = getIntent().getIntExtra(KEY_ITEM_CATEGORY, -1);
+
+        ImageView iv = findViewById(R.id.details_activity_art);
+
         if (mCategory == CATEGORY_ALBUM) {
             GlideApp.with(this)
                     .load(art)
-                    .transform(GlideConstantArtifacts.getDefaultRoundingRadius())
                     .error(getDrawable(R.drawable.album_art_error))
-                    .into((ImageView) findViewById(R.id.details_activity_art));
+                    .addListener(new RequestListener<Drawable>() {
+                        @Override
+                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                            supportStartPostponedEnterTransition();
+                            return false;
+                        }
+
+                        @Override
+                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                            supportStartPostponedEnterTransition();
+                            return false;
+                        }
+                    })
+                    .into(iv);
         }
         else if (mCategory == CATEGORY_ARTIST) {
-            ImageView iv = findViewById(R.id.details_activity_art);
             iv.setImageResource(R.drawable.artist_art_error);
+            supportStartPostponedEnterTransition();
         }
 
-        findViewById(R.id.details_activity_btn_close).setOnClickListener(v -> finish());
-
+        findViewById(R.id.details_activity_btn_close).setOnClickListener(v -> finishAfterTransition());
         loadItems();
-        tm = TrackManager.getInstance();
     }
 
     private void loadItems() {
@@ -89,14 +108,14 @@ public class DetailsActivity extends Activity implements AsyncTaskCallback.Simpl
             temp.setText(getString(R.string.num_tracks).concat(String.valueOf(mList.size())));
 
             RecyclerView rv = findViewById(R.id.details_activity_rv);
+            rv.setVisibility(View.VISIBLE);
             rv.setHasFixedSize(true);
-            rv.setLayoutManager(new LinearLayoutManager(rv.getContext(), RecyclerView.VERTICAL, false));
-
-            DetailsAdapter adapter = new DetailsAdapter(list, this, getLayoutInflater());
-            rv.setItemAnimator(new DefaultItemAnimator());
-
-            rv.setAdapter(adapter);
+            LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(rv.getContext(), R.anim.item_slide_up_animation);
+            rv.setLayoutAnimation(controller);
             rv.setVerticalFadingEdgeEnabled(true);
+            rv.setLayoutManager(new LinearLayoutManager(rv.getContext(), RecyclerView.VERTICAL, false));
+            DetailsAdapter adapter = new DetailsAdapter(list, this, getLayoutInflater());
+            rv.setAdapter(adapter);
         }
     }
 
@@ -151,6 +170,12 @@ public class DetailsActivity extends Activity implements AsyncTaskCallback.Simpl
 
                 }, null); // optional Bundle
         mMediaBrowser.connect();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishAfterTransition();
+        super.onBackPressed();
     }
 
     @Override

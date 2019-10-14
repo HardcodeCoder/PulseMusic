@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,20 +13,32 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="16dp" />
 
-    <ImageView
-        android:id="@+id/details_activity_art"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/details_activity_art_card"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
-        android:background="?attr/imageViewBackgroundDrawable"
-        android:contentDescription="@string/iv_content_desc"
-        android:scaleType="fitXY"
+        android:layout_marginTop="48dp"
+        android:background="@android:color/transparent"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
         app:layout_constraintBottom_toTopOf="@id/details_activity_title"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="@id/guide_start"
-        app:layout_constraintTop_toTopOf="@id/details_activity_rv_title"
-        app:layout_constraintWidth_max="320dp"
-        tools:src="@drawable/album_art_error" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="300dp">
+
+        <ImageView
+            android:id="@+id/details_activity_art"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/iv_content_desc"
+            android:scaleType="centerCrop"
+            android:transitionName="@string/home_iv_st"
+            tools:src="@drawable/album_art_error" />
+
+
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/details_activity_title"
@@ -36,9 +49,9 @@
         android:maxLines="2"
         android:textAppearance="@style/Headline20TextAppearance"
         app:layout_constraintBottom_toTopOf="@id/details_activity_title_sub"
-        app:layout_constraintEnd_toEndOf="@id/details_activity_art"
-        app:layout_constraintStart_toStartOf="@id/details_activity_art"
-        app:layout_constraintTop_toBottomOf="@id/details_activity_art"
+        app:layout_constraintEnd_toEndOf="@id/details_activity_art_card"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintTop_toBottomOf="@id/details_activity_art_card"
         tools:text="Text can be very long but not greater than 320dp anything longer will go to next line" />
 
     <TextView
@@ -50,8 +63,8 @@
         android:gravity="center"
         android:textAppearance="@style/ItemSubTextAppearance"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/details_activity_title"
-        app:layout_constraintStart_toStartOf="@id/details_activity_art"
+        app:layout_constraintEnd_toEndOf="@id/details_activity_art_card"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
         app:layout_constraintTop_toBottomOf="@id/details_activity_title"
         tools:text="Number of tracks \u25CF 20" />
 
@@ -59,41 +72,40 @@
         android:id="@+id/details_activity_rv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="48dp"
         android:gravity="center"
         android:text="@string/details_activity_rv_title"
         android:textAppearance="@style/ItemTitleTextAppearance"
         android:textSize="32sp"
-        app:layout_constraintBottom_toTopOf="@+id/details_activity_rv"
         app:layout_constraintEnd_toEndOf="@id/details_activity_rv"
         app:layout_constraintStart_toStartOf="@id/details_activity_rv"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/details_activity_btn_close"
+        style="@style/ButtonStyle24"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/iv_btn_close_description"
+        android:padding="12dp"
+        android:src="@drawable/ic_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <include
         android:id="@+id/details_activity_rv"
-        layout="@layout/recycler_view_item_falls_down"
+        layout="@layout/recycler_view_vertical"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="36dp"
-        app:layout_constraintBottom_toTopOf="@id/details_activity_btn_close"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/details_activity_art"
-        app:layout_constraintTop_toBottomOf="@id/details_activity_rv_title" />
-
-    <ImageView
-        android:id="@+id/details_activity_btn_close"
-        style="@style/ButtonStyle24"
-        android:layout_margin="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/iv_btn_close_description"
-        android:padding="12dp"
-        android:src="@drawable/ic_close"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/details_activity_rv" />
+        app:layout_constraintStart_toEndOf="@id/details_activity_art_card"
+        app:layout_constraintTop_toBottomOf="@id/details_activity_rv_title"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
