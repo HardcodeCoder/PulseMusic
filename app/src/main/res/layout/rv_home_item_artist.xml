@@ -11,6 +11,7 @@
     android:paddingEnd="12dp">
 
     <ImageView
+        android:id="@+id/artist_home"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:background="@drawable/circle_background"
@@ -18,7 +19,8 @@
         android:paddingEnd="4dp"
         android:src="@drawable/ic_artist"
         android:tint="?secondaryColor"
-        tools:ignore="contentDescription" />
+        tools:ignore="contentDescription"
+        android:transitionName="@string/home_iv_st"/>
 
     <include layout="@layout/rv_home_item_title_text_view" />
 
