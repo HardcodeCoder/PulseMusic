@@ -23,7 +23,7 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.MyLibrar
     private List<MusicModel> mList;
     private LibraryItemClickListener mListener;
     private LayoutInflater mInflater;
-    private int lastPosition;
+    private int lastPosition = -1;
 
     public LibraryAdapter(List<MusicModel> list, LayoutInflater inflater, LibraryItemClickListener listener) {
         this.mList = list;
@@ -46,6 +46,12 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.MyLibrar
     }
 
     @Override
+    public void onViewDetachedFromWindow(@NonNull MyLibraryViewHolder holder) {
+        super.onViewDetachedFromWindow(holder);
+        holder.itemView.clearAnimation();
+    }
+
+    @Override
     public int getItemCount() {
         if (mList != null)
             return mList.size();
@@ -59,25 +65,22 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.MyLibrar
 
         private TextView songName, artist;
         private ImageView albumArt;
-        private LibraryItemClickListener mListener;
-
 
         MyLibraryViewHolder(View itemView, LibraryItemClickListener listener) {
             super(itemView);
-            mListener = listener;
             songName = itemView.findViewById(R.id.library_item_tv1);
             artist = itemView.findViewById(R.id.library_item_tv2);
             albumArt = itemView.findViewById(R.id.library_item_iv1);
 
-            itemView.setOnClickListener(v -> mListener.onItemClick(getAdapterPosition()));
+            itemView.setOnClickListener(v -> listener.onItemClick(getAdapterPosition()));
 
-            itemView.findViewById(R.id.library_item_iv2).setOnClickListener(v -> v.post(() -> mListener.onOptionsClick(getAdapterPosition())));
+            itemView.findViewById(R.id.library_item_iv2).setOnClickListener(v -> v.post(() -> listener.onOptionsClick(getAdapterPosition())));
         }
 
         void setItemData(MusicModel md) {
             songName.setText(md.getSongName());
             artist.setText(md.getArtist());
-            GlideApp.with(itemView.getContext())
+            GlideApp.with(itemView)
                     .load(md.getAlbumArtUrl())
                     .error(R.drawable.album_art_error)
                     .transform(GlideConstantArtifacts.getDefaultRoundingRadius())
