@@ -9,13 +9,14 @@
     android:shareInterpolator="false">
 
     <alpha
-        android:fromAlpha="0.5"
+        android:fromAlpha="0.6"
         android:interpolator="@android:interpolator/fast_out_slow_in"
         android:toAlpha="1.0" />
 
+
     <scale
-        android:fromXScale="0.97"
-        android:fromYScale="0.97"
+        android:fromXScale="0.98"
+        android:fromYScale="0.98"
         android:interpolator="@android:interpolator/fast_out_slow_in"
         android:pivotX="50%"
         android:pivotY="50%"
