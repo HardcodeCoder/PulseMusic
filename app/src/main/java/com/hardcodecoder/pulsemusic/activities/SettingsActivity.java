@@ -2,6 +2,7 @@ package com.hardcodecoder.pulsemusic.activities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -17,7 +18,9 @@ import androidx.annotation.Nullable;
 import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.helper.HomeWalliProvider;
 import com.hardcodecoder.pulsemusic.helper.HomeWalliProvider.Day;
-import com.hardcodecoder.pulsemusic.utils.UserInfo;
+import com.hardcodecoder.pulsemusic.themes.ThemeManager;
+import com.hardcodecoder.pulsemusic.themes.ThemeStore;
+import com.hardcodecoder.pulsemusic.utils.AppSettings;
 
 public class SettingsActivity extends Activity {
 
@@ -26,9 +29,10 @@ public class SettingsActivity extends Activity {
     private boolean autoModeEnable;
     private boolean darkModeEnable;
     private boolean optionChanged = false;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setTheme(UserInfo.getThemeToApply());
+        setTheme(ThemeManager.getThemeToApply());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         setUpDefaultStates();
@@ -41,11 +45,11 @@ public class SettingsActivity extends Activity {
         TextView tv2 = findViewById(R.id.settings_switch_2_title);
         Switch autoTheme = findViewById(R.id.settings_switch_2);
 
-        darkModeEnable = UserInfo.isDarkModeSettingEnabled();
+        darkModeEnable = AppSettings.isDarkModeEnabled(this);
         tv1.setText(darkModeEnable ? R.string.dark_on : R.string.light_on);
         switch1.setChecked(darkModeEnable);
 
-        autoModeEnable = UserInfo.isAutoThemeEnabled();
+        autoModeEnable = ThemeManager.isAutoThemeEnabled();
         tv2.setText(autoModeEnable ? R.string.auto_theme_enabled : R.string.auto_theme_disabled);
         autoTheme.setChecked(autoModeEnable);
         switch1.setEnabled(!autoModeEnable);
@@ -53,14 +57,14 @@ public class SettingsActivity extends Activity {
 
 
         switch1.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            switch1.setChecked(isChecked);
-            UserInfo.enableDarkMode(isChecked);
+            //switch1.setChecked(isChecked);
+            ThemeManager.enableDarkMode(this, isChecked);
 
-            if (!UserInfo.isDarkModeEnabled() && isChecked/*needToToggleTheme()*/) {
+            if (!ThemeManager.isDarkModeEnabled() && isChecked/*needToToggleTheme()*/) {
                 // User wants Dark theme but Light theme is previously
                 // applied so restart the activity to apply Dark theme
                 restart();
-            } else if (UserInfo.isDarkModeEnabled() && !isChecked /*&& !autoTheme.isChecked()*/) {
+            } else if (ThemeManager.isDarkModeEnabled() && !isChecked /*&& !autoTheme.isChecked()*/) {
                 // User wants Light theme but dark theme is previously
                 // applied so restart the activity to apply Light theme
                 restart();
@@ -68,8 +72,7 @@ public class SettingsActivity extends Activity {
         });
 
         autoTheme.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            autoTheme.setChecked(isChecked);
-            UserInfo.enableAutoTheme(isChecked);
+            ThemeManager.enableAutoTheme(this, isChecked);
             switch1.setEnabled(!isChecked);
             findViewById(R.id.setting_switch_1_title).setEnabled(!isChecked);
 
@@ -81,11 +84,11 @@ public class SettingsActivity extends Activity {
             } else {
                 //User does not want auto theme based on time of day
                 //Revert to theme selected via switch1
-                if (switch1.isChecked() && !UserInfo.isDarkModeEnabled()) {
+                if (switch1.isChecked() && !ThemeManager.isDarkModeEnabled()) {
                     //User previously select dark theme so when auto theme is
                     // disabled apply dark theme if not already applied
                     restart();
-                } else if (!switch1.isChecked() && UserInfo.isDarkModeEnabled()) {
+                } else if (!switch1.isChecked() && ThemeManager.isDarkModeEnabled()) {
                     //User previously select light theme so when auto theme is
                     // disabled apply light theme if not already applied
                     restart();
@@ -104,20 +107,20 @@ public class SettingsActivity extends Activity {
         RadioGroup radioGroup = windowView.findViewById(R.id.radio_group);
 
         int currentTheme;
-        if (id == ID_LIGHT) currentTheme = UserInfo.getSelectedLightTheme(this);
-        else currentTheme = UserInfo.getSelectedDarkTheme(this);
+        if(id == ID_LIGHT) currentTheme = AppSettings.getSelectedLightTheme(this);
+        else currentTheme = AppSettings.getSelectedDarkTheme(this);
 
         switch (currentTheme) {
-            case UserInfo.LIGHT_THEME_1:
-            case UserInfo.DARK_THEME_1:
+            case ThemeStore.LIGHT_THEME_1:
+            case ThemeStore.DARK_THEME_1:
                 ((RadioButton) radioGroup.findViewById(R.id.rd_btn_1)).setChecked(true);
                 break;
-            case UserInfo.LIGHT_THEME_2:
-            case UserInfo.DARK_THEME_2:
+            case ThemeStore.LIGHT_THEME_2:
+            case ThemeStore.DARK_THEME_2:
                 ((RadioButton) radioGroup.findViewById(R.id.rd_btn_2)).setChecked(true);
                 break;
-            case UserInfo.LIGHT_THEME_3:
-            case UserInfo.DARK_THEME_3:
+            case ThemeStore.LIGHT_THEME_3:
+            case ThemeStore.DARK_THEME_3:
                 ((RadioButton) radioGroup.findViewById(R.id.rd_btn_3)).setChecked(true);
                 break;
         }
@@ -148,16 +151,16 @@ public class SettingsActivity extends Activity {
         windowView.findViewById(R.id.radio_group_btn_set).setOnClickListener(v1 -> {
             switch (radioGroup.getCheckedRadioButtonId()) {
                 case R.id.rd_btn_1:
-                    if (id == ID_LIGHT) UserInfo.saveSelectedLightTheme(UserInfo.LIGHT_THEME_1);
-                    else UserInfo.saveSelectedDarkTheme(UserInfo.DARK_THEME_1);
+                    if (id == ID_LIGHT) ThemeManager.setSelectedLightTheme(this, ThemeStore.LIGHT_THEME_1);
+                    else ThemeManager.setSelectedDarkTheme(this, ThemeStore.DARK_THEME_1);
                     break;
                 case R.id.rd_btn_2:
-                    if (id == ID_LIGHT) UserInfo.saveSelectedLightTheme(UserInfo.LIGHT_THEME_2);
-                    else UserInfo.saveSelectedDarkTheme(UserInfo.DARK_THEME_2);
+                    if (id == ID_LIGHT) ThemeManager.setSelectedLightTheme(this, ThemeStore.LIGHT_THEME_2);
+                    else ThemeManager.setSelectedDarkTheme(this, ThemeStore.DARK_THEME_2);
                     break;
                 case R.id.rd_btn_3:
-                    if (id == ID_LIGHT) UserInfo.saveSelectedLightTheme(UserInfo.LIGHT_THEME_3);
-                    else UserInfo.saveSelectedDarkTheme(UserInfo.DARK_THEME_3);
+                    if (id == ID_LIGHT) ThemeManager.setSelectedLightTheme(this, ThemeStore.LIGHT_THEME_3);
+                    else ThemeManager.setSelectedDarkTheme(this, ThemeStore.DARK_THEME_3);
                     break;
             }
             if (window.isShowing())
@@ -191,7 +194,7 @@ public class SettingsActivity extends Activity {
     }
 
     private boolean needToToggleTheme() {
-        return (isNight() && !UserInfo.isDarkModeEnabled() || !isNight() && UserInfo.isDarkModeEnabled());
+        return ((isNight() && !ThemeManager.isDarkModeEnabled()) || (!isNight() && ThemeManager.isDarkModeEnabled()));
     }
 
     private boolean isNight() {
@@ -200,7 +203,9 @@ public class SettingsActivity extends Activity {
     }
 
     private void restart() {
-        UserInfo.initSharedPrefs(getApplicationContext());
-        this.recreate();
+        ThemeManager.init(getApplicationContext());
+        startActivity(new Intent(this, SettingsActivity.class));
+        overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
+        finish();
     }
 }

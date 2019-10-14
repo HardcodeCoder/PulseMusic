@@ -34,7 +34,6 @@
         <TextView
             android:id="@+id/setting_switch_1_title"
             style="@style/SettingItemTextStyle"
-            android:text="@string/dark_on"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/settings" />
 
