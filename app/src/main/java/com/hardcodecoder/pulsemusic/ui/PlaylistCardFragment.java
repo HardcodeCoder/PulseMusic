@@ -20,7 +20,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -107,7 +106,6 @@ public class PlaylistCardFragment extends Fragment implements ItemClickListener.
     private void addPendingPlaylistTiles(@NonNull final View view) {
         RecyclerView recyclerView = view.findViewById(R.id.playlist_cards_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext, RecyclerView.VERTICAL, false));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
         LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(recyclerView.getContext(), R.anim.item_falls_down_animation);
         recyclerView.setLayoutAnimation(controller);
         adapter = new CardsAdapter(playlistNames, this, getLayoutInflater());
@@ -123,6 +121,13 @@ public class PlaylistCardFragment extends Fragment implements ItemClickListener.
 
     @Override
     public void onItemSwiped(int itemAdapterPosition) {
+        //First two item in the list are the playing queue and favourites,
+        //which should not be user deletable
+        if(itemAdapterPosition <= 1){
+            Toast.makeText(mContext, "Cannot delete delete playlist card", Toast.LENGTH_SHORT).show();
+            adapter.notifyItemChanged(itemAdapterPosition);
+            return;
+        }
         playlistNames.remove(itemAdapterPosition);
 
         //Explicitly deleting list of tracks playlist card holds
@@ -131,7 +136,7 @@ public class PlaylistCardFragment extends Fragment implements ItemClickListener.
         PlaylistStorageManager.dropPlaylistCardDataAt(mContext, itemAdapterPosition);
 
         Toast.makeText(getContext(), "Playlist deleted", Toast.LENGTH_SHORT).show();
-        adapter.notifyItemRemoved(itemAdapterPosition);
+        //adapter.notifyItemRemoved(itemAdapterPosition);
 
         //This will make sure that the playlist title is deleted
         //It will trigger the commands in #onStop
