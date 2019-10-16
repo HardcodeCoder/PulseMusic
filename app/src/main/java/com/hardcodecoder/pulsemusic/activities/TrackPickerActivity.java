@@ -7,7 +7,6 @@ import android.view.animation.LayoutAnimationController;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -52,7 +51,6 @@ public class TrackPickerActivity extends Activity implements ItemClickListener.S
         masterList = TrackManager.getInstance().getMainList();
         RecyclerView recyclerView = findViewById(R.id.track_picker_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
         LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(recyclerView.getContext(), R.anim.item_falls_down_animation);
         recyclerView.setLayoutAnimation(controller);
         TrackPickerAdapter adapter = new TrackPickerAdapter(masterList, getLayoutInflater(), this);
