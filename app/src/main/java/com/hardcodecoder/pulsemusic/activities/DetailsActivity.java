@@ -136,12 +136,16 @@ public class DetailsActivity extends AppCompatActivity implements AsyncTaskCallb
                 .setOnClickListener(v -> {
                     tm.playNext(mList.get(pos));
                     Toast.makeText(v.getContext(), getString(R.string.play_next_toast), Toast.LENGTH_SHORT).show();
+                    if(bottomSheetDialog.isShowing())
+                        bottomSheetDialog.dismiss();
                 });
 
         view.findViewById(R.id.add_to_queue)
                 .setOnClickListener(v -> {
                     tm.addToActiveQueue(mList.get(pos));
                     Toast.makeText(v.getContext(), getString(R.string.add_to_queue_toast), Toast.LENGTH_SHORT).show();
+                    if(bottomSheetDialog.isShowing())
+                        bottomSheetDialog.dismiss();
                 });
 
         bottomSheetDialog.setContentView(view);
