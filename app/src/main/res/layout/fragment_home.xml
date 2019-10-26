@@ -19,11 +19,19 @@
 
             <TextView
                 style="@style/HomeCategoryHeading"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/random" />
 
             <include
                 android:id="@+id/home_suggested_rv"
+                layout="@layout/recycler_view_home" />
+
+            <TextView
+                style="@style/HomeCategoryHeading"
+                android:text="@string/nostalgic" />
+
+            <include
+                android:id="@+id/home_albums_rv"
                 layout="@layout/recycler_view_home" />
 
             <TextView
