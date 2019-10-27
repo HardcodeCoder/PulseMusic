@@ -132,19 +132,19 @@
 
     <!-- ******************************************************** -->
     <!-- *************** COLORS FOR CHARCOAL ******************** -->
-    <color name="color_primary_charcoal_dark">@color/window_background_charcoal_dark</color>
+    <color name="color_primary_black_dark">@color/window_background_black_dark</color>
 
     <!-- For a flat ui design status bar and window background must be same -->
-    <color name="color_primary_variant_charcoal_dark">@color/window_background_charcoal_dark</color>
+    <color name="color_primary_variant_black_dark">@color/window_background_black_dark</color>
 
-    <color name="window_background_charcoal_dark">#202020</color>
+    <color name="window_background_black_dark">#000000</color>
 
-    <color name="secondary_color_charcoal_dark">#FFAB40</color>
+    <color name="secondary_color_black_dark">#FFAB40</color>
 
     <!-- Color that appear over secondary -->
-    <color name="on_secondary_charcoal_dark">#202020</color>
+    <color name="on_secondary_black_dark">#202020</color>
 
-    <!--4dp elevated surface 9% alpha over white -->
-    <color name="surface_color_charcoal_dark">#434343</color>
+    <!--4dp elevated surface 10% alpha over white -->
+    <color name="surface_color_black_dark">#202020</color>
 
 </resources>

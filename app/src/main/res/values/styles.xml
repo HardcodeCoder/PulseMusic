@@ -11,7 +11,7 @@
 
     <style name="ActivityThemeSweetMorning" parent="PulseMusic.Theme.Light.SweetMorning" />
 
-    <style name="ActivityThemeCharcoal" parent="PulseMusic.Theme.Dark.Charcoal" />
+    <style name="ActivityThemeBlack" parent="PulseMusic.Theme.Dark.Black" />
 
     <style name="PopupMenu">
         <item name="android:textColor">?colorOnSurface</item>
@@ -130,10 +130,11 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:paddingStart">16dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:paddingStart">8dp</item>
         <item name="android:gravity">start|center_vertical</item>
-        <item name="android:textColor">?primaryTextColor</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textAppearance">@style/ItemTitleTextAppearance</item>
     </style>
 
     <style name="ButtonStyleBase">
