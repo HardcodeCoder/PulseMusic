@@ -10,17 +10,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.interfaces.ItemClickListener;
-import com.hardcodecoder.pulsemusic.model.MusicModel;
+import com.hardcodecoder.pulsemusic.model.ArtistModel;
 
 import java.util.List;
 
 public class HomeAdapterArtist extends RecyclerView.Adapter<HomeAdapterArtist.AdapterSVH> {
 
-    private List<MusicModel> mList;
+    private List<ArtistModel> mList;
     private ItemClickListener.Simple mListener;
     private LayoutInflater mInflater;
 
-    public HomeAdapterArtist(LayoutInflater inflater, List<MusicModel> list, ItemClickListener.Simple listener) {
+    public HomeAdapterArtist(LayoutInflater inflater, List<ArtistModel> list, ItemClickListener.Simple listener) {
         this.mInflater = inflater;
         this.mList = list;
         this.mListener = listener;
@@ -46,22 +46,18 @@ public class HomeAdapterArtist extends RecyclerView.Adapter<HomeAdapterArtist.Ad
 
     static class AdapterSVH extends RecyclerView.ViewHolder {
 
-        private TextView artistName, trackTitle;
+        private TextView artistName, trackCount;
 
         AdapterSVH(@NonNull View itemView, ItemClickListener.Simple listener) {
             super(itemView);
             artistName = itemView.findViewById(R.id.rv_item_title);
-            trackTitle = itemView.findViewById(R.id.rv_item_artist);
-            itemView.setOnClickListener(v -> listener.onItemClick(getAdapterPosition()));
-            itemView.setOnLongClickListener(v -> {
-                listener.onOptionsClick(itemView, getAdapterPosition());
-                return true;
-            });
+            trackCount = itemView.findViewById(R.id.rv_item_artist);
+            itemView.setOnClickListener(v -> listener.onOptionsClick(itemView.findViewById(R.id.artist_home), getAdapterPosition()));
         }
 
-        void updateData(MusicModel md) {
-            artistName.setText(md.getArtist());
-            trackTitle.setText(md.getSongName());
+        void updateData(ArtistModel am) {
+            artistName.setText(am.getArtistName());
+            trackCount.setText(String.format("%d " + itemView.getResources().getString(R.string.tracks_num ), am.getNumOfTracks()));
         }
     }
 }

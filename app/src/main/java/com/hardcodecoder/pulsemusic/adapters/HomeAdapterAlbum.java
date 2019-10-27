@@ -23,9 +23,9 @@ public class HomeAdapterAlbum extends RecyclerView.Adapter<HomeAdapterAlbum.Adap
 
     private LayoutInflater mInflater;
     private List<AlbumModel> mList;
-    private ItemClickListener.SingleEvent mListener;
+    private ItemClickListener.Simple mListener;
 
-    public HomeAdapterAlbum(LayoutInflater inflater, List<AlbumModel> list, ItemClickListener.SingleEvent listener) {
+    public HomeAdapterAlbum(LayoutInflater inflater, List<AlbumModel> list, ItemClickListener.Simple listener) {
         this.mInflater = inflater;
         this.mList = list;
         this.mListener = listener;
@@ -54,17 +54,18 @@ public class HomeAdapterAlbum extends RecyclerView.Adapter<HomeAdapterAlbum.Adap
         private ImageView iv;
         private TextView tv;
 
-        AdapterSVH(@NonNull View itemView, ItemClickListener.SingleEvent listener) {
+        AdapterSVH(@NonNull View itemView, ItemClickListener.Simple listener) {
             super(itemView);
             tv = itemView.findViewById(R.id.rv_item_title);
             iv = itemView.findViewById(R.id.iv_album_card);
-            itemView.setOnClickListener(v -> listener.onClickItem(getAdapterPosition()));
+            itemView.setOnClickListener(v -> listener.onOptionsClick(iv, getAdapterPosition()));
         }
 
         void updateData(AlbumModel am) {
             GlideApp.with(iv)
                     .load(am.getAlbumArt())
                     .transform(new CenterCrop(), GlideConstantArtifacts.getDefaultRoundingRadius())
+                    .error(R.drawable.album_art_error_card)
                     .transition(GenericTransitionOptions.with(R.anim.fade_in_image))
                     .into(iv);
             tv.setText(am.getAlbumName());
