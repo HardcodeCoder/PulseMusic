@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/radio_group"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:paddingTop="8dp"
     android:orientation="vertical">
 
     <TextView
@@ -10,7 +12,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:fontFamily="@font/product_medium"
         android:textColor="?primaryTextColor"
         android:textSize="18sp"
         android:text="@string/select_light_theme"/>
@@ -18,17 +19,17 @@
     <RadioButton
         android:id="@+id/rd_btn_1"
         style="@style/RadioBtnText"
-        android:text="@string/def_theme_light"/>
+        tools:text="@string/def_theme_light"/>
 
     <RadioButton
         android:id="@+id/rd_btn_2"
         style="@style/RadioBtnText"
-        android:text="@string/black_and_white"/>
+        tools:text="@string/black_and_white"/>
 
     <RadioButton
         android:id="@+id/rd_btn_3"
         style="@style/RadioBtnText"
-        android:text="@string/sweet_morning_light"/>
+        tools:text="@string/sweet_morning_light"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/radio_group_btn_set"
