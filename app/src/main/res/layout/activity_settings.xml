@@ -38,7 +38,7 @@
             app:layout_constraintTop_toBottomOf="@id/settings" />
 
         <Switch
-            android:id="@+id/settings_switch_1"
+            android:id="@+id/settings_toggle_dark_theme"
             style="@style/SettingItemSwitchStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/setting_switch_1_title"
@@ -52,7 +52,7 @@
             app:layout_constraintTop_toBottomOf="@id/setting_switch_1_title" />
 
         <Switch
-            android:id="@+id/settings_switch_2"
+            android:id="@+id/settings_toggle_auto_theme"
             style="@style/SettingItemSwitchStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/settings_switch_2_title"
@@ -61,7 +61,7 @@
         <TextView
             android:id="@+id/settings_theme_title"
             style="@style/SettingItemHeadline18"
-            app:layout_constraintTop_toBottomOf="@id/settings_switch_2"
+            app:layout_constraintTop_toBottomOf="@id/settings_toggle_auto_theme"
             android:text="@string/select_theme_title"
             android:layout_marginTop="16dp"
             android:padding="8dp"

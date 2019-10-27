@@ -41,9 +41,9 @@ public class SettingsActivity extends Activity {
 
     private void setUpDefaultStates() {
         TextView tv1 = findViewById(R.id.setting_switch_1_title);
-        Switch switch1 = findViewById(R.id.settings_switch_1);
+        Switch switch1 = findViewById(R.id.settings_toggle_dark_theme);
         TextView tv2 = findViewById(R.id.settings_switch_2_title);
-        Switch autoTheme = findViewById(R.id.settings_switch_2);
+        Switch autoTheme = findViewById(R.id.settings_toggle_auto_theme);
 
         darkModeEnable = AppSettings.isDarkModeEnabled(this);
         tv1.setText(darkModeEnable ? R.string.dark_on : R.string.light_on);
@@ -100,8 +100,8 @@ public class SettingsActivity extends Activity {
         findViewById(R.id.dark_theme_options).setOnClickListener(v -> openThemeSelector(v, ID_DARK));
     }
 
-    private void openThemeSelector(View v, short id) {
-        View windowView = View.inflate(this, R.layout.settings_drop_down_menu, null);
+    private void openThemeSelector(View view, short id){
+        View windowView = View.inflate(this, R.layout.settings_pop_menu_light_theme_selector , null);
         PopupWindow window = new PopupWindow(windowView, RadioGroup.LayoutParams.WRAP_CONTENT, RadioGroup.LayoutParams.WRAP_CONTENT, true);
 
         RadioGroup radioGroup = windowView.findViewById(R.id.radio_group);
@@ -143,7 +143,7 @@ public class SettingsActivity extends Activity {
             tempBtn.setText(R.string.app_dark_theme);
 
             tempBtn = radioGroup.findViewById(R.id.rd_btn_3);
-            tempBtn.setText(R.string.charcoal_dark);
+            tempBtn.setText(R.string.pitch_dark);
         }
 
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> optionChanged = true);
@@ -177,7 +177,7 @@ public class SettingsActivity extends Activity {
         });
 
         window.setBackgroundDrawable(getDrawable(R.drawable.popup_menu_background));
-        window.showAtLocation(v, Gravity.CENTER, 0, 0);
+        window.showAtLocation(view, Gravity.CENTER, 0, 0);
         dimBackgroundOnPopupWindow(window);
     }
 
@@ -188,7 +188,7 @@ public class SettingsActivity extends Activity {
         WindowManager wm = (WindowManager) window.getContentView().getContext().getSystemService(Context.WINDOW_SERVICE);
         WindowManager.LayoutParams p = (WindowManager.LayoutParams) container.getLayoutParams();
         p.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        p.dimAmount = 0.60f;
+        p.dimAmount = 0.65f;
         if(null != wm)
             wm.updateViewLayout(container, p);
     }
