@@ -7,6 +7,7 @@ import android.media.session.MediaController;
 import android.media.session.MediaSession;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
@@ -210,6 +211,7 @@ public class MainActivity extends AppCompatActivity {
     private void showControlsFragment() {
         if (controlsFrag == null) {
             controlsFrag = new ControlsFragment();
+            findViewById(R.id.controls_fragment_container).setVisibility(View.VISIBLE);
             fm.beginTransaction()
                     .setCustomAnimations(R.anim.slide_up_enter, R.anim.slide_down_exit)
                     .replace(R.id.controls_fragment_container, controlsFrag)
