@@ -9,9 +9,9 @@ import android.media.AudioFocusRequest;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.session.PlaybackState;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
-import android.os.Looper;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.widget.Toast;
@@ -60,7 +60,7 @@ public class LocalPlayback implements
         this.mAudioManager = (AudioManager) applicationContext.getSystemService(Context.AUDIO_SERVICE);
         this.mHandler = handler;
         if (mHandler == null) {
-            mHandler = new Handler(Looper.myLooper());
+            mHandler = new Handler();
         }
     }
 
@@ -75,7 +75,7 @@ public class LocalPlayback implements
         mp.setOnCompletionListener(this);
         mp.reset();
         try {
-            mp.setDataSource(mTrackManager.getActiveQueueItem().getSongPath());
+            mp.setDataSource(mContext, Uri.parse(mTrackManager.getActiveQueueItem().getSongPath()));
             mp.prepareAsync();
         } catch (IOException e) {
             e.printStackTrace();
