@@ -1,4 +1,4 @@
-package com.hardcodecoder.pulsemusic.tasks;
+package com.hardcodecoder.pulsemusic.loaders;
 
 import android.content.ContentResolver;
 import android.database.Cursor;
@@ -24,7 +24,7 @@ public class AlbumFetcher extends AsyncTask<Void, Void, List<AlbumModel>> {
         if(sort == SORT.TITLE_ASC)
             mSort = MediaStore.Audio.Albums.ALBUM + " ASC";
         else if(sort == SORT.DATE_ASC)
-            mSort = MediaStore.Audio.Albums.FIRST_YEAR + " DESC";
+            mSort = MediaStore.Audio.Albums.FIRST_YEAR + " ASC";
     }
 
     @Override
@@ -38,7 +38,7 @@ public class AlbumFetcher extends AsyncTask<Void, Void, List<AlbumModel>> {
                 col,
                 null,
                 null,
-                /*MediaStore.Audio.Albums.LAST_YEAR + " ASC"*/mSort);
+                mSort);
 
         if (cursor != null && cursor.moveToFirst()) {
             do {
