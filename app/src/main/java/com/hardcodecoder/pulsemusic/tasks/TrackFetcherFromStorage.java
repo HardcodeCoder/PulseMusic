@@ -24,7 +24,7 @@ public class TrackFetcherFromStorage extends AsyncTask<Void, Void, List<MusicMod
         this.contentResolver = contentResolver;
         mtd = td;
         if (sort == Sort.TITLE_ASC) {
-            mSortOrder = MediaStore.Audio.Media.TITLE + " COLLATE LOCALIZED ASC";
+            mSortOrder = MediaStore.Audio.Media.TITLE + " ASC";
             itemToScan = -1; // Scans all media items
         } else if (sort == Sort.DATE_ADDED_DESC) {
             mSortOrder = MediaStore.Audio.Media.DATE_MODIFIED + " DESC";
@@ -38,11 +38,12 @@ public class TrackFetcherFromStorage extends AsyncTask<Void, Void, List<MusicMod
         List<MusicModel> allSongs = new ArrayList<>();
         final Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
         final String[] cursor_cols = {
-                        MediaStore.Audio.Media.ARTIST,
-                        MediaStore.Audio.Media.ALBUM,
-                        MediaStore.Audio.Media.TITLE,
-                        MediaStore.Audio.Media.DATA,
-                        MediaStore.Audio.Media.ALBUM_ID,
+                MediaStore.Audio.Media._ID,
+                MediaStore.Audio.Media.TITLE,
+                MediaStore.Audio.Media.ARTIST,
+                MediaStore.Audio.Media.ALBUM,
+                //MediaStore.Audio.Media.DATA,
+                MediaStore.Audio.Media.ALBUM_ID,
                 MediaStore.Audio.Media.DURATION};
 
         final Cursor cursor = contentResolver.query(
@@ -53,11 +54,22 @@ public class TrackFetcherFromStorage extends AsyncTask<Void, Void, List<MusicMod
                 mSortOrder);
 
         if (cursor != null && cursor.moveToFirst()) {
+            int idColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media._ID);
+            int titleColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE);
+            int artistColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST);
+            int albumColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM);
+            //int dataColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA);
+            int albumIdColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID);
+            int durationColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION);
+
+            final Uri sArtworkUri = Uri.parse("content://media/external/audio/albumart");
+
             do {
                 if (c == itemToScan) //if itemToScan == -1 then this will never execute since @link{id} is a +ve integer
                     break;
                 c++;
-                String artist = cursor.getString(cursor
+
+                /*String artist = cursor.getString(cursor
                         .getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST));
                 String album = cursor.getString(cursor
                         .getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM));
@@ -69,9 +81,20 @@ public class TrackFetcherFromStorage extends AsyncTask<Void, Void, List<MusicMod
                         .getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID));
                 int duration = cursor.getInt(cursor
                         .getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION));
+
                 final Uri sArtworkUri = Uri.parse("content://media/external/audio/albumart");
-                Uri albumArtUri = ContentUris.withAppendedId(sArtworkUri, albumId);
-                allSongs.add(new MusicModel(c, songName, artist, songPath, album, albumId, albumArtUri.toString(), duration));
+                Uri albumArtUri = ContentUris.withAppendedId(sArtworkUri, albumId);*/
+
+                int _id = cursor.getInt(idColumnIndex);
+                String songName = cursor.getString(titleColumnIndex);
+                String artist = cursor.getString(artistColumnIndex);
+                String album = cursor.getString(albumColumnIndex);
+                String songPath = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, _id).toString();
+                long albumId = cursor.getLong(albumIdColumnIndex);
+                int duration = cursor.getInt(durationColumnIndex);
+                String albumArt = ContentUris.withAppendedId(sArtworkUri, albumId).toString();
+
+                allSongs.add(new MusicModel(_id, songName, artist, songPath, album, albumId, albumArt, duration));
             } while (cursor.moveToNext());
             cursor.close();
         }
