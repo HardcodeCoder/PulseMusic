@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.media.audiofx.AudioEffect;
 import android.media.session.MediaController;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -60,8 +59,8 @@ public class LibraryFragment extends Fragment implements LibraryItemClickListene
         if (null != getActivity())
             ((MainActivity) getActivity()).setSupportActionBar(toolbar);
 
-        new Handler().postDelayed(() -> setRv(view), 310);
         startPostponedEnterTransition();
+        setRv(view);
     }
 
     @Override
