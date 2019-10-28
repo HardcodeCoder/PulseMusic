@@ -46,11 +46,11 @@ import com.hardcodecoder.pulsemusic.model.AlbumModel;
 import com.hardcodecoder.pulsemusic.model.ArtistModel;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
-import com.hardcodecoder.pulsemusic.tasks.AlbumFetcher;
-import com.hardcodecoder.pulsemusic.tasks.ArtistFetcher;
-import com.hardcodecoder.pulsemusic.tasks.ShuffledListProvider;
-import com.hardcodecoder.pulsemusic.tasks.TrackFetcherFromStorage;
-import com.hardcodecoder.pulsemusic.tasks.TrackFetcherFromStorage.Sort;
+import com.hardcodecoder.pulsemusic.loaders.AlbumFetcher;
+import com.hardcodecoder.pulsemusic.loaders.ArtistFetcher;
+import com.hardcodecoder.pulsemusic.loaders.ShuffledListProvider;
+import com.hardcodecoder.pulsemusic.loaders.TrackFetcherFromStorage;
+import com.hardcodecoder.pulsemusic.loaders.TrackFetcherFromStorage.Sort;
 import com.hardcodecoder.pulsemusic.utils.UserInfo;
 import com.hardcodecoder.pulsemusic.viewmodel.HomeContentVM;
 

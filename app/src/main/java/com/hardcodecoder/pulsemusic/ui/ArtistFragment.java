@@ -28,7 +28,7 @@ import com.hardcodecoder.pulsemusic.activities.SettingsActivity;
 import com.hardcodecoder.pulsemusic.adapters.ArtistAdapter;
 import com.hardcodecoder.pulsemusic.interfaces.ItemClickListener;
 import com.hardcodecoder.pulsemusic.model.ArtistModel;
-import com.hardcodecoder.pulsemusic.tasks.ArtistFetcher;
+import com.hardcodecoder.pulsemusic.loaders.ArtistFetcher;
 import com.hardcodecoder.pulsemusic.utils.AppSettings;
 
 import java.util.List;

@@ -28,7 +28,7 @@ import com.hardcodecoder.pulsemusic.activities.SettingsActivity;
 import com.hardcodecoder.pulsemusic.adapters.AlbumsAdapter;
 import com.hardcodecoder.pulsemusic.interfaces.ItemClickListener;
 import com.hardcodecoder.pulsemusic.model.AlbumModel;
-import com.hardcodecoder.pulsemusic.tasks.AlbumFetcher;
+import com.hardcodecoder.pulsemusic.loaders.AlbumFetcher;
 import com.hardcodecoder.pulsemusic.utils.AppSettings;
 
 import java.util.List;
