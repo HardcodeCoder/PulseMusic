@@ -14,7 +14,7 @@ import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.adapters.TrackPickerAdapter;
 import com.hardcodecoder.pulsemusic.interfaces.ItemClickListener;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
-import com.hardcodecoder.pulsemusic.singleton.TrackCache;
+import com.hardcodecoder.pulsemusic.helper.TrackPickerHelper;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
 import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 
@@ -79,7 +79,7 @@ public class TrackPickerActivity extends Activity implements ItemClickListener.S
 
     private void dispatchUpdatedTrack() {
         if (pickedTracks.size() > 0)
-            TrackCache.getInstance().holdPickedTracks(pickedTracks);
+            TrackPickerHelper.getInstance().holdPickedTracks(pickedTracks);
         masterList = null;
     }
 

@@ -1,34 +1,22 @@
-package com.hardcodecoder.pulsemusic.singleton;
-
-import androidx.annotation.Nullable;
+package com.hardcodecoder.pulsemusic.helper;
 
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 
 import java.util.List;
 
-public class TrackCache {
+public class TrackPickerHelper {
 
-    private static final TrackCache ourInstance = new TrackCache();
+    private static final TrackPickerHelper ourInstance = new TrackPickerHelper();
 
-    public static TrackCache getInstance() {
+    public static TrackPickerHelper getInstance() {
         return ourInstance;
     }
 
-    private TrackCache() {
+    private TrackPickerHelper() {
     }
 
-    private List<MusicModel> recentlyAdded = null;
     private List<MusicModel> pickedTracks = null;
     private boolean holdingNewItem = false;
-
-    public void cacheRecentlyAdded(List<MusicModel> data) {
-        recentlyAdded = data;
-    }
-
-    @Nullable
-    public List<MusicModel> recentlyAddedTracks() {
-        return recentlyAdded;
-    }
 
     /*
      * Helper method to temporarily store tracks picked from {@Link TrackPickerActivity}

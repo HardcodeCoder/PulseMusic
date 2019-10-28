@@ -1,4 +1,4 @@
-package com.hardcodecoder.pulsemusic.tasks;
+package com.hardcodecoder.pulsemusic.loaders;
 
 import android.os.AsyncTask;
 

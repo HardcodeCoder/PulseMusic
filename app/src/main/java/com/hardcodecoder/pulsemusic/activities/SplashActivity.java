@@ -15,7 +15,7 @@ import androidx.core.content.ContextCompat;
 import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
-import com.hardcodecoder.pulsemusic.tasks.TrackFetcherFromStorage;
+import com.hardcodecoder.pulsemusic.loaders.TrackFetcherFromStorage;
 import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 
 import java.util.List;

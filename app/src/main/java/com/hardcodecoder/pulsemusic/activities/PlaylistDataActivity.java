@@ -29,7 +29,7 @@ import com.hardcodecoder.pulsemusic.helper.RecyclerViewGestureHelper;
 import com.hardcodecoder.pulsemusic.interfaces.ClickDragRvListener;
 import com.hardcodecoder.pulsemusic.interfaces.RecyclerViewGestures;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
-import com.hardcodecoder.pulsemusic.singleton.TrackCache;
+import com.hardcodecoder.pulsemusic.helper.TrackPickerHelper;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
 import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 import com.hardcodecoder.pulsemusic.utils.PlaylistStorageManager;
@@ -205,7 +205,7 @@ public class PlaylistDataActivity extends Activity implements ClickDragRvListene
     @Override
     protected void onStart() {
         super.onStart();
-        List<MusicModel> tracksToAdd = TrackCache.getInstance().giveTracks();
+        List<MusicModel> tracksToAdd = TrackPickerHelper.getInstance().giveTracks();
         if (null != tracksToAdd && tracksToAdd.size() > 0) {
             mList.addAll(tracksToAdd);
             isPlaylistDataModified = true;
