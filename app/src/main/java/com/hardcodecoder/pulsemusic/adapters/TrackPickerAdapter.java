@@ -4,6 +4,7 @@ import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +28,7 @@ public class TrackPickerAdapter extends RecyclerView.Adapter<TrackPickerAdapter.
     private SparseBooleanArray booleanArray = new SparseBooleanArray();
     @DrawableRes
     private int drawable;
+    private int lastPosition = -1;
 
     public TrackPickerAdapter(List<MusicModel> mList, LayoutInflater mInflater, ItemClickListener.Selector listener) {
         this.mList = mList;
@@ -63,6 +65,15 @@ public class TrackPickerAdapter extends RecyclerView.Adapter<TrackPickerAdapter.
     @Override
     public void onBindViewHolder(@NonNull TrackPickerSVH holder, int position) {
         holder.updateViewData(mList.get(position), booleanArray.get(holder.getAdapterPosition(), false));
+        holder.itemView.startAnimation(AnimationUtils.loadAnimation(holder.itemView.getContext(),
+                (position > lastPosition) ? R.anim.up_from_bottom : R.anim.down_from_top));
+        lastPosition = position;
+    }
+
+    @Override
+    public void onViewDetachedFromWindow(@NonNull TrackPickerSVH holder) {
+        super.onViewDetachedFromWindow(holder);
+        holder.itemView.clearAnimation();
     }
 
     @Override
