@@ -1,4 +1,4 @@
-package com.hardcodecoder.pulsemusic.tasks;
+package com.hardcodecoder.pulsemusic.loaders;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -35,15 +35,15 @@ public class ItemsLoader extends AsyncTask<Void, Void, List<MusicModel>> {
         List<MusicModel> listToReturn = null;
         if (null != listToWorkOn) {
             listToReturn = new ArrayList<>();
-            for (MusicModel md : listToWorkOn) {
-
-                if (choice == DetailsActivity.CATEGORY_ALBUM) {
+            if (choice == DetailsActivity.CATEGORY_ALBUM) {
+                for (MusicModel md : listToWorkOn) {
                     if (md.getAlbum().contains(title) || md.getAlbum().equals(title))
                         listToReturn.add(md);
-                } else if (choice == DetailsActivity.CATEGORY_ARTIST) {
-                    if (md.getArtist().contains(title) || md.getArtist().equals(title))
-                        listToReturn.add(md);
                 }
+            } else if (choice == DetailsActivity.CATEGORY_ARTIST) {
+                for (MusicModel md : listToWorkOn)
+                    if (/*md.getArtist().contains(title) ||*/ md.getArtist().equals(title))
+                        listToReturn.add(md);
 
             }
             if (listToReturn.size() == 0)
