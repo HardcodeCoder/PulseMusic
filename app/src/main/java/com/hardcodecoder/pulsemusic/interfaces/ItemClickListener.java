@@ -54,5 +54,11 @@ public interface ItemClickListener {
         void onUnselected(MusicModel md);
     }
 
+    interface SingleEvent {
+        /**
+         * @param pos Passes the Adapter position of that item clicked
+         */
+        void onClickItem(int pos);
+    }
 
 }
