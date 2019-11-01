@@ -49,8 +49,8 @@ public class TrackFetcherFromStorage extends AsyncTask<Void, Void, List<MusicMod
         final Cursor cursor = contentResolver.query(
                 uri,
                 cursor_cols,
-                getSelection(),
-                getSelectionArgs(),
+                null, //getSelection(),
+                null, //getSelectionArgs(),
                 mSortOrder);
 
         if (cursor != null && cursor.moveToFirst()) {
@@ -58,7 +58,6 @@ public class TrackFetcherFromStorage extends AsyncTask<Void, Void, List<MusicMod
             int titleColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE);
             int artistColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST);
             int albumColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM);
-            //int dataColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA);
             int albumIdColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID);
             int durationColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION);
 
@@ -68,22 +67,6 @@ public class TrackFetcherFromStorage extends AsyncTask<Void, Void, List<MusicMod
                 if (c == itemToScan) //if itemToScan == -1 then this will never execute since @link{id} is a +ve integer
                     break;
                 c++;
-
-                /*String artist = cursor.getString(cursor
-                        .getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST));
-                String album = cursor.getString(cursor
-                        .getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM));
-                String songName = cursor.getString(cursor
-                        .getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE));
-                String songPath = cursor.getString(cursor
-                        .getColumnIndexOrThrow(MediaStore.Audio.Media.DATA));
-                long albumId = cursor.getLong(cursor
-                        .getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID));
-                int duration = cursor.getInt(cursor
-                        .getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION));
-
-                final Uri sArtworkUri = Uri.parse("content://media/external/audio/albumart");
-                Uri albumArtUri = ContentUris.withAppendedId(sArtworkUri, albumId);*/
 
                 int _id = cursor.getInt(idColumnIndex);
                 String songName = cursor.getString(titleColumnIndex);

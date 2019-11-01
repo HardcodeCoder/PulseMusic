@@ -43,18 +43,16 @@ public class ArtistFetcher extends AsyncTask<Void, Void, List<ArtistModel>> {
                 mSort);
 
         if (cursor != null && cursor.moveToFirst()) {
+            int idColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Artists._ID);
+            int artistColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Artists.ARTIST);
+            int albumCountColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Artists.NUMBER_OF_ALBUMS);
+            int trackCountColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Artists.NUMBER_OF_TRACKS);
+
             do {
-                int id = cursor.getInt(cursor
-                        .getColumnIndexOrThrow(MediaStore.Audio.Artists._ID));
-
-                String artist = cursor.getString(cursor
-                        .getColumnIndexOrThrow(MediaStore.Audio.Artists.ARTIST));
-
-                int num_albums = cursor.getInt(cursor
-                        .getColumnIndexOrThrow(MediaStore.Audio.Artists.NUMBER_OF_ALBUMS));
-
-                int num_tracks = cursor.getInt(cursor
-                        .getColumnIndexOrThrow(MediaStore.Audio.Artists.NUMBER_OF_TRACKS));
+                int id = cursor.getInt(idColumnIndex);
+                String artist = cursor.getString(artistColumnIndex);
+                int num_albums = cursor.getInt(albumCountColumnIndex);
+                int num_tracks = cursor.getInt(trackCountColumnIndex);
 
                 data.add(new ArtistModel(id, artist, num_albums, num_tracks));
             } while (cursor.moveToNext());
