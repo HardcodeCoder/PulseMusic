@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/radio_group"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/radio_group_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="?primaryTextColor"
+        android:textSize="18sp"
+        android:text="@string/select_light_theme"/>
+
+    <RadioButton
+        android:id="@+id/rd_btn_1"
+        style="@style/RadioBtnText"
+        android:text="@string/cinnamon"/>
+
+    <RadioButton
+        android:id="@+id/rd_btn_2"
+        style="@style/RadioBtnText"
+        android:text="@string/green"/>
+
+    <RadioButton
+        android:id="@+id/rd_btn_3"
+        style="@style/RadioBtnText"
+        android:text="@string/ocean"/>
+
+    <RadioButton
+        android:id="@+id/rd_btn_4"
+        style="@style/RadioBtnText"
+        android:text="@string/orchid"/>
+
+    <RadioButton
+        android:id="@+id/rd_btn_5"
+        style="@style/RadioBtnText"
+        android:text="@string/purple"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_set"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/transparent"
+        android:text="@string/set"
+        android:textAllCaps="false" />
+
+</RadioGroup>
