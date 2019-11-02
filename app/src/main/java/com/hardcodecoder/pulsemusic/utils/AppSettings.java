@@ -66,11 +66,16 @@ public class AppSettings {
         return context.getSharedPreferences(UI_MODE_AUTO, Context.MODE_PRIVATE).getBoolean(UI_MODE_AUTO, false);
     }
 
-    public static void saveSelectedLightTheme(Context context, int id) {
+    /*public static void saveSelectedLightTheme(Context context, int id) {
         SharedPreferences.Editor editor = context.getSharedPreferences(ThemeStore.LIGHT_THEME_CATEGORY, Context.MODE_PRIVATE).edit();
         editor.putInt(ThemeStore.LIGHT_THEME_CATEGORY, id);
         editor.apply();
     }
+
+    public static int getSelectedLightTheme(Context context) {
+        return context.getSharedPreferences(ThemeStore.LIGHT_THEME_CATEGORY, Context.MODE_PRIVATE)
+                .getInt(ThemeStore.LIGHT_THEME_CATEGORY, ThemeStore.LIGHT_THEME_1);
+    }*/
 
     public static void saveSelectedDarkTheme(Context context, int id) {
         SharedPreferences.Editor editor = context.getSharedPreferences(ThemeStore.DARK_THEME_CATEGORY, Context.MODE_PRIVATE).edit();
@@ -78,13 +83,19 @@ public class AppSettings {
         editor.apply();
     }
 
-    public static int getSelectedLightTheme(Context context) {
-        return context.getSharedPreferences(ThemeStore.LIGHT_THEME_CATEGORY, Context.MODE_PRIVATE)
-                .getInt(ThemeStore.LIGHT_THEME_CATEGORY, ThemeStore.LIGHT_THEME_1);
-    }
-
     public static int getSelectedDarkTheme(Context context) {
         return context.getSharedPreferences(ThemeStore.DARK_THEME_CATEGORY, Context.MODE_PRIVATE)
                 .getInt(ThemeStore.DARK_THEME_CATEGORY, ThemeStore.DARK_THEME_1);
+    }
+
+    public static void saveSelectedAccentColor(Context context, int id) {
+        SharedPreferences.Editor editor = context.getSharedPreferences(ThemeStore.ACCENT_COLOR, Context.MODE_PRIVATE).edit();
+        editor.putInt(ThemeStore.ACCENT_COLOR, id);
+        editor.apply();
+    }
+
+    public static int getSelectedAccentColor (Context context) {
+        return context.getSharedPreferences(ThemeStore.ACCENT_COLOR, Context.MODE_PRIVATE)
+                .getInt(ThemeStore.ACCENT_COLOR, ThemeStore.PURPLE);
     }
 }
