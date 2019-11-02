@@ -5,11 +5,11 @@
 
     <style name="ActivityThemeDark" parent="PulseMusic.Theme.Dark" />
 
-    <style name="ActivityThemeBlackWhite" parent="PulseMusic.Theme.Light.BlackWhite" />
+    <!-- <style name="ActivityThemeBlackWhite" parent="PulseMusic.Theme.Light.BlackWhite" /> -->
 
     <style name="ActivityThemeKindaDark" parent="PulseMusic.Theme.Dark.Kinda" />
 
-    <style name="ActivityThemeSweetMorning" parent="PulseMusic.Theme.Light.SweetMorning" />
+    <!-- <style name="ActivityThemeSweetMorning" parent="PulseMusic.Theme.Light.SweetMorning" /> -->
 
     <style name="ActivityThemeBlack" parent="PulseMusic.Theme.Dark.Black" />
 

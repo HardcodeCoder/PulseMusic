@@ -55,9 +55,9 @@
 
         <item name="colorPrimary">@color/color_primary_light</item>
         <item name="colorPrimaryDark">@color/color_primary_variant_light</item>
-        <item name="colorAccent">@color/secondary_color_light</item>
+        <!-- <item name="colorAccent">@color/secondary_color_light</item>
 
-        <item name="secondaryColor">@color/secondary_color_light</item>
+        <item name="secondaryColor">@color/secondary_color_light</item> -->
         <item name="colorOnSecondary">@color/on_secondary_light</item>
 
         <item name="windowBackgroundColor">@color/window_background_light</item>
@@ -93,9 +93,9 @@
 
         <item name="colorPrimary">@color/color_primary_dark</item>
         <item name="colorPrimaryDark">@color/color_primary_variant_dark</item>
-        <item name="colorAccent">@color/secondary_color_dark</item>
+        <!-- <item name="colorAccent">@color/secondary_color_dark</item>
 
-        <item name="secondaryColor">@color/secondary_color_dark</item>
+        <item name="secondaryColor">@color/secondary_color_dark</item> -->
         <item name="colorOnSecondary">@color/on_secondary_dark</item>
 
         <item name="windowBackgroundColor">@color/window_background_dark</item>
@@ -127,11 +127,11 @@
     </style>
 
 
-    <style name="PulseMusic.Theme.Light.BlackWhite">
+    <!-- <style name="PulseMusic.Theme.Light.BlackWhite">
         <item name="colorAccent">@color/secondary_color_black_white</item>
         <item name="secondaryColor">@color/secondary_color_black_white</item>
         <item name="colorOnSecondary">@color/on_secondary_black_white</item>
-    </style>
+    </style> -->
 
     <style name="PulseMusic.Theme.Dark.Kinda">
         <item name="android:windowBackground">@color/window_background_kinda_dark</item>
@@ -141,18 +141,18 @@
         <item name="surfaceColor">@color/surface_color_kinda_dark</item>
     </style>
 
-    <style name="PulseMusic.Theme.Light.SweetMorning">
+    <!-- <style name="PulseMusic.Theme.Light.SweetMorning">
         <item name="colorAccent">@color/secondary_color_sweet_white</item>
         <item name="secondaryColor">@color/secondary_color_sweet_white</item>
         <item name="colorOnSecondary">@color/on_secondary_sweet_white</item>
-    </style>
+    </style> -->
 
     <style name="PulseMusic.Theme.Dark.Black">
         <item name="android:windowBackground">@color/window_background_black_dark</item>
         <item name="colorPrimary">@color/color_primary_black_dark</item>
         <item name="colorPrimaryDark">@color/color_primary_variant_black_dark</item>
-        <item name="colorAccent">@color/secondary_color_black_dark</item>
-        <item name="secondaryColor">@color/secondary_color_black_dark</item>
+        <!-- <item name="colorAccent">@color/secondary_color_black_dark</item>
+        <item name="secondaryColor">@color/secondary_color_black_dark</item> -->
         <item name="colorOnSecondary">@color/on_secondary_black_dark</item>
         <item name="windowBackgroundColor">@color/window_background_black_dark</item>
         <item name="surfaceColor">@color/surface_color_black_dark</item>
