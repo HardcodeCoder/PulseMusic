@@ -1,6 +1,5 @@
 package com.hardcodecoder.pulsemusic.activities;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
@@ -26,7 +25,6 @@ import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.playback.PlaybackManager;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
-import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 import com.hardcodecoder.pulsemusic.utils.PlaylistStorageManager;
 
 import java.util.ArrayList;
@@ -36,7 +34,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
-public class NowPlayingActivity extends Activity {
+public class NowPlayingActivity extends PMBActivity {
 
     private final Handler mHandler = new Handler();
     private final ScheduledExecutorService mExecutorService = Executors.newSingleThreadScheduledExecutor();
@@ -78,8 +76,6 @@ public class NowPlayingActivity extends Activity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setTheme(ThemeManager.getThemeToApply());
-
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_now_playing);

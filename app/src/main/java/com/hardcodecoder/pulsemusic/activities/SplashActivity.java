@@ -1,7 +1,6 @@
 package com.hardcodecoder.pulsemusic.activities;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -16,18 +15,16 @@ import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
 import com.hardcodecoder.pulsemusic.loaders.TrackFetcherFromStorage;
-import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 
 import java.util.List;
 
 
-public class SplashActivity extends Activity implements TrackFetcherFromStorage.TaskDelegate {
+public class SplashActivity extends PMBActivity implements TrackFetcherFromStorage.TaskDelegate {
 
     private static final int REQUEST_CODE = 69;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(ThemeManager.getThemeToApply());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         getPermission();

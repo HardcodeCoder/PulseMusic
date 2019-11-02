@@ -1,6 +1,5 @@
 package com.hardcodecoder.pulsemusic.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
@@ -16,19 +15,17 @@ import com.hardcodecoder.pulsemusic.interfaces.ItemClickListener;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.helper.TrackPickerHelper;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
-import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TrackPickerActivity extends Activity implements ItemClickListener.Selector {
+public class TrackPickerActivity extends PMBActivity implements ItemClickListener.Selector {
 
     private List<MusicModel> pickedTracks = new ArrayList<>();
     private List<MusicModel> masterList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setTheme(ThemeManager.getThemeToApply());
         overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
 
         super.onCreate(savedInstanceState);

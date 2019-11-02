@@ -1,6 +1,5 @@
 package com.hardcodecoder.pulsemusic.activities;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.graphics.Color;
 import android.media.browse.MediaBrowser;
@@ -28,12 +27,11 @@ import com.hardcodecoder.pulsemusic.interfaces.AsyncTaskCallback;
 import com.hardcodecoder.pulsemusic.interfaces.ItemClickListener;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
-import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchActivity extends Activity implements ItemClickListener.Simple, AsyncTaskCallback.Simple {
+public class SearchActivity extends PMBActivity implements ItemClickListener.Simple, AsyncTaskCallback.Simple {
 
     private List<MusicModel> mSearchResult;
     private List<String> pendingUpdates = new ArrayList<>();
@@ -48,7 +46,6 @@ public class SearchActivity extends Activity implements ItemClickListener.Simple
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setTheme(ThemeManager.getThemeToApply());
         overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
 
         super.onCreate(savedInstanceState);

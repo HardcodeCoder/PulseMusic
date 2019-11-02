@@ -1,6 +1,5 @@
 package com.hardcodecoder.pulsemusic.activities;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.media.browse.MediaBrowser;
@@ -31,14 +30,13 @@ import com.hardcodecoder.pulsemusic.interfaces.RecyclerViewGestures;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.helper.TrackPickerHelper;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
-import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 import com.hardcodecoder.pulsemusic.utils.PlaylistStorageManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class PlaylistDataActivity extends Activity implements ClickDragRvListener, RecyclerViewGestures.GestureCallback {
+public class PlaylistDataActivity extends PMBActivity implements ClickDragRvListener, RecyclerViewGestures.GestureCallback {
 
     public static final String TITLE_KEY = "playlist name";
     public static final String ITEM_NUMBER_KEY = "playlist number";
@@ -56,7 +54,6 @@ public class PlaylistDataActivity extends Activity implements ClickDragRvListene
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setTheme(ThemeManager.getThemeToApply());
         super.onCreate(savedInstanceState);
         connectToSession();
         tm = TrackManager.getInstance();
