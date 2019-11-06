@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbarStyle="insideOverlay"
+    android:paddingStart="0dp"
+    android:paddingEnd=".5dp"
     android:scrollbars="vertical"
     android:scrollbarThumbVertical="@drawable/recycler_view_scroll_thumb"
     app:layout_behavior="@string/appbar_scrolling_view_behavior" />
