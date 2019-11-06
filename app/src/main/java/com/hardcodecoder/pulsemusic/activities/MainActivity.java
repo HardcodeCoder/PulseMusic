@@ -11,7 +11,6 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -30,7 +29,7 @@ import com.hardcodecoder.pulsemusic.ui.LibraryFragment;
 import com.hardcodecoder.pulsemusic.ui.PlaylistCardFragment;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends PMBActivity {
 
     public static final String TAG = "MainActivity";
     private static final String HOME = "HomeFragment";
@@ -57,13 +56,13 @@ public class MainActivity extends AppCompatActivity {
     private Fragment activeFrag = null;
     private MediaBrowser mMediaBrowser;
     private Fragment artistFrag = null;
-    @StyleRes
-    private int mCurrentTheme;
+    @StyleRes private int mCurrentTheme;
+    @StyleRes private int mCurrentAccent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mCurrentTheme = ThemeManager.getThemeToApply();
-        setTheme(mCurrentTheme);
+        mCurrentAccent = ThemeManager.getAccentToApply();
 
         super.onCreate(null); // Pass null to prevent restoration of fragments on activity recreate
 
@@ -221,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        if (mCurrentTheme != ThemeManager.getThemeToApply()) {
+        if ((mCurrentTheme != ThemeManager.getThemeToApply()) || (mCurrentAccent != ThemeManager.getAccentToApply())) {
             supportInvalidateOptionsMenu();
             recreate();
         }
