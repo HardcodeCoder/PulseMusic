@@ -5,63 +5,95 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/settings_close_btn"
             style="@style/ButtonStyle24"
-            android:src="@drawable/ic_close"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="24dp"
+            android:contentDescription="@string/iv_content_desc"
+            android:src="@drawable/ic_close"
             app:layout_constraintBottom_toTopOf="@id/settings"
-            android:contentDescription="@string/iv_content_desc" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp" />
 
         <TextView
             android:id="@+id/settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/settings"
             android:fontFamily="@font/product_black"
-            android:textSize="36sp"
+            android:text="@string/settings"
             android:textColor="?attr/primaryTextColor"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="36sp"
+            app:layout_constraintStart_toStartOf="@id/start_guide"
             app:layout_constraintTop_toBottomOf="@id/settings_close_btn" />
+
+        <TextView
+            android:id="@+id/settings_theme_title"
+            style="@style/SettingItemHeadline18"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:text="@string/select_theme_title"
+            app:layout_constraintStart_toStartOf="@id/start_guide"
+            app:layout_constraintTop_toBottomOf="@id/settings" />
 
         <TextView
             android:id="@+id/setting_switch_1_title"
             style="@style/SettingItemTextStyle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/settings" />
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@id/end_guide"
+            app:layout_constraintStart_toStartOf="@id/start_guide"
+            app:layout_constraintTop_toBottomOf="@id/settings_theme_title" />
 
         <Switch
             android:id="@+id/settings_toggle_dark_theme"
             style="@style/SettingItemSwitchStyle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/setting_switch_1_title"
-            app:layout_constraintBottom_toBottomOf="@id/setting_switch_1_title" />
+            app:layout_constraintBottom_toBottomOf="@id/setting_switch_1_title"
+            app:layout_constraintEnd_toEndOf="@id/end_guide"
+            app:layout_constraintTop_toTopOf="@id/setting_switch_1_title" />
 
         <TextView
             android:id="@+id/settings_switch_2_title"
             style="@style/SettingItemTextStyle"
             android:text="@string/auto_theme_disabled"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/end_guide"
+            app:layout_constraintStart_toStartOf="@id/start_guide"
             app:layout_constraintTop_toBottomOf="@id/setting_switch_1_title" />
 
         <Switch
             android:id="@+id/settings_toggle_auto_theme"
             style="@style/SettingItemSwitchStyle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/settings_switch_2_title"
-            app:layout_constraintBottom_toBottomOf="@id/settings_switch_2_title" />
+            app:layout_constraintBottom_toBottomOf="@id/settings_switch_2_title"
+            app:layout_constraintEnd_toEndOf="@id/end_guide"
+            app:layout_constraintTop_toTopOf="@id/settings_switch_2_title" />
 
         <TextView
+            android:id="@+id/accents_options"
+            style="@style/SettingItemTextStyle"
+            android:text="@string/change_accent_color"
+            app:layout_constraintEnd_toEndOf="@id/end_guide"
+            app:layout_constraintStart_toStartOf="@id/start_guide"
+            app:layout_constraintTop_toBottomOf="@id/settings_toggle_auto_theme" />
+
+        <!-- <TextView
             android:id="@+id/settings_theme_title"
             style="@style/SettingItemHeadline18"
-            app:layout_constraintTop_toBottomOf="@id/settings_toggle_auto_theme"
+            app:layout_constraintTop_toBottomOf="@id/accents_options"
             android:text="@string/select_theme_title"
             android:layout_marginTop="16dp"
             android:padding="8dp"
@@ -72,14 +104,15 @@
             style="@style/SettingItemTextStyle"
             android:text="@string/select_light_theme"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/settings_theme_title" />
+            app:layout_constraintTop_toBottomOf="@id/settings_theme_title" /> -->
 
         <TextView
             android:id="@+id/dark_theme_options"
             style="@style/SettingItemTextStyle"
             android:text="@string/select_dark_theme"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/light_theme_options" />
+            app:layout_constraintEnd_toEndOf="@id/end_guide"
+            app:layout_constraintStart_toStartOf="@id/start_guide"
+            app:layout_constraintTop_toBottomOf="@id/accents_options" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
