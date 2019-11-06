@@ -150,6 +150,8 @@ public class SettingsActivity extends PMBActivity {
                         ThemeManager.setSelectedAccentColor(this, ThemeStore.PURPLE);
                 }
                 isAccentChanged = false;
+                if(window.isShowing())
+                    window.dismiss();
                 restart();
             }
         });
