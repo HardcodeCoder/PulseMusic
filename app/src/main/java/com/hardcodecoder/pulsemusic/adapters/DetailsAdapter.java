@@ -56,7 +56,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.DetailsS
         }
 
         void updateData(MusicModel md) {
-            title.setText("\u2022 " + (getAdapterPosition() + 1) + "    " + md.getSongName());
+            title.setText(String.format("\u2022 " + "%d" + "    " + md.getSongName(), getAdapterPosition() + 1));
 
         }
     }
