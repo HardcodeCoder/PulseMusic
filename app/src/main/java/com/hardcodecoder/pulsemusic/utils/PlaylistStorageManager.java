@@ -41,7 +41,7 @@ public class PlaylistStorageManager {
     @SuppressWarnings("unchecked")
     public static List<MusicModel> getRecentTracks(Context mContext) {
         FileInputStream inputStream;
-        List<MusicModel> list = null;
+        List<MusicModel> list = new ArrayList<>();
         try {
             inputStream = mContext.openFileInput(RECENT_TRACKS_FILE_NAME);
             ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
