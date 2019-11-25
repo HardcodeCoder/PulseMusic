@@ -33,7 +33,7 @@ public class AlbumFetcher extends AsyncTask<Void, Void, List<AlbumModel>> {
     protected List<AlbumModel> doInBackground(Void... voids) {
         String[] col = {MediaStore.Audio.Albums._ID,
                 MediaStore.Audio.Albums.ALBUM,
-                MediaStore.Audio.Albums.ALBUM_ID,
+                MediaStore.Audio.Albums._ID,
                 MediaStore.Audio.Albums.NUMBER_OF_SONGS};
         final Cursor cursor = mContentResolver.query(
                 MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI,
@@ -45,7 +45,7 @@ public class AlbumFetcher extends AsyncTask<Void, Void, List<AlbumModel>> {
         if (cursor != null && cursor.moveToFirst()) {
             int idColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Albums._ID);
             int albumColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Albums.ALBUM);
-            int albumIdColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Albums.ALBUM_ID);
+            int albumIdColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Albums._ID);
             int songCountColumnIndex = cursor.getColumnIndexOrThrow(MediaStore.Audio.Albums.NUMBER_OF_SONGS);
             final Uri sArtworkUri = Uri.parse("content://media/external/audio/albumart");
             do {
