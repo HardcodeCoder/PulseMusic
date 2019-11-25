@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    app:liftOnScroll="true">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:layout_marginTop="24dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="32dp"
         app:layout_scrollFlags="scroll|enterAlways|snap"
-        app:titleTextAppearance="@style/ToolbarTitleTextAppearance"
         app:navigationIcon="@drawable/ic_close"
-        app:popupTheme="@style/PopupMenu" />
+        app:popupTheme="@style/ToolbarPopupTheme"
+        app:titleTextAppearance="@style/ToolbarTitleTextAppearance"
+        tools:title="Toolbar" />
 
 </com.google.android.material.appbar.AppBarLayout>
