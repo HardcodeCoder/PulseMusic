@@ -1,12 +1,8 @@
 package com.hardcodecoder.pulsemusic.activities;
 
-import android.content.ComponentName;
 import android.content.Intent;
-import android.media.browse.MediaBrowser;
 import android.media.session.MediaController;
-import android.media.session.MediaSession;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.Toast;
@@ -21,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.hardcodecoder.pulsemusic.PMS;
 import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.adapters.PlaylistDataAdapter;
 import com.hardcodecoder.pulsemusic.helper.RecyclerViewGestureHelper;
@@ -36,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class PlaylistDataActivity extends PMBActivity implements ClickDragRvListener, RecyclerViewGestures.GestureCallback {
+public class PlaylistDataActivity extends MediaSessionActivity implements ClickDragRvListener, RecyclerViewGestures.GestureCallback {
 
     public static final String TITLE_KEY = "playlist name";
     public static final String ITEM_NUMBER_KEY = "playlist number";
@@ -45,17 +40,16 @@ public class PlaylistDataActivity extends PMBActivity implements ClickDragRvList
     private PlaylistDataAdapter adapter;
     private boolean isPlaylistDataModified = false;
     private int mPlaylistCardIndex;
-    private MediaBrowser mMediaBrowser;
+    //private MediaBrowser mMediaBrowser;
     private TrackManager tm;
     private ItemTouchHelper itemTouchHelper;
-    private MediaController mController;
+    //private MediaController mController;
     private String playlistName;
     private boolean isFavPlaylist = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        connectToSession();
         tm = TrackManager.getInstance();
         setContentView(R.layout.activity_playlist_data);
         if (getIntent().getExtras() != null) {
@@ -169,11 +163,16 @@ public class PlaylistDataActivity extends PMBActivity implements ClickDragRvList
     }
 
     private void play() {
-        if (mController != null)
-            mController.getTransportControls().play();
+        /*if (mController != null)
+            mController.getTransportControls().play();*/
+        playMedia();
     }
 
-    private void connectToSession() {
+    @Override
+    public void onMediaServiceConnected(MediaController controller) {
+    }
+
+    /*private void connectToSession() {
         mMediaBrowser = new MediaBrowser(this,
                 new ComponentName(this, PMS.class),
                 // Which MediaBrowserService
@@ -197,7 +196,7 @@ public class PlaylistDataActivity extends PMBActivity implements ClickDragRvList
                 },
                 null); // optional Bundle
         mMediaBrowser.connect();
-    }
+    }*/
 
     @Override
     protected void onStart() {
@@ -227,8 +226,9 @@ public class PlaylistDataActivity extends PMBActivity implements ClickDragRvList
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mMediaBrowser != null) {
+        /*if (mMediaBrowser != null) {
             mMediaBrowser.disconnect();
-        }
+        }*/
+        disconnectFromMediaSession();
     }
 }

@@ -1,12 +1,8 @@
 package com.hardcodecoder.pulsemusic.activities;
 
-import android.content.ComponentName;
 import android.graphics.drawable.Drawable;
-import android.media.browse.MediaBrowser;
 import android.media.session.MediaController;
-import android.media.session.MediaSession;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
@@ -15,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +20,6 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.hardcodecoder.pulsemusic.GlideApp;
-import com.hardcodecoder.pulsemusic.PMS;
 import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.adapters.DetailsAdapter;
 import com.hardcodecoder.pulsemusic.interfaces.AsyncTaskCallback;
@@ -33,14 +27,12 @@ import com.hardcodecoder.pulsemusic.interfaces.LibraryItemClickListener;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
 import com.hardcodecoder.pulsemusic.loaders.ItemsLoader;
-import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 import com.hardcodecoder.pulsemusic.ui.CustomBottomSheet;
 
 import java.util.List;
 
-public class DetailsActivity extends AppCompatActivity implements AsyncTaskCallback.Simple, LibraryItemClickListener {
+public class DetailsActivity extends MediaSessionActivity implements AsyncTaskCallback.Simple, LibraryItemClickListener {
 
-    private MediaBrowser mMediaBrowser;
     private String title;
     private List<MusicModel> mList;
     private TrackManager tm;
@@ -53,10 +45,8 @@ public class DetailsActivity extends AppCompatActivity implements AsyncTaskCallb
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setTheme(ThemeManager.getThemeToApply());
         supportPostponeEnterTransition();
         super.onCreate(savedInstanceState);
-        connectToSession();
         setContentView(R.layout.activity_details);
         tm = TrackManager.getInstance();
         String art = getIntent().getStringExtra(KEY_ART_URL);
@@ -123,7 +113,8 @@ public class DetailsActivity extends AppCompatActivity implements AsyncTaskCallb
     public void onItemClick(int pos) {
         if (null != mList) {
             tm.buildDataList(mList, pos);
-            getMediaController().getTransportControls().play();
+            //getMediaController().getTransportControls().play();
+            playMedia();
         }
     }
 
@@ -152,7 +143,7 @@ public class DetailsActivity extends AppCompatActivity implements AsyncTaskCallb
         bottomSheetDialog.show();
     }
 
-    private void connectToSession() {
+    /*private void connectToSession() {
         mMediaBrowser = new MediaBrowser(this, new ComponentName(DetailsActivity.this, PMS.class),
                 // Which MediaBrowserService
                 new MediaBrowser.ConnectionCallback() {
@@ -174,6 +165,10 @@ public class DetailsActivity extends AppCompatActivity implements AsyncTaskCallb
 
                 }, null); // optional Bundle
         mMediaBrowser.connect();
+    }*/
+
+    @Override
+    public void onMediaServiceConnected(MediaController controller) {
     }
 
     @Override
@@ -185,7 +180,8 @@ public class DetailsActivity extends AppCompatActivity implements AsyncTaskCallb
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mMediaBrowser != null)
-            mMediaBrowser.disconnect();
+        /*if (mMediaBrowser != null)
+            mMediaBrowser.disconnect();*/
+        disconnectFromMediaSession();
     }
 }

@@ -1,10 +1,8 @@
 package com.hardcodecoder.pulsemusic.activities;
 
-import android.content.ComponentName;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaMetadata;
-import android.media.browse.MediaBrowser;
 import android.media.session.MediaController;
 import android.media.session.PlaybackState;
 import android.os.Bundle;
@@ -20,7 +18,6 @@ import androidx.annotation.Nullable;
 
 import com.hardcodecoder.pulsemusic.GlideApp;
 import com.hardcodecoder.pulsemusic.GlideConstantArtifacts;
-import com.hardcodecoder.pulsemusic.PMS;
 import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.playback.PlaybackManager;
@@ -34,7 +31,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
-public class NowPlayingActivity extends PMBActivity {
+public class NowPlayingActivity extends MediaSessionActivity {
 
     private final Handler mHandler = new Handler();
     private final ScheduledExecutorService mExecutorService = Executors.newSingleThreadScheduledExecutor();
@@ -43,7 +40,7 @@ public class NowPlayingActivity extends PMBActivity {
     private SeekBar seekBar;
     private final Runnable mUpdateProgressTask = this::updateProgressBar;
     private ImageButton mPlayPause;
-    private MediaBrowser mMediaBrowser;
+    //private MediaBrowser mMediaBrowser;
     private MediaController mController;
     private TextView artistAlbums;
     private PlaybackState mState;
@@ -79,8 +76,6 @@ public class NowPlayingActivity extends PMBActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_now_playing);
-
-        connectToMediaSession();
         tm = TrackManager.getInstance();
         /*
          * Referencing Views
@@ -265,7 +260,7 @@ public class NowPlayingActivity extends PMBActivity {
         }
     }
 
-    private void connectToMediaSession() {
+    /*private void connectToSession() {
         mMediaBrowser = new MediaBrowser(this, new ComponentName(this, PMS.class), new MediaBrowser.ConnectionCallback() {
             @Override
             public void onConnected() {
@@ -300,6 +295,31 @@ public class NowPlayingActivity extends PMBActivity {
             }
         }, null);
         mMediaBrowser.connect();
+    }*/
+
+    @Override
+    public void onMediaServiceConnected(MediaController controller) {
+        mController = controller;
+        mController.registerCallback(mCallback);
+        updateMetaData(mController.getMetadata());
+        mState = mController.getPlaybackState();
+        if (null != mState) {
+            long elapsedProgress = mState.getPosition() / 250;
+            progress = (int) elapsedProgress;
+            seekBar.setProgress(progress);
+
+            //Keep this block here, moving it to onCreate can
+            //create issues if this gets executed before onConnected
+            //onClick listener will not be set due to null state
+            //mState variable gets updated from onPlaybackStateChanged hence
+            //latest state is check before invoking any action
+            mPlayPause.setOnClickListener(v -> {
+                if (mState.getState() == PlaybackState.STATE_PLAYING)
+                    mController.getTransportControls().pause();
+                else mController.getTransportControls().play();
+            });
+        }
+        updatePlaybackState(mController.getPlaybackState());
     }
 
     private void scheduleSeekBarUpdate() {
@@ -335,7 +355,8 @@ public class NowPlayingActivity extends PMBActivity {
         stopSeekBarUpdate();
         if (!mExecutorService.isShutdown())
             mExecutorService.shutdown();
-        mMediaBrowser.disconnect();
+        //mMediaBrowser.disconnect();
+        disconnectFromMediaSession();
         super.onDestroy();
     }
 }

@@ -1,14 +1,10 @@
 package com.hardcodecoder.pulsemusic.activities;
 
-import android.content.ComponentName;
 import android.graphics.Color;
-import android.media.browse.MediaBrowser;
 import android.media.session.MediaController;
-import android.media.session.MediaSession;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -20,7 +16,6 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hardcodecoder.pulsemusic.PMS;
 import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.adapters.SearchAdapter;
 import com.hardcodecoder.pulsemusic.interfaces.AsyncTaskCallback;
@@ -31,12 +26,10 @@ import com.hardcodecoder.pulsemusic.singleton.TrackManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchActivity extends PMBActivity implements ItemClickListener.Simple, AsyncTaskCallback.Simple {
+public class SearchActivity extends MediaSessionActivity implements ItemClickListener.Simple, AsyncTaskCallback.Simple {
 
     private List<MusicModel> mSearchResult;
     private List<String> pendingUpdates = new ArrayList<>();
-    private MediaBrowser mMediaBrowser;
-    private MediaController mController;
     private SearchAdapter adapter;
     private TextView tv;
     private TrackManager tm;
@@ -50,7 +43,6 @@ public class SearchActivity extends PMBActivity implements ItemClickListener.Sim
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        connectToSession();
 
         findViewById(R.id.search_activity_close_btn).setOnClickListener(v -> {
             finish();
@@ -125,7 +117,8 @@ public class SearchActivity extends PMBActivity implements ItemClickListener.Sim
     @Override
     public void onItemClick(int pos) {
         tm.buildDataList(mSearchResult, pos);
-        mController.getTransportControls().play();
+        //mController.getTransportControls().play();
+        playMedia();
     }
 
     @Override
@@ -164,7 +157,7 @@ public class SearchActivity extends PMBActivity implements ItemClickListener.Sim
 
     }
 
-    private void connectToSession() {
+    /*private void connectToSession() {
         mMediaBrowser = new MediaBrowser(this,
                 new ComponentName(this, PMS.class),
                 // Which MediaBrowserService
@@ -187,14 +180,19 @@ public class SearchActivity extends PMBActivity implements ItemClickListener.Sim
                 },
                 null); // optional Bundle
         mMediaBrowser.connect();
+    }*/
+
+    @Override
+    public void onMediaServiceConnected(MediaController controller) {
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         pendingUpdates.clear();
-        if (mMediaBrowser != null)
-            mMediaBrowser.disconnect();
+        /*if (mMediaBrowser != null)
+            mMediaBrowser.disconnect();*/
+        disconnectFromMediaSession();
         rv.setAdapter(null);
 
     }

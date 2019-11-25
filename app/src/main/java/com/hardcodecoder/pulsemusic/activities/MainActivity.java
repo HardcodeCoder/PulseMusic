@@ -1,10 +1,8 @@
 package com.hardcodecoder.pulsemusic.activities;
 
-import android.content.ComponentName;
 import android.media.MediaMetadata;
 import android.media.browse.MediaBrowser;
 import android.media.session.MediaController;
-import android.media.session.MediaSession;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.hardcodecoder.pulsemusic.PMS;
 import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
 import com.hardcodecoder.pulsemusic.loaders.TrackFetcherFromStorage;
@@ -29,7 +26,7 @@ import com.hardcodecoder.pulsemusic.ui.LibraryFragment;
 import com.hardcodecoder.pulsemusic.ui.PlaylistCardFragment;
 
 
-public class MainActivity extends PMBActivity {
+public class MainActivity extends MediaSessionActivity {
 
     public static final String TAG = "MainActivity";
     private static final String HOME = "HomeFragment";
@@ -75,8 +72,6 @@ public class MainActivity extends PMBActivity {
             }, Sort.TITLE_ASC);
             ml.execute();
         } else setUpMainContents(savedInstanceState);
-
-        connectToSession();
     }
 
     private void setUpMainContents(Bundle savedInstanceState) {
@@ -176,7 +171,7 @@ public class MainActivity extends PMBActivity {
         activeFrag = switchTo;
     }
 
-    private void connectToSession() {
+    /*private void connectToSession() {
         mMediaBrowser = new MediaBrowser(this, new ComponentName(MainActivity.this, PMS.class),
                 // Which MediaBrowserService
                 new MediaBrowser.ConnectionCallback() {
@@ -205,6 +200,17 @@ public class MainActivity extends PMBActivity {
 
                 }, null); // optional Bundle
         mMediaBrowser.connect();
+    }*/
+
+    @Override
+    public void onMediaServiceConnected(MediaController controller) {
+        mController = controller;
+        mMediaBrowser = getMediaBrowser();
+        //Register callback to receive metadata changes
+        mController.registerCallback(mCallback);
+
+        if (mController.getMetadata() != null)
+            showControlsFragment();
     }
 
     private void showControlsFragment() {
