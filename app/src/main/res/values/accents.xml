@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Accent colors -->
+    <color name="cinnamon">#AF6050</color>
+    <color name="cinnamon_dark">#C3A5A2</color>
+
+    <color name="green">#1B873B</color>
+    <color name="green_dark">#85C38B</color>
+
+    <color name="ocean">#0C80A7</color>
+    <color name="ocean_dark">#28BDD8</color>
+
+    <color name="orchid">#C42CC9</color>
+    <color name="orchid_dark">#E38AEA</color>
+
+    <color name="blue">#1A73E7</color>
+    <color name="blue_dark">#89B4F8</color>
+
+    <color name="purple">#7459FF</color>
+    <color name="purple_dark">#B5A9FC</color>
+
+    <color name="space">#47618A</color>
+    <color name="space_dark">#98ABCB</color>
+
+</resources>

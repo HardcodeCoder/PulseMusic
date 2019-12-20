@@ -22,7 +22,9 @@ public class ThemeStore {
     public static final int GREEN = 11;
     public static final int OCEAN = 12;
     public static final int ORCHID = 13;
-    public static final int PURPLE = 14;
+    public static final int BLUE = 14;
+    public static final int PURPLE = 15;
+    public static final int SPACE = 16;
 
 
     @StyleRes
@@ -56,6 +58,10 @@ public class ThemeStore {
                     return R.style.OceanDark;
                 case ORCHID:
                     return R.style.OrchidDark;
+                case BLUE:
+                    return R.style.BlueDark;
+                case SPACE:
+                    return R.style.SpaceDark;
                 case PURPLE:
                 default:
                     return R.style.PurpleDark;
@@ -70,6 +76,10 @@ public class ThemeStore {
                     return R.style.Ocean;
                 case ORCHID:
                     return R.style.Orchid;
+                case BLUE:
+                    return R.style.Blue;
+                case SPACE:
+                    return R.style.Space;
                 case PURPLE:
                 default:
                     return R.style.Purple;

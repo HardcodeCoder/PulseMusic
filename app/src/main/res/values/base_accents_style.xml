@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Cinnamon">
+        <item name="colorAccent">@color/cinnamon</item>
+        <item name="secondaryColor">@color/cinnamon</item>
+    </style>
+
+    <style name="Green">
+        <item name="colorAccent">@color/green</item>
+        <item name="secondaryColor">@color/green</item>
+    </style>
+
+    <style name="Ocean">
+        <item name="colorAccent">@color/ocean</item>
+        <item name="secondaryColor">@color/ocean</item>
+    </style>
+
+    <style name="Orchid">
+        <item name="colorAccent">@color/orchid</item>
+        <item name="secondaryColor">@color/orchid</item>
+    </style>
+
+    <style name="Blue">
+        <item name="colorAccent">@color/blue</item>
+        <item name="secondaryColor">@color/blue</item>
+    </style>
+
+    <style name="Purple">
+        <item name="colorAccent">@color/purple</item>
+        <item name="secondaryColor">@color/purple</item>
+    </style>
+
+    <style name="Space">
+        <item name="colorAccent">@color/space</item>
+        <item name="secondaryColor">@color/space</item>
+    </style>
+
+
+    <style name="CinnamonDark">
+        <item name="colorAccent">@color/cinnamon_dark</item>
+        <item name="secondaryColor">@color/cinnamon_dark</item>
+    </style>
+
+    <style name="GreenDark">
+        <item name="colorAccent">@color/green_dark</item>
+        <item name="secondaryColor">@color/green_dark</item>
+    </style>
+
+    <style name="OceanDark">
+        <item name="colorAccent">@color/ocean_dark</item>
+        <item name="secondaryColor">@color/ocean_dark</item>
+    </style>
+
+    <style name="OrchidDark">
+        <item name="colorAccent">@color/orchid_dark</item>
+        <item name="secondaryColor">@color/orchid_dark</item>
+    </style>
+
+    <style name="BlueDark">
+        <item name="colorAccent">@color/blue_dark</item>
+        <item name="secondaryColor">@color/blue_dark</item>
+    </style>
+
+    <style name="PurpleDark">
+        <item name="colorAccent">@color/purple_dark</item>
+        <item name="secondaryColor">@color/purple_dark</item>
+    </style>
+
+    <style name="SpaceDark">
+        <item name="colorAccent">@color/space_dark</item>
+        <item name="secondaryColor">@color/space_dark</item>
+    </style>
+
+</resources>
