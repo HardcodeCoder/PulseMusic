@@ -8,7 +8,7 @@
     <color name="color_primary_variant_light">@color/window_background_light</color>
 
 
-    <color name="secondary_color_light">#6200EA</color>
+    <color name="secondary_color_light">@color/purple</color>
     <!-- Color that appear over secondary -->
     <color name="on_secondary_light">@color/md_white</color>
 
@@ -53,7 +53,7 @@
     <color name="color_primary_variant_dark">@color/window_background_dark</color>
 
 
-    <color name="secondary_color_dark">#B388FF</color>
+    <color name="secondary_color_dark">@color/purple_dark</color>
     <!-- Color that appear over secondary -->
     <color name="on_secondary_dark">@color/md_grey_900</color>
 
@@ -91,12 +91,12 @@
 
 
     <!-- ******************************************************** -->
-    <!-- ************ COLORS FOR BRIGHT MORNING MODE ************ -->
+    <!-- ************ COLORS FOR BRIGHT MORNING MODE ************
 
-    <color name="secondary_color_black_white">#0091EA</color>
+    <color name="secondary_color_black_white">@color/user_icon_6</color>
 
-    <!-- Color that appear over secondary -->
-    <color name="on_secondary_black_white">#FFFFFF</color>
+    <!- Color that appear over secondary
+    <color name="on_secondary_black_white">#FFFFFF</color> -->
 
 
 
@@ -121,11 +121,11 @@
 
 
     <!-- ******************************************************** -->
-    <!-- ************ COLORS FOR SWEET MORNING ****************** -->
-    <color name="secondary_color_sweet_white">#FF512F</color>
+    <!-- ************ COLORS FOR SWEET MORNING ******************
+    <color name="secondary_color_sweet_white">@color/user_icon_8</color>
 
-    <!-- Color that appear over secondary -->
-    <color name="on_secondary_sweet_white">#FFFFFF</color>
+    <!- Color that appear over secondary
+    <color name="on_secondary_sweet_white">#FFFFFF</color> -->
 
 
 
@@ -139,7 +139,7 @@
 
     <color name="window_background_black_dark">#000000</color>
 
-    <color name="secondary_color_black_dark">#FFAB40</color>
+    <!-- <color name="secondary_color_black_dark">#FFAB40</color> -->
 
     <!-- Color that appear over secondary -->
     <color name="on_secondary_black_dark">#202020</color>
