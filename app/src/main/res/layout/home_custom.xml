@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/ic_recent"
+        style="@style/ButtonStyle48"
+        android:src="@drawable/ic_history"
+        app:layout_constraintEnd_toStartOf="@+id/ic_folder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/iv_content_desc"/>
+
+    <TextView
+        style="@style/HomeItemTitle"
+        android:layout_marginTop="8dp"
+        android:text="@string/recent"
+        app:layout_constraintEnd_toEndOf="@id/ic_recent"
+        app:layout_constraintStart_toStartOf="@id/ic_recent"
+        app:layout_constraintTop_toBottomOf="@id/ic_recent" />
+
+    <ImageView
+        android:id="@+id/ic_folder"
+        style="@style/ButtonStyle48"
+        android:src="@drawable/ic_folder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ic_recent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/iv_content_desc"/>
+
+    <TextView
+        style="@style/HomeItemTitle"
+        android:layout_marginTop="8dp"
+        android:text="@string/select_track"
+        app:layout_constraintEnd_toEndOf="@id/ic_folder"
+        app:layout_constraintStart_toStartOf="@id/ic_folder"
+        app:layout_constraintTop_toBottomOf="@id/ic_folder" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
