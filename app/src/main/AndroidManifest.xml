@@ -66,6 +66,8 @@
             android:name=".activities.AppInfo"
             android:launchMode="singleTop" />
 
+        <activity android:name=".activities.RecentActivity" />
+
         <service
             android:name=".PMS"
             android:exported="false">
