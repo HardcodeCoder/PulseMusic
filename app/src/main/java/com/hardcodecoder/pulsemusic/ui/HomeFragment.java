@@ -35,6 +35,7 @@ import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.activities.AppInfo;
 import com.hardcodecoder.pulsemusic.activities.DetailsActivity;
 import com.hardcodecoder.pulsemusic.activities.MainActivity;
+import com.hardcodecoder.pulsemusic.activities.RecentActivity;
 import com.hardcodecoder.pulsemusic.activities.SearchActivity;
 import com.hardcodecoder.pulsemusic.activities.SettingsActivity;
 import com.hardcodecoder.pulsemusic.adapters.HomeAdapter;
@@ -98,6 +99,8 @@ public class HomeFragment extends Fragment {
 
         startPostponedEnterTransition();
         mHandler.postDelayed(() -> updateUi(view), 320);
+
+        view.findViewById(R.id.ic_recent).setOnClickListener(v -> startActivity(new Intent(getContext(), RecentActivity.class)));
     }
 
     @Override
