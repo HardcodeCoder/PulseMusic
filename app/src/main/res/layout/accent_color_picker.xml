@@ -41,7 +41,17 @@
     <RadioButton
         android:id="@+id/rd_btn_5"
         style="@style/RadioBtnText"
+        android:text="@string/blue"/>
+
+    <RadioButton
+        android:id="@+id/rd_btn_6"
+        style="@style/RadioBtnText"
         android:text="@string/purple"/>
+
+    <RadioButton
+        android:id="@+id/rd_btn_7"
+        style="@style/RadioBtnText"
+        android:text="@string/space"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_set"
