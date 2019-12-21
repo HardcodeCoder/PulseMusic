@@ -8,13 +8,11 @@ import com.hardcodecoder.pulsemusic.utils.PlaylistStorageManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 
 public class TrackManager {
 
     private static final TrackManager ourInstance = new TrackManager();
-    private List<MusicModel> mNewHistory = new ArrayList<>();
     private List<MusicModel> mActiveList = new ArrayList<>();
     private List<MusicModel> mMainList;
     private int mIndex = -1;
@@ -112,42 +110,36 @@ public class TrackManager {
     }
 
     public void removeItemFromActiveQueue(int position) {
-        if (position < mActiveListSize) {
-            mDeletedQueueIndex = position;
-            mDeletedQueueItem = mActiveList.remove(position);
-        }
+        mDeletedQueueIndex = position;
+        mDeletedQueueItem = mActiveList.remove(position);
+        if(position < getActiveIndex())
+            mIndex--;
     }
 
     public void restoreItem() {
         mActiveList.add(mDeletedQueueIndex, mDeletedQueueItem);
     }
 
-    /*
-     * stores tracks that are played and saves them when app is closed
-     */
-    public List<MusicModel> getCurrentPlayedTracks() {
-        return mNewHistory;
+    public void addToHistory(Context context) {
+        PlaylistStorageManager.addToRecentTracks(context, getActiveQueueItem());
     }
 
-    public void addToHistory() {
-        mNewHistory.add(getActiveQueueItem());
-    }
-
-    public void saveTracks(Context mContext) {
+    /*public void saveTracks(Context mContext) {
         if (mNewHistory.size() > 0) {
             List<MusicModel> history = PlaylistStorageManager.getRecentTracks(mContext);
-            if (null != history) mNewHistory.addAll(0, history);
+            if (history.size() > 0) mNewHistory.addAll(0, history);
             //mNewHistory = removeDuplicates();
             removeDuplicates();
             int s = mNewHistory.size();
             if (s > 15) mNewHistory = new ArrayList<>(mNewHistory.subList(s - 15, s));
+            Log.e("TrackManager", "Saving recent tracks");
             PlaylistStorageManager.saveRecentTracks(mContext, mNewHistory);
 
-            /* newHistory has been saved to Storage so clear the list
-             * So any further calls to saveTracks only saves the new tracks added
-             * after previous saveTrack call
-             * Also this prevents from passing already saved tracks via getCurrentPlayedTracks */
+            /* newHistory has been saved to Storage clear the list
+             * So any further calls to saveTracks only saves the new tracks added after previous saveTrack call
+             * Also this prevents from passing already saved tracks via getCurrentPlayedTracks
             mNewHistory.clear();
+
         }
     }
 
@@ -161,5 +153,5 @@ public class TrackManager {
             else hm.put(name, true);
             lastIndex--;
         }
-    }
+    }*/
 }

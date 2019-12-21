@@ -12,11 +12,13 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PlaylistStorageManager {
 
-    private static final String RECENT_TRACKS_FILE_NAME = "Recent_Tracks.data";
+    //private static final String RECENT_TRACKS_FILE_NAME = "Recent_Tracks.data";
+    private static final String FOLDER_HISTORY = "/history/";
     private static final String PLAYLIST_DATA_FILE_NAME = "Playlist_Tracks_Data.data";
     private static final String PLAYLIST_TITLE_FILE_NAME = "Playlist_Names.data";
     private static final String FAVORITE_TRACKS_FILE_NAME = "FavoriteTracks.data";
@@ -24,7 +26,7 @@ public class PlaylistStorageManager {
     private PlaylistStorageManager() {
     }
 
-    public static void saveRecentTracks(Context mContext, List<MusicModel> newHistory) {
+    /*public static void saveRecentTracks(Context mContext, List<MusicModel> newHistory) {
         if (null != newHistory && newHistory.size() > 0) {
             FileOutputStream outputStream;
             try {
@@ -32,6 +34,7 @@ public class PlaylistStorageManager {
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
                 objectOutputStream.writeObject(newHistory);
                 objectOutputStream.close();
+                outputStream.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -47,8 +50,46 @@ public class PlaylistStorageManager {
             ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
             list = ((List<MusicModel>) objectInputStream.readObject());
             objectInputStream.close();
+            inputStream.close();
         } catch (Exception e) {
             LogHelper(RECENT_TRACKS_FILE_NAME);
+        }
+        return list;
+    }*/
+
+
+    public static void addToRecentTracks(Context context, MusicModel md){
+        File f = new File(context.getFilesDir().getAbsoluteFile() + FOLDER_HISTORY + md.getSongName() + ".history");
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(f);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(md);
+            objectOutputStream.close();
+            fileOutputStream.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static List<MusicModel> getRecentTracks(Context context){
+        File f = new File(context.getFilesDir().getAbsoluteFile() + FOLDER_HISTORY);
+        File[] files = f.listFiles();
+        FileInputStream fileInputStream;
+        ObjectInputStream objectInputStream;
+        List<MusicModel> list = new ArrayList<>();
+        if(null != files) {
+            Arrays.sort(files, (o1, o2) -> (int)(o2.lastModified() - o1.lastModified()));
+            for (File file : files) {
+                try {
+                    fileInputStream = new FileInputStream(file);
+                    objectInputStream = new ObjectInputStream(fileInputStream);
+                    list.add((MusicModel) objectInputStream.readObject());
+                    objectInputStream.close();
+                    fileInputStream.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return list;
     }
@@ -61,6 +102,7 @@ public class PlaylistStorageManager {
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
                 objectOutputStream.writeObject(list);
                 objectOutputStream.close();
+                outputStream.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -94,13 +136,14 @@ public class PlaylistStorageManager {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
             objectOutputStream.writeObject(titles);
             objectOutputStream.close();
+            outputStream.close();
         } catch (Exception e) {
             LogHelper(PLAYLIST_TITLE_FILE_NAME);
         }
     }
 
     @SuppressWarnings("unchecked")
-    public static List<String> getPlaylistNames(Context mContext) {
+    public static List<String> getPlaylistTitles(Context mContext) {
         FileInputStream inputStream;
         List<String> list = new ArrayList<>();
         try {
@@ -109,6 +152,7 @@ public class PlaylistStorageManager {
             list.clear();
             list.addAll((List<String>) objectInputStream.readObject());
             objectInputStream.close();
+            inputStream.close();
         } catch (Exception e) {
             LogHelper(PLAYLIST_TITLE_FILE_NAME);
         }
@@ -126,6 +170,7 @@ public class PlaylistStorageManager {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
             objectOutputStream.writeObject(listOfLists);
             objectOutputStream.close();
+            outputStream.close();
         } catch (Exception e) {
             LogHelper(PLAYLIST_DATA_FILE_NAME);
         }
@@ -140,6 +185,7 @@ public class PlaylistStorageManager {
             ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
             listOfList = (List<List<MusicModel>>) objectInputStream.readObject();
             objectInputStream.close();
+            inputStream.close();
         } catch (Exception e) {
             LogHelper(PLAYLIST_DATA_FILE_NAME);
         }
