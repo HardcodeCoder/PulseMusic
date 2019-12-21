@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.singleton.TrackManager;
 import com.hardcodecoder.pulsemusic.loaders.TrackFetcherFromStorage;
 
+import java.io.File;
 import java.util.List;
 
 
@@ -28,6 +30,10 @@ public class SplashActivity extends PMBActivity implements TrackFetcherFromStora
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         getPermission();
+        if(new File(getFilesDir(), "history").mkdir())
+            Log.v("SplashActivity", "Successfully created history directory");
+        else
+            Log.e("SplashActivity", "Error creating history directory");
     }
 
     private void getPermission() {
