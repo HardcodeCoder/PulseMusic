@@ -22,8 +22,6 @@ public interface Playback {
 
     void setCallback(Callback callback);
 
-    void saveRecentTrack();
-
     interface Callback {
         void onPlaybackCompletion();
 

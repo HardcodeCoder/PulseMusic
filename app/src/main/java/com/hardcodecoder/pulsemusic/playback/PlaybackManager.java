@@ -167,10 +167,6 @@ public class PlaybackManager implements Playback.Callback {
         updatePlaybackState(state);
     }
 
-    public void saveRecentTrack() {
-        mPlayback.saveRecentTrack();
-    }
-
     public interface PlaybackServiceCallback {
         void onPlaybackStart();
 

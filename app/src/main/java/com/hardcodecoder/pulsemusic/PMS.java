@@ -27,7 +27,6 @@ public class PMS extends MediaBrowserService implements PlaybackManager.Playback
 
     private static final String TAG = "PMS";
     private MediaSession mMediaSession;
-    private PlaybackManager mPlaybackManager;
     private MediaNotificationManager mNotificationManager;
     private boolean isServiceRunning = false;
     private HandlerThread mServiceThread = null;
@@ -56,7 +55,7 @@ public class PMS extends MediaBrowserService implements PlaybackManager.Playback
     private void runOnServiceThread() {
         TrackManager mTrackManager = TrackManager.getInstance();
         LocalPlayback playback = new LocalPlayback(this, mTrackManager, mWorkerHandler);
-        mPlaybackManager = new PlaybackManager(this.getApplicationContext(), playback, mTrackManager, this/*, mWorkerHandler*/);
+        PlaybackManager mPlaybackManager = new PlaybackManager(this.getApplicationContext(), playback, mTrackManager, this/*, mWorkerHandler*/);
 
         mMediaSession = new MediaSession(this.getApplicationContext(), TAG);
         setSessionToken(mMediaSession.getSessionToken());
@@ -79,10 +78,9 @@ public class PMS extends MediaBrowserService implements PlaybackManager.Playback
      * --> pause the playback
      * --> remove the app from recent
      * --> Notification was started again and the service runs in the background, tapping on notification causes the app to crash
-     *##Reason --> The system was recreating the service {verified by logs in on create and onStartCommand)
+     *Reason --> The system was recreating the service {verified by logs in on create and onStartCommand)
      * and thus notification was getting posted with the old metadata
      */
-
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         MediaButtonReceiver.handleIntent(MediaSessionCompat.fromMediaSession(this, mMediaSession), intent);
@@ -100,7 +98,6 @@ public class PMS extends MediaBrowserService implements PlaybackManager.Playback
     @Override
     public void onTaskRemoved(Intent rootIntent) {
         if (!mMediaSession.isActive()) stopSelf();
-        mPlaybackManager.saveRecentTrack();
         super.onTaskRemoved(rootIntent);
     }
 
@@ -125,7 +122,6 @@ public class PMS extends MediaBrowserService implements PlaybackManager.Playback
     @Override
     public void onStopNotification() {
         mNotificationManager.stopNotification();
-        mPlaybackManager.saveRecentTrack();
     }
 
     @Override
