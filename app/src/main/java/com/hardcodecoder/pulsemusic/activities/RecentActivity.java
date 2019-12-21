@@ -2,7 +2,6 @@ package com.hardcodecoder.pulsemusic.activities;
 
 import android.media.session.MediaController;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
@@ -90,6 +89,5 @@ public class RecentActivity extends MediaSessionActivity implements LibraryItemC
 
    @Override
     public void onMediaServiceConnected(MediaController controller) {
-        Log.e("TAG", "Passed");
     }
 }
