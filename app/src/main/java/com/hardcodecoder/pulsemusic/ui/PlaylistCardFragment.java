@@ -65,7 +65,7 @@ public class PlaylistCardFragment extends Fragment implements ItemClickListener.
         FloatingActionButton fab = view.findViewById(R.id.btn_add_playlist);
         fab.setOnClickListener(v -> openBottomDialog(false, -1));
 
-        playlistNames = PlaylistStorageManager.getPlaylistNames(mContext);
+        playlistNames = PlaylistStorageManager.getPlaylistTitles(mContext);
         addPendingPlaylistTiles(view);
 
         Toolbar t = view.findViewById(R.id.toolbar);
