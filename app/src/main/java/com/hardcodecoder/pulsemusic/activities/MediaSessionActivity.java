@@ -64,5 +64,11 @@ public abstract class MediaSessionActivity extends PMBActivity {
         mController.getTransportControls().play();
     }
 
+    @Override
+    protected void onDestroy() {
+        disconnectFromMediaSession();
+        super.onDestroy();
+    }
+
     public abstract void onMediaServiceConnected(MediaController controller);
 }
