@@ -44,10 +44,10 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:singleLine">true</item>
-        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginStart">14dp</item>
         <item name="android:layout_marginTop">@dimen/spacing_item_next_header</item>
         <item name="android:layout_marginBottom">@dimen/spacing_header_item</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">?secondaryColorOnBackground</item>
         <item name="android:background">@drawable/capsule</item>
         <item name="android:paddingStart">12dp</item>
@@ -107,16 +107,13 @@
         <item name="android:layout_marginEnd">32dp</item>
         <item name="android:maxLines">1</item>
         <item name="android:textAppearance">@style/ItemTitleTextAppearance</item>
-        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="SettingItemTextStyle" parent="SettingsStyleBlock">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textAppearance">@style/ItemTitleTextAppearance</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:fontFamily">@font/product_medium</item>
-        <item name="android:textColor">?primaryTextColor</item>
     </style>
 
     <style name="SettingItemSwitchStyle">
