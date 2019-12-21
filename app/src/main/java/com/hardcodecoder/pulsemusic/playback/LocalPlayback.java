@@ -83,7 +83,7 @@ public class LocalPlayback implements
             Toast.makeText(mContext, "Music file not found, playing next song in queue", Toast.LENGTH_LONG).show();
             mPlaybackCallback.onPlaybackCompletion();
         }
-        mTrackManager.addToHistory();
+        mHandler.post(() -> mTrackManager.addToHistory(mContext));
     }
 
     @Override
@@ -92,10 +92,6 @@ public class LocalPlayback implements
             mDelayedPlayback = false;
             if (!mediaHasChanged) {
                 if (mp != null && resumePosition != -1) {
-                    //if (mp.getCurrentPosition() <= resumePosition || mp.getCurrentPosition() >= resumePosition)
-                    //mp.seekTo(resumePosition);
-
-                    //mp.start();
                     play();
                 } else if (null == mp) {
                     initMediaPlayer();
@@ -118,7 +114,6 @@ public class LocalPlayback implements
 
     @Override
     public void onPrepared(MediaPlayer mp) {
-        //mp.start();
         play();
     }
 
@@ -292,8 +287,4 @@ public class LocalPlayback implements
         mTelephonyManager.listen(mPhoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);
     }
 
-    @Override
-    public void saveRecentTrack() {
-        mTrackManager.saveTracks(mContext);
-    }
 }
