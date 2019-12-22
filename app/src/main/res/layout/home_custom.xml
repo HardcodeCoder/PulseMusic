@@ -15,7 +15,7 @@
         android:contentDescription="@string/iv_content_desc"/>
 
     <TextView
-        style="@style/HomeItemTitle"
+        style="@style/HomeItemTitle.Sub"
         android:layout_marginTop="8dp"
         android:text="@string/recent"
         app:layout_constraintEnd_toEndOf="@id/ic_recent"
@@ -32,7 +32,7 @@
         android:contentDescription="@string/iv_content_desc"/>
 
     <TextView
-        style="@style/HomeItemTitle"
+        style="@style/HomeItemTitle.Sub"
         android:layout_marginTop="8dp"
         android:text="@string/select_track"
         app:layout_constraintEnd_toEndOf="@id/ic_folder"
