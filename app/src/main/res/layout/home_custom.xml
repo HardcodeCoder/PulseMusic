@@ -7,7 +7,7 @@
 
     <ImageView
         android:id="@+id/ic_recent"
-        style="@style/ButtonStyle48"
+        style="@style/ButtonStyle36"
         android:src="@drawable/ic_history"
         app:layout_constraintEnd_toStartOf="@+id/ic_folder"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
 
     <ImageView
         android:id="@+id/ic_folder"
-        style="@style/ButtonStyle48"
+        style="@style/ButtonStyle36"
         android:src="@drawable/ic_folder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/ic_recent"
