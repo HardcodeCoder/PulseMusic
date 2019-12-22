@@ -15,6 +15,7 @@ android {
         versionCode generateVersionCode()
         versionName generateVersionName()
         vectorDrawables.useSupportLibrary = true
+        resConfig 'en'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
