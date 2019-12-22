@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/product_black"
             android:text="@string/settings"
+            android:textStyle="bold"
             android:textColor="?attr/primaryTextColor"
             android:textSize="36sp"
             app:layout_constraintStart_toStartOf="@id/start_guide"

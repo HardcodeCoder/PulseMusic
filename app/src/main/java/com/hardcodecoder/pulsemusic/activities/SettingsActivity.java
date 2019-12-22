@@ -3,7 +3,6 @@ package com.hardcodecoder.pulsemusic.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
@@ -120,15 +119,18 @@ public class SettingsActivity extends PMBActivity {
             case ThemeStore.ORCHID:
                 ((RadioButton) radioGroup.findViewById(R.id.rd_btn_4)).setChecked(true);
                 break;
-            case ThemeStore.PURPLE:
+            case ThemeStore.BLUE:
                 ((RadioButton) radioGroup.findViewById(R.id.rd_btn_5)).setChecked(true);
+                break;
+            case ThemeStore.PURPLE:
+                ((RadioButton) radioGroup.findViewById(R.id.rd_btn_6)).setChecked(true);
+                break;
+            case ThemeStore.SPACE:
+                ((RadioButton) radioGroup.findViewById(R.id.rd_btn_7)).setChecked(true);
                 break;
         }
 
-        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
-            Log.e("Settings", "Checked changed");
-            isAccentChanged = true;
-        });
+        radioGroup.setOnCheckedChangeListener((group, checkedId) -> isAccentChanged = true);
 
         windowView.findViewById(R.id.btn_set).setOnClickListener(v -> {
             if(isAccentChanged) {
@@ -146,8 +148,14 @@ public class SettingsActivity extends PMBActivity {
                         ThemeManager.setSelectedAccentColor(this, ThemeStore.ORCHID);
                         break;
                     case R.id.rd_btn_5:
-                    default:
+                        ThemeManager.setSelectedAccentColor(this, ThemeStore.BLUE);
+                        break;
+                    case R.id.rd_btn_6:
                         ThemeManager.setSelectedAccentColor(this, ThemeStore.PURPLE);
+                        break;
+                    case R.id.rd_btn_7:
+                        ThemeManager.setSelectedAccentColor(this, ThemeStore.SPACE);
+                        break;
                 }
                 isAccentChanged = false;
                 if(window.isShowing())
