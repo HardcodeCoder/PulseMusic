@@ -48,7 +48,7 @@ public class SettingsActivity extends PMBActivity {
         darkModeTextView.setText(darkModeEnable ? R.string.dark_on : R.string.light_on);
         darkThemeToggle.setChecked(darkModeEnable);
 
-        autoModeEnable = ThemeManager.isAutoThemeEnabled();
+        autoModeEnable = AppSettings.isAutoThemeEnabled(this);
         autoThemeTextView.setText(autoModeEnable ? R.string.auto_theme_enabled : R.string.auto_theme_disabled);
         autoThemeToggle.setChecked(autoModeEnable);
         darkThemeToggle.setEnabled(!autoModeEnable);
