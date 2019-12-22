@@ -19,7 +19,7 @@
         <ImageView
             android:id="@+id/search_activity_close_btn"
             style="@style/ButtonStyle24"
-            android:layout_gravity="start"
+            android:layout_gravity="start|center_vertical"
             android:contentDescription="@string/iv_btn_close_description"
             android:src="@drawable/ic_back" />
 
