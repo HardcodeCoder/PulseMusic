@@ -5,6 +5,6 @@
     android:layout_height="196dp"
     android:nestedScrollingEnabled="false"
     android:paddingStart="6dp"
-    android:paddingEnd="0dp"
+    android:paddingEnd="6dp"
     android:clipToPadding="false"
     android:visibility="gone"/>
