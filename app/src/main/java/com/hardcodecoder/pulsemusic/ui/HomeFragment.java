@@ -42,6 +42,7 @@ import com.hardcodecoder.pulsemusic.adapters.HomeAdapter;
 import com.hardcodecoder.pulsemusic.adapters.HomeAdapter.LayoutStyle;
 import com.hardcodecoder.pulsemusic.adapters.HomeAdapterAlbum;
 import com.hardcodecoder.pulsemusic.adapters.HomeAdapterArtist;
+import com.hardcodecoder.pulsemusic.helper.MediaHelper;
 import com.hardcodecoder.pulsemusic.interfaces.ItemClickListener;
 import com.hardcodecoder.pulsemusic.model.AlbumModel;
 import com.hardcodecoder.pulsemusic.model.ArtistModel;
@@ -55,12 +56,14 @@ import com.hardcodecoder.pulsemusic.loaders.TrackFetcherFromStorage.Sort;
 import com.hardcodecoder.pulsemusic.utils.UserInfo;
 import com.hardcodecoder.pulsemusic.viewmodel.HomeContentVM;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
 
     private static final int PICK_AVATAR = 1500;
+    private static final int PICK_MUSIC = 1600;
     private TrackManager tm;
     private MediaController.TransportControls mTransportControl;
     private final Handler mHandler = new Handler();
@@ -101,6 +104,7 @@ public class HomeFragment extends Fragment {
         mHandler.postDelayed(() -> updateUi(view), 320);
 
         view.findViewById(R.id.ic_recent).setOnClickListener(v -> startActivity(new Intent(getContext(), RecentActivity.class)));
+        view.findViewById(R.id.ic_folder).setOnClickListener(v -> pickMedia());
     }
 
     @Override
@@ -320,16 +324,33 @@ public class HomeFragment extends Fragment {
         startActivityForResult(chooserIntent, PICK_AVATAR);
     }
 
+    private void pickMedia(){
+        Intent intent_upload = new Intent();
+        intent_upload.setType("audio/*");
+        intent_upload.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent_upload, PICK_MUSIC);
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PICK_AVATAR && resultCode == Activity.RESULT_OK) {
-            if (null == data) {
-                Toast.makeText(getContext(), "Cannot retrieve image", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            if(null != getContext()) {
-                UserInfo.saveUserProfilePic(getContext(), data.getDataString());
-                loadProfilePic();
+        if (/*requestCode == PICK_AVATAR && */resultCode == Activity.RESULT_OK) {
+            if (requestCode == PICK_AVATAR) {
+                if (null == data) {
+                    Toast.makeText(getContext(), "Cannot retrieve image", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (null != getContext()) {
+                    UserInfo.saveUserProfilePic(getContext(), data.getDataString());
+                    loadProfilePic();
+                }
+            } else if (requestCode == PICK_MUSIC) {
+                MusicModel md = MediaHelper.buildMusicModelFrom(getContext(), data);
+                if(md != null){
+                    List<MusicModel> singlePickedItemList = new ArrayList<>();
+                    singlePickedItemList.add(md);
+                    tm.buildDataList(singlePickedItemList, 0);
+                    play();
+                }
             }
         }
     }
@@ -381,13 +402,5 @@ public class HomeFragment extends Fragment {
         super.onStop();
         if (null != pm)
             pm.dismiss();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        /*TrackCache.getInstance().holdPickedTracks(shuffledTracks);
-        TrackCache.getInstance().cacheRecentlyAdded(recentlyAdded);
-        savedTracks.clear();*/
     }
 }
