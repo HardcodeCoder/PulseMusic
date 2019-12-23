@@ -30,10 +30,8 @@ public class SplashActivity extends PMBActivity implements TrackFetcherFromStora
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         getPermission();
-        if(new File(getFilesDir(), "history").mkdir())
-            Log.v("SplashActivity", "Successfully created history directory");
-        else
-            Log.e("SplashActivity", "Error creating history directory");
+        if(!new File(getFilesDir(), "history").mkdir())
+            Log.v("SplashActivity", "Error creating history directory");
     }
 
     private void getPermission() {
