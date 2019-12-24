@@ -16,13 +16,18 @@
 
     <string name="settings">Settings</string>
     <string name="select_tracks">Select tracks</string>
-    <string name="random">You may like</string>
-    <string name="new_in_library">New in library</string>
+    <string name="random">Mix match</string>
+    <string name="new_in_library">Additions to your collection</string>
+    <string name="tracks_num">Tracks</string>
     <string name="recent">Recent tracks</string>
-    <string name="recent_artist">Recent artist</string>
+    <string name="no_recent_tracks">Listen to some music and check back in</string>
+    <string name="select_track">Select track</string>
+    <string name="recent_artist">Haven\'t heard them in a while </string>
+    <string name="nostalgic">Feeling nostalgic</string>
     <string name="playlist_nav">Playlist</string>
     <string name="equalizer">Equalizer</string>
     <string name="columns">Columns</string>
+    <string name="home_iv_st">shared transition</string>
 
     <string name="play_next">Play Next</string>
     <string name="add_to_queue">Add to queue</string>
@@ -70,11 +75,12 @@
     <string name="dark_on">Turn off dark theme</string>
     <string name="auto_theme_disabled">Enable auto theme</string>
     <string name="auto_theme_enabled">Auto theme enabled</string>
-    <string name="select_theme_title">Select your preferred theme</string>
-    <string name="select_light_theme">Preferred light theme</string>
-    <string name="select_dark_theme">Preferred dark theme</string>
-    <string name="def_theme_light">Default</string>
-    <string name="black_and_white">Black and white</string>
+    <string name="select_theme_title">Look and Feel</string>
+    <string name="select_light_theme">Set preferred light theme</string>
+    <string name="select_dark_theme">Set preferred dark theme</string>
+    <string name="change_accent_color">Change accent color</string>
+    <string name="def_theme_light">Just light</string>
+    <string name="black_and_white">Bright morning</string>
     <string name="sweet_morning_light">Sweet Morning</string>
     <string name="portrait">Portrait Mode</string>
     <string name="landscape">Landscape Mode</string>
@@ -83,12 +89,14 @@
     <string name="four">Four</string>
     <string name="five">Five</string>
     <string name="six">Six</string>
-    <string name="def_theme_dark">Default</string>
-    <string name="app_dark_theme">Kinda dark</string>
-    <string name="charcoal_dark">Charcoal Dark</string>
+    <string name="def_theme_dark">Dark</string>
+    <string name="app_dark_theme">Accented dark</string>
+    <string name="pitch_dark">Pure black</string>
+    <string name="fragment_transition">Select fragment transition style</string>
 
     <!-- Details Activity -->
     <string name="details_activity_rv_title">Tracks</string>
+    <string name="num_tracks">Number of tracks ●\t</string>
 
     <!-- Perhaps temporary placeholder text -->
 
@@ -118,5 +126,13 @@
     <string name="donate_title">Liked my work? Buy me a cup of coffee</string>
     <string name="donate">Buy me a Coffee</string>
 
+    <!--Available accent colors -->
+    <string name="cinnamon">Cinnamon</string>
+    <string name="green">Green</string>
+    <string name="ocean">Ocean</string>
+    <string name="orchid">Orchid</string>
+    <string name="blue">Blue</string>
+    <string name="purple">Purple</string>
+    <string name="space">Space</string>
 
 </resources>
