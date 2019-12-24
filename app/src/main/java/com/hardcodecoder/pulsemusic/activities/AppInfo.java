@@ -8,18 +8,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.hardcodecoder.pulsemusic.BuildConfig;
 import com.hardcodecoder.pulsemusic.R;
-import com.hardcodecoder.pulsemusic.themes.ThemeManager;
 
-public class AppInfo extends AppCompatActivity {
+public class AppInfo extends PMBActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        setTheme(ThemeManager.getThemeToApply());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
