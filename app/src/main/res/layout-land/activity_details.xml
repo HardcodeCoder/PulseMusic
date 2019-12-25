@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingTop="40dp">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_start"
@@ -17,7 +18,6 @@
         android:id="@+id/details_activity_art_card"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="48dp"
         android:background="@android:color/transparent"
         app:cardBackgroundColor="@android:color/transparent"
         app:cardCornerRadius="8dp"
@@ -72,11 +72,10 @@
         android:id="@+id/details_activity_rv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
         android:gravity="center"
         android:text="@string/details_activity_rv_title"
         android:textAppearance="@style/ItemTitleTextAppearance"
-        android:textSize="32sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@id/details_activity_rv"
         app:layout_constraintStart_toStartOf="@id/details_activity_rv"
         app:layout_constraintTop_toTopOf="parent" />
@@ -84,14 +83,14 @@
     <ImageView
         android:id="@+id/details_activity_btn_close"
         style="@style/ButtonStyle24"
-        android:layout_marginTop="44dp"
         android:layout_marginEnd="16dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/iv_btn_close_description"
         android:padding="12dp"
         android:src="@drawable/ic_close"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/details_activity_rv_title"
+        app:layout_constraintBottom_toBottomOf="@id/details_activity_rv_title"/>
 
     <include
         android:id="@+id/details_activity_rv"
@@ -99,7 +98,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="36dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
