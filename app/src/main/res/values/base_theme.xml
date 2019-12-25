@@ -28,7 +28,8 @@
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:navigationBarColor">@color/window_background_light</item>
         <item name="android:popupMenuStyle">@style/PopupMenu</item>
         <item name="android:windowAnimationStyle">@style/WindowTransitions</item>
         <item name="android:textViewStyle">@style/ProductRegularTextViewStyle</item>
@@ -41,7 +42,8 @@
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:navigationBarColor">@color/window_background_dark</item>
         <item name="android:popupMenuStyle">@style/PopupMenu</item>
         <item name="android:windowAnimationStyle">@style/WindowTransitions</item>
         <item name="android:textViewStyle">@style/ProductRegularTextViewStyle</item>
@@ -139,6 +141,7 @@
         <item name="colorPrimaryDark">@color/color_primary_variant_kinda_dark</item>
         <item name="windowBackgroundColor">@color/window_background_kinda_dark</item>
         <item name="surfaceColor">@color/surface_color_kinda_dark</item>
+        <item name="android:navigationBarColor">@color/window_background_kinda_dark</item>
     </style>
 
     <!-- <style name="PulseMusic.Theme.Light.SweetMorning">
@@ -156,6 +159,7 @@
         <item name="colorOnSecondary">@color/on_secondary_black_dark</item>
         <item name="windowBackgroundColor">@color/window_background_black_dark</item>
         <item name="surfaceColor">@color/surface_color_black_dark</item>
+        <item name="android:navigationBarColor">@color/window_background_black_dark</item>
     </style>
 
 </resources>
