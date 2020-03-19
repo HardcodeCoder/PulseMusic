@@ -93,7 +93,7 @@ public class MediaNotificationManager extends BroadcastReceiver {
         this.mService = service;
         updateSessionToken();
         mNotificationManager = (NotificationManager) mService.getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.cancelAll();
+        if(null != mNotificationManager) mNotificationManager.cancelAll();
     }
 
     private void updateSessionToken() {
@@ -193,7 +193,8 @@ public class MediaNotificationManager extends BroadcastReceiver {
                     .setContentIntent(pi)
                     .setOnlyAlertOnce(true)
                     .setAutoCancel(false)
-                    .setDeleteIntent(mStopIntent);
+                    .setDeleteIntent(mStopIntent)
+                    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
             //mStarted = true;
             return notificationBuilder.build();
         }
