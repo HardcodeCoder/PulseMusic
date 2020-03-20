@@ -8,6 +8,7 @@
     android:elevation="0dp"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
+    android:background="@android:color/transparent"
     app:elevation="0dp">
 
     <androidx.appcompat.widget.Toolbar
