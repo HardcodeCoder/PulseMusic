@@ -33,10 +33,11 @@
         app:itemHorizontalTranslationEnabled="false"
         app:itemIconTint="@drawable/nav_selector"
         app:itemTextAppearanceActive="@style/NavBarActiveTextAppearance"
-        app:itemTextAppearanceInactive="@style/NavBarActiveTextAppearance"
+        app:itemTextAppearanceInactive="@style/NavBarInActiveTextAppearance"
         app:itemTextColor="@drawable/nav_selector"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:background="?windowBackgroundColor"
         app:menu="@menu/nav_items" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
