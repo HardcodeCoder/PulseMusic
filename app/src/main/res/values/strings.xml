@@ -50,6 +50,7 @@
     <string name="create_playlist_hint">Enter playlist\'s name</string>
     <string name="set">Set</string>
 
+    <string name="now_playing">Now Playing</string>
     <string name="playlist_current_queue">Playing queue</string>
     <string name="favorite_playlist">Favorite</string>
 

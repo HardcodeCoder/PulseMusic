@@ -8,71 +8,54 @@
     tools:context=".activities.NowPlayingActivity">
 
     <TextView
-        android:id="@+id/activity_np_song_title"
+        android:id="@+id/activity_np"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="8dp"
-        android:ellipsize="marquee"
-        android:gravity="center"
-        android:marqueeRepeatLimit="marquee_forever"
+        android:gravity="center_horizontal|bottom"
         android:paddingStart="72dp"
         android:paddingEnd="72dp"
-        android:requiresFadingEdge="horizontal"
-        android:scrollHorizontally="true"
-        android:singleLine="true"
+        android:paddingBottom="2dp"
+        android:text="@string/now_playing"
         android:textAppearance="@style/ItemTitleTextAppearance"
+        android:textColor="?secondaryTextColor"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Song name" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
         android:id="@+id/activity_np_album_art"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="286dp"
+        android:layout_height="286dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="48dp"
-        android:background="?attr/imageViewBackgroundDrawable"
-        android:scaleType="fitXY"
+        android:background="@drawable/np_iv_background"
+        android:elevation="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintTop_toBottomOf="@id/activity_np_song_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_np"
         app:layout_constraintVertical_bias="0.04"
-        tools:ignore="contentDescription">
+        tools:ignore="contentDescription" />
 
-    </ImageView>
-
-    <SeekBar
-        android:id="@+id/activity_np_seekBar"
+    <TextView
+        android:id="@+id/activity_np_song_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:progressDrawable="@drawable/seekbar_drawable"
-        android:thumb="@drawable/seek_bar_thumb_shadow"
-        android:thumbOffset="1dp"
-        app:layout_constraintTop_toBottomOf="@id/activity_np_album_art" />
-
-    <TextView
-        android:id="@+id/activity_np_start_time"
-        style="@style/RecyclerViewItemTitle.Sub"
-        android:layout_margin="16dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="56dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textAppearance="@style/ItemTitleTextAppearance"
+        android:textColor="?primaryTextColor"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/activity_np_seekBar"
-        app:layout_constraintTop_toBottomOf="@+id/activity_np_seekBar"
-        tools:text="00:00" />
-
-    <TextView
-        android:id="@+id/activity_np_end_time"
-        style="@style/RecyclerViewItemTitle.Sub"
-        android:layout_margin="16dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/activity_np_seekBar"
-        app:layout_constraintTop_toBottomOf="@+id/activity_np_seekBar"
-        tools:text="05:00" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_np_album_art"
+        tools:text="Song Name" />
 
     <TextView
         android:id="@+id/activity_np_album_artist_name"
@@ -82,11 +65,43 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="56dp"
         android:gravity="center"
-        android:maxLines="2"
         android:lineSpacingMultiplier="1.6"
+        android:maxLines="2"
         android:textAppearance="@style/ItemTitleTextAppearance"
-        app:layout_constraintTop_toBottomOf="@+id/activity_np_start_time"
-        tools:text="Artist \u25CF Album Name\nArtist name" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_np_song_title"
+        tools:text="Artist name" />
+
+    <SeekBar
+        android:id="@+id/activity_np_seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:progressDrawable="@drawable/seek_bar_drawable"
+        android:thumb="@drawable/seek_bar_thumb"
+        android:thumbOffset="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_np_album_artist_name"
+        app:layout_constraintVertical_bias="0.08"
+        tools:progress="50" />
+
+    <TextView
+        android:id="@+id/activity_np_start_time"
+        style="@style/RecyclerViewItemTitle.Sub"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/activity_np_seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/activity_np_seekBar"
+        tools:text="00:00" />
+
+    <TextView
+        android:id="@+id/activity_np_end_time"
+        style="@style/RecyclerViewItemTitle.Sub"
+        android:layout_marginEnd="16dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/activity_np_seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/activity_np_seekBar"
+        tools:text="05:00" />
 
     <ImageButton
         android:id="@+id/activity_np_btn_repeat"
@@ -114,15 +129,17 @@
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_marginStart="18dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="18dp"
-        android:background="@drawable/play_button_background"
+        android:background="@drawable/solid_circle"
+        android:elevation="8dp"
         android:padding="8dp"
         android:stateListAnimator="@animator/focused_elevation_up"
         android:tint="?attr/colorOnSecondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/activity_np_skip_next_btn"
         app:layout_constraintStart_toEndOf="@+id/activity_np_skip_prev_btn"
-        app:layout_constraintTop_toBottomOf="@id/activity_np_album_artist_name"
+        app:layout_constraintTop_toBottomOf="@id/activity_np_seekBar"
         app:layout_constraintVertical_bias="0.16"
         tools:ignore="contentDescription"
         tools:src="@drawable/ic_round_pause_white" />

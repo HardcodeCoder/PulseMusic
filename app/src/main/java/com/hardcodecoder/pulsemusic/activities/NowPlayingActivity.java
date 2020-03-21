@@ -1,10 +1,12 @@
 package com.hardcodecoder.pulsemusic.activities;
 
+import android.annotation.SuppressLint;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaMetadata;
 import android.media.session.MediaController;
 import android.media.session.PlaybackState;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.format.DateUtils;
@@ -16,8 +18,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.hardcodecoder.pulsemusic.GlideApp;
-import com.hardcodecoder.pulsemusic.GlideConstantArtifacts;
 import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.model.MusicModel;
 import com.hardcodecoder.pulsemusic.playback.PlaybackManager;
@@ -38,9 +40,8 @@ public class NowPlayingActivity extends MediaSessionActivity {
     private TextView startTime;
     private TextView endTime;
     private SeekBar seekBar;
-    private final Runnable mUpdateProgressTask = this::updateProgressBar;
+    private final Runnable mUpdateProgressTask = this::updateProgress;
     private ImageButton mPlayPause;
-    //private MediaBrowser mMediaBrowser;
     private MediaController mController;
     private TextView artistAlbums;
     private PlaybackState mState;
@@ -52,6 +53,7 @@ public class NowPlayingActivity extends MediaSessionActivity {
     private ImageView mFavBtn;
     private ImageView mRepeatBtn;
     private TrackManager tm;
+    private boolean animateSeekBar = false;
 
     /*
      * Components for seek bar progress update
@@ -94,7 +96,7 @@ public class NowPlayingActivity extends MediaSessionActivity {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                startTime.setText(DateUtils.formatElapsedTime(progress / 4));
+                startTime.setText(DateUtils.formatElapsedTime(progress));
             }
 
             @Override
@@ -104,10 +106,11 @@ public class NowPlayingActivity extends MediaSessionActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 progress = seekBar.getProgress();
-                mController.getTransportControls().seekTo(progress / 4);
+                mController.getTransportControls().seekTo(progress);
             }
         });
         initButtons();
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) animateSeekBar = true;
     }
 
     private void initButtons() {
@@ -185,16 +188,15 @@ public class NowPlayingActivity extends MediaSessionActivity {
                     .with(this)
                     .load(metadata.getBitmap(PlaybackManager.METADATA_ALBUM_ART))
                     .error(R.drawable.np_album_art)
-                    .transform(GlideConstantArtifacts.getDefaultRoundingRadius())
+                    .transform(new CircleCrop())
                     .into((ImageView) findViewById(R.id.activity_np_album_art));
 
             long sec = metadata.getLong(PlaybackManager.METADATA_DURATION_KEY) / 1000;
-            progress = 0;
-            seekBar.setProgress(progress);
-            seekBar.setMax((int) sec * 4);
+            seekBar.setProgress(progress = 0);
+            seekBar.setMax((int) sec);
             endTime.setText(DateUtils.formatElapsedTime(sec));
 
-            artistAlbums.setText("");
+            /*artistAlbums.setText("");
             String s = metadata.getString(PlaybackManager.METADATA_ARTIST_KEY);
             if (s.length() > 35)
                 s = s.substring(0, 36);
@@ -205,7 +207,8 @@ public class NowPlayingActivity extends MediaSessionActivity {
             if (s.length() > 25)
                 s = s.substring(0, 25);
             artistAlbums.append("\nAlbum \u25CF ");
-            artistAlbums.append(s);
+            artistAlbums.append(s);*/
+            artistAlbums.setText(metadata.getString(PlaybackManager.METADATA_ARTIST_KEY));
 
             toolbarSongTitle.setText(metadata.getText(PlaybackManager.METADATA_TITLE_KEY));
             toolbarSongTitle.setSelected(true);
@@ -215,33 +218,20 @@ public class NowPlayingActivity extends MediaSessionActivity {
     private void updatePlaybackState(PlaybackState state) {
         if (state != null) {
             mState = state;
-            Drawable d;
             switch (state.getState()) {
 
                 case PlaybackState.STATE_PLAYING:
-                    d = getDrawable(R.drawable.avd_play_to_pause);
-                    mPlayPause.setImageDrawable(d);
-                    if (d instanceof AnimatedVectorDrawable)
-                        ((AnimatedVectorDrawable) d).start();
                     scheduleSeekBarUpdate();
                     updateRepeatBtn();
                     break;
 
                 case PlaybackState.STATE_STOPPED:
-                    d = getDrawable(R.drawable.avd_pause_to_play);
-                    mPlayPause.setImageDrawable(d);
-                    if (d instanceof AnimatedVectorDrawable)
-                        ((AnimatedVectorDrawable) d).start();
                     stopSeekBarUpdate();
                     progress = 0;
                     seekBar.setProgress(progress);
                     break;
 
                 case PlaybackState.STATE_PAUSED:
-                    d = getDrawable(R.drawable.avd_pause_to_play);
-                    mPlayPause.setImageDrawable(d);
-                    if (d instanceof AnimatedVectorDrawable)
-                        ((AnimatedVectorDrawable) d).start();
                     stopSeekBarUpdate();
                     --progress;
                     break;
@@ -260,42 +250,6 @@ public class NowPlayingActivity extends MediaSessionActivity {
         }
     }
 
-    /*private void connectToSession() {
-        mMediaBrowser = new MediaBrowser(this, new ComponentName(this, PMS.class), new MediaBrowser.ConnectionCallback() {
-            @Override
-            public void onConnected() {
-                try {
-                    //Setting Media Controller
-                    mController = new MediaController(NowPlayingActivity.this, mMediaBrowser.getSessionToken());
-                    setMediaController(mController);
-                    mController.registerCallback(mCallback);
-                    //mController.sendCommand(PlaybackManager.QUERY_GET_ELAPSED_TIME, null, mResultReceiver);
-                    updateMetaData(mController.getMetadata());
-                    mState = mController.getPlaybackState();
-                    if (null != mState) {
-                        long elapsedProgress = mState.getPosition() / 250;
-                        progress = (int) elapsedProgress;
-                        seekBar.setProgress(progress);
-
-                        //Keep this block here, moving it to onCreate can
-                        //create issues if this gets executed before onConnected
-                        //onClick listener will not be set due to null state
-                        //mState variable gets updated from onPlaybackStateChanged hence
-                        //latest state is check before invoking any action
-                        mPlayPause.setOnClickListener(v -> {
-                            if (mState.getState() == PlaybackState.STATE_PLAYING)
-                                mController.getTransportControls().pause();
-                            else mController.getTransportControls().play();
-                        });
-                    }
-                    updatePlaybackState(mController.getPlaybackState());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }, null);
-        mMediaBrowser.connect();
-    }*/
 
     @Override
     public void onMediaServiceConnected(MediaController controller) {
@@ -304,9 +258,9 @@ public class NowPlayingActivity extends MediaSessionActivity {
         updateMetaData(mController.getMetadata());
         mState = mController.getPlaybackState();
         if (null != mState) {
-            long elapsedProgress = mState.getPosition() / 250;
-            progress = (int) elapsedProgress;
-            seekBar.setProgress(progress);
+            long elapsedProgressSec = mState.getPosition()/1000; /// 250;
+            progress = (int) elapsedProgressSec;
+            setSeekBarProgress();
 
             //Keep this block here, moving it to onCreate can
             //create issues if this gets executed before onConnected
@@ -314,12 +268,28 @@ public class NowPlayingActivity extends MediaSessionActivity {
             //mState variable gets updated from onPlaybackStateChanged hence
             //latest state is check before invoking any action
             mPlayPause.setOnClickListener(v -> {
-                if (mState.getState() == PlaybackState.STATE_PLAYING)
+                if (mState.getState() == PlaybackState.STATE_PLAYING) {
                     mController.getTransportControls().pause();
-                else mController.getTransportControls().play();
+                    Drawable d = getDrawable(R.drawable.pause_to_play_linear_out_slow_in);
+                    mPlayPause.setImageDrawable(d);
+                    if (d instanceof AnimatedVectorDrawable) ((AnimatedVectorDrawable) d).start();
+                }
+                else {
+                    mController.getTransportControls().play();
+                    Drawable d = getDrawable(R.drawable.play_to_pause_linear_out_slow_in);
+                    mPlayPause.setImageDrawable(d);
+                    if (d instanceof AnimatedVectorDrawable) ((AnimatedVectorDrawable) d).start();
+                }
             });
         }
-        updatePlaybackState(mController.getPlaybackState());
+        PlaybackState state = mController.getPlaybackState();
+        updatePlaybackState(state);
+
+        if (null != state){
+            if(state.getState() == PlaybackState.STATE_PLAYING) mPlayPause.setImageResource(R.drawable.ic_round_pause);
+            else mPlayPause.setImageResource(R.drawable.ic_round_play);
+
+        }
     }
 
     private void scheduleSeekBarUpdate() {
@@ -328,7 +298,7 @@ public class NowPlayingActivity extends MediaSessionActivity {
         if (!mExecutorService.isShutdown()) {
             if (null != mScheduleFuture)
                 mScheduleFuture.cancel(true);
-            mScheduleFuture = mExecutorService.scheduleAtFixedRate(() -> mHandler.post(mUpdateProgressTask), 0, 250, TimeUnit.MILLISECONDS);
+            mScheduleFuture = mExecutorService.scheduleAtFixedRate(() -> mHandler.post(mUpdateProgressTask), 0, 1000/*250*/, TimeUnit.MILLISECONDS);
         }
     }
 
@@ -339,8 +309,15 @@ public class NowPlayingActivity extends MediaSessionActivity {
             seekBar.setProgress(progress = 0);
     }
 
-    private void updateProgressBar() {
-        seekBar.setProgress(++progress);
+    private void updateProgress() {
+        progress++;
+        setSeekBarProgress();
+    }
+
+    @SuppressLint("NewApi")
+    private void setSeekBarProgress() {
+        if (animateSeekBar) seekBar.setProgress(progress, true);
+        else seekBar.setProgress(progress);
     }
 
     @Override
@@ -355,7 +332,6 @@ public class NowPlayingActivity extends MediaSessionActivity {
         stopSeekBarUpdate();
         if (!mExecutorService.isShutdown())
             mExecutorService.shutdown();
-        //mMediaBrowser.disconnect();
         disconnectFromMediaSession();
         super.onDestroy();
     }
