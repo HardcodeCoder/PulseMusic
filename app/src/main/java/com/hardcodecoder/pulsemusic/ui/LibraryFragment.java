@@ -99,8 +99,8 @@ public class LibraryFragment extends Fragment implements LibraryItemClickListene
             recyclerView.setVisibility(View.VISIBLE);
             recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext(), RecyclerView.VERTICAL, false));
             recyclerView.setHasFixedSize(true);
-            LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(recyclerView.getContext(), R.anim.item_slide_up_animation);
-            recyclerView.setLayoutAnimation(controller);
+            /*LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(recyclerView.getContext(), R.anim.item_slide_up_animation);
+            recyclerView.setLayoutAnimation(controller);*/
             LibraryAdapter adapter = new LibraryAdapter(mList, getLayoutInflater(), this);
             recyclerView.setAdapter(adapter);
         }
