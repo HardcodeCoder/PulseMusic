@@ -46,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="42dp"
         android:layout_marginEnd="56dp"
         android:gravity="center"
         android:maxLines="1"
@@ -82,7 +82,7 @@
         android:thumbOffset="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/activity_np_album_artist_name"
-        app:layout_constraintVertical_bias="0.08"
+        app:layout_constraintVertical_bias="0.1"
         tools:progress="50" />
 
     <TextView
