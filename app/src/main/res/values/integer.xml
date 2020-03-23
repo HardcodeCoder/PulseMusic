@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="default_anim_duration_medium">400</integer>
-    <integer name="window_enter_duration">300</integer>
-    <integer name="window_exit_duration">250</integer>
-    <integer name="window_transition_exit_alpha_duration">60</integer>
-    <integer name="fragment_slide_duration">200</integer>
+    <integer name="window_enter_duration">400</integer>
+    <integer name="window_exit_duration">200</integer>
+    <integer name="window_transition_exit_alpha_duration">100</integer>
+    <integer name="fragment_slide_duration">400</integer>
 </resources>
