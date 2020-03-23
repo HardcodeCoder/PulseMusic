@@ -5,11 +5,7 @@
 
     <style name="ActivityThemeDark" parent="PulseMusic.Theme.Dark" />
 
-    <!-- <style name="ActivityThemeBlackWhite" parent="PulseMusic.Theme.Light.BlackWhite" /> -->
-
     <style name="ActivityThemeKindaDark" parent="PulseMusic.Theme.Dark.Kinda" />
-
-    <!-- <style name="ActivityThemeSweetMorning" parent="PulseMusic.Theme.Light.SweetMorning" /> -->
 
     <style name="ActivityThemeBlack" parent="PulseMusic.Theme.Dark.Black" />
 
@@ -20,8 +16,10 @@
     </style>
 
     <style name="NavBarActiveTextAppearance">
+        <item name="android:textColor">?primaryTextColor</item>
     </style>
     <style name="NavBarInActiveTextAppearance">
+        <item name="android:textColor">?disabledTextColor</item>
     </style>
 
     <style name="ToolbarPopupTheme">
