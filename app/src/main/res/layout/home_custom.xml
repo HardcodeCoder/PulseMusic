@@ -7,8 +7,11 @@
 
     <ImageView
         android:id="@+id/ic_recent"
-        style="@style/ButtonStyle36"
+        style="@style/ButtonStyle24"
         android:src="@drawable/ic_history"
+        android:background="@drawable/plain_circle"
+        android:backgroundTint="#FFC4F5"
+        android:tint="@color/window_background_dark"
         app:layout_constraintEnd_toStartOf="@+id/ic_folder"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,8 +27,11 @@
 
     <ImageView
         android:id="@+id/ic_folder"
-        style="@style/ButtonStyle36"
+        style="@style/ButtonStyle24"
         android:src="@drawable/ic_folder"
+        android:background="@drawable/plain_circle"
+        android:backgroundTint="#FDDDA5"
+        android:tint="@color/window_background_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/ic_recent"
         app:layout_constraintTop_toTopOf="parent"
