@@ -14,7 +14,7 @@
         android:id="@+id/artist_home"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        android:background="@drawable/circle_background"
+        android:background="@drawable/bck_circle_border_artist"
         android:paddingStart="12dp"
         android:paddingEnd="4dp"
         android:src="@drawable/ic_artist"
