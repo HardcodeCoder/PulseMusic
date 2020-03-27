@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="300dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:orientation="vertical"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp">
+    android:clipToPadding="false"
+    android:orientation="vertical">
 
+    <!--
+       Background is a 9 patch image with
+       content area: 64px x 64px
+       actual size: 100px x 100px
+       rounding radius: 16
+       //Light version
+       shadow blur: 12, x offset: 4 and y offset:6
+       shadow color: #757575, opacity: 65%
+
+       //Dark version
+       shadow blur: 14, x offset: 4 and y offset:6
+       shadow color: #000000, opacity: 100%
+      -->
     <ImageView
         android:id="@+id/iv_album_card"
-        android:layout_width="310dp"
-        android:layout_height="180dp"
-        android:scaleType="centerCrop"
+        android:layout_width="320dp"
+        android:layout_height="210dp"
         android:layout_gravity="center_horizontal"
         android:background="?imageViewBackgroundDrawable"
         android:contentDescription="@string/iv_content_desc"
-        android:transitionName="@string/home_iv_st"/>
+        android:padding="18dp"
+        android:scaleType="centerCrop"
+        android:transitionName="@string/home_iv_st"
+        tools:src="@drawable/def_avatar" />
 
     <include
         layout="@layout/rv_home_item_title_text_view"

@@ -1,25 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="196dp"
+    android:layout_height="wrap_content"
     android:background="?attr/selectableItemBackground"
-    android:paddingStart="8dp"
-    android:paddingEnd="12dp"
-    android:gravity="center_horizontal">
+    android:clipToPadding="false"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
     <!--
-     Background is a 9 patch image with content area of 124x124 and actual size of 139 x 139
-     shadow blur = 6, x offset = 1 and y offset = 2
+     Background is a 9 patch image with
+     content area: 64px x 64px
+     actual size: 100px x 100px
+     rounding radius: 16
+     //Light version
+     shadow blur: 12, x offset: 4 and y offset:6
+     shadow color: #757575, opacity: 65%
+
+     //Dark version
+     shadow blur: 14, x offset: 4 and y offset:6
+     shadow color: #000000, opacity: 100%
      -->
     <ImageView
         android:id="@+id/rv_item_album_art"
-        android:layout_width="139dp"
-        android:layout_height="139dp"
-        android:scaleType="fitXY"
+        android:layout_width="148dp"
+        android:layout_height="148dp"
         android:background="?imageViewBackgroundDrawable"
-        tools:ignore="contentDescription" />
+        android:padding="18dp"
+        tools:ignore="contentDescription"
+        tools:src="@drawable/def_avatar" />
 
     <include layout="@layout/rv_home_item_title_text_view" />
 
