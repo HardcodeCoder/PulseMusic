@@ -30,6 +30,7 @@
         <attr name="statusBarColor" format="color|reference"/>
 
         <attr name="imageViewBackgroundDrawable" format="integer" />
+        <attr name="circleImageViewBackgroundDrawable" format="integer" />
         <attr name="iconOptions" format="integer" />
         <attr name="isLightMode" format="boolean" />
 

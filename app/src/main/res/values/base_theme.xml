@@ -83,7 +83,8 @@
 
         <item name="iconOptions">@drawable/ic_options_light</item>
 
-        <item name="imageViewBackgroundDrawable">@drawable/iv_shadow_light</item>
+        <item name="imageViewBackgroundDrawable">@drawable/bck_rou_iv_sh_light</item>
+        <item name="circleImageViewBackgroundDrawable">@drawable/bck_circle_shadow</item>
 
         <item name="isLightMode">true</item>
         <item name="statusBarColor">#CCFFFFFF</item>
@@ -122,7 +123,8 @@
 
         <item name="iconOptions">@drawable/ic_options_dark</item>
 
-        <item name="imageViewBackgroundDrawable">@drawable/iv_shadow_dark</item>
+        <item name="imageViewBackgroundDrawable">@drawable/bck_rou_iv_sh_dark</item>
+        <item name="circleImageViewBackgroundDrawable">@drawable/bck_circle_sh_dark</item>
 
         <item name="isLightMode">false</item>
         <item name="statusBarColor">@android:color/transparent</item>
