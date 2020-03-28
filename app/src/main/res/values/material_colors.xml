@@ -9,6 +9,8 @@
     <color name="md_grey_700">#616161</color>
     <color name="md_grey_800">#424242</color>
     <color name="md_grey_900">#212121</color>
+    <color name="md_grey_1000">#1e1e1e</color>
+    <color name="md_grey_1100">#0f0f0f</color>
 
     <!-- Blue Grey -->
     <color name="md_blue_grey_50">#ECEFF1</color>
@@ -17,5 +19,16 @@
     <color name="md_black">#000000</color>
     <!-- White -->
     <color name="md_white">#FFFFFF</color>
+
+    <color name="color_1">#5d84ff</color>
+    <color name="color_2">#5f84ff</color>
+    <color name="color_3">#7098ff</color>
+    <color name="color_4">#dee8fc</color>
+    <color name="color_5">#ff9e68</color>
+    <color name="color_6">#e9ffe2</color>
+    <color name="color_7">#95d87d</color>
+
+    <color name="color_8">#FFC4F5</color>
+    <color name="color_9">#FFDDA2</color>
 
 </resources>
