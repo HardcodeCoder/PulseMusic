@@ -18,15 +18,22 @@
         android:textColor="?secondaryTextColor"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Background is a 9 patch drawable with
+        actual size: 200px x 200px
+        content area: 136px x 136px
+        //Light version
+        color: #ffffff; x offset: 8; y offset: 12; blur: 18; shadow color: #757575; opacity: 70%
+        //Dark version
+        color: #0f0f0f; x offset: 8; y offset: 12; blur: 16; shadow color: #000000; opacity: 100%
+    -->
     <ImageView
         android:id="@+id/activity_np_album_art"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="56dp"
-        android:background="@drawable/np_iv_background"
+        android:background="?circleImageViewBackgroundDrawable"
         android:contentDescription="@string/iv_content_desc"
-        android:elevation="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toStartOf="@id/activity_np_btn_repeat"
@@ -128,7 +135,7 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="18dp"
-        android:background="@drawable/play_button_background"
+        android:background="@drawable/bck_play_pause_btn"
         android:padding="8dp"
         android:stateListAnimator="@animator/focused_elevation_up"
         android:tint="?attr/colorOnSecondary"

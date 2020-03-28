@@ -5,34 +5,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipToPadding="false"
     tools:context=".activities.NowPlayingActivity">
 
     <TextView
         android:id="@+id/activity_np"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="?attr/actionBarSize"
         android:gravity="center_horizontal|bottom"
-        android:paddingStart="72dp"
-        android:paddingEnd="72dp"
         android:paddingBottom="2dp"
         android:text="@string/now_playing"
         android:textAppearance="@style/ItemTitleTextAppearance"
         android:textColor="?secondaryTextColor"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <!-- Background is a 9 patch drawable with
+        actual size: 200px x 200px
+        content area: 136px x 136px
+        //Light version
+        color: #ffffff; x offset: 8; y offset: 12; blur: 18; shadow color: #757575; opacity: 70%
+        //Dark version
+        color: #0f0f0f; x offset: 8; y offset: 12; blur: 16; shadow color: #000000; opacity: 100%
+    -->
     <ImageView
         android:id="@+id/activity_np_album_art"
-        android:layout_width="286dp"
-        android:layout_height="286dp"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="48dp"
-        android:background="@drawable/np_iv_background"
-        android:elevation="18dp"
+        android:background="?circleImageViewBackgroundDrawable"
+        android:padding="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +58,6 @@
         android:gravity="center"
         android:maxLines="1"
         android:textAppearance="@style/ItemTitleTextAppearance"
-        android:textColor="?primaryTextColor"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/activity_np_album_art"
@@ -131,7 +137,7 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="18dp"
-        android:background="@drawable/solid_circle"
+        android:background="@drawable/bck_play_pause_btn"
         android:elevation="8dp"
         android:padding="8dp"
         android:stateListAnimator="@animator/focused_elevation_up"
