@@ -9,7 +9,8 @@
     <dimen name="spacing_header_item">16dp</dimen>
     <dimen name="spacing_item_next_header">32dp</dimen>
 
-    <dimen name="rounding_radius_default">20dp</dimen>
+    <dimen name="bck_iv_sh_src_padding">17dp</dimen>
+    <dimen name="rounding_radius_default">18dp</dimen>
     <dimen name="rounding_radius_small">12dp</dimen>
 
 

@@ -12,13 +12,13 @@
      Background is a 9 patch image with
      content area: 64px x 64px
      actual size: 100px x 100px
-     rounding radius: 16
+     rounding radius: 18
      //Light version
-     shadow blur: 12, x offset: 4 and y offset:6
-     shadow color: #757575, opacity: 65%
+     shadow blur: 12, x offset: 6 and y offset:6
+     shadow color: #757575, opacity: 55%
 
      //Dark version
-     shadow blur: 14, x offset: 4 and y offset:6
+     shadow blur: 12, x offset: 6 and y offset:6
      shadow color: #000000, opacity: 100%
      -->
     <ImageView
@@ -26,7 +26,7 @@
         android:layout_width="148dp"
         android:layout_height="148dp"
         android:background="?imageViewBackgroundDrawable"
-        android:padding="18dp"
+        android:padding="@dimen/bck_iv_sh_src_padding"
         tools:ignore="contentDescription"
         tools:src="@drawable/def_avatar" />
 
