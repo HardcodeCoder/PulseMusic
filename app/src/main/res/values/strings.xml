@@ -18,7 +18,7 @@
     <string name="select_tracks">Select tracks</string>
     <string name="random">Mix match</string>
     <string name="new_in_library">Additions to your collection</string>
-    <string name="tracks_num">Tracks</string>
+    <string name="tracks_num">tracks</string>
     <string name="recent">Recent tracks</string>
     <string name="no_recent_tracks">Listen to some music and check back in</string>
     <string name="select_track">Select track</string>
@@ -97,7 +97,7 @@
 
     <!-- Details Activity -->
     <string name="details_activity_rv_title">Tracks</string>
-    <string name="num_tracks">Number of tracks ●\t</string>
+    <string name="num_tracks">Collection has ●</string>
 
     <!-- Perhaps temporary placeholder text -->
 
