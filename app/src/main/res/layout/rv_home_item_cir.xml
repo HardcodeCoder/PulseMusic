@@ -2,20 +2,21 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="?attr/selectableItemBackground"
-    android:paddingStart="8dp"
-    android:paddingEnd="12dp"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingStart="12dp"
+    android:paddingEnd="16dp">
 
     <ImageView
         android:id="@+id/rv_item_album_art"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        tools:ignore="contentDescription"
-        android:layout_marginBottom="6dp"/>
+        android:layout_marginBottom="6dp"
+        android:scaleType="centerCrop"
+        tools:ignore="contentDescription" />
 
     <include layout="@layout/rv_home_item_title_text_view" />
 

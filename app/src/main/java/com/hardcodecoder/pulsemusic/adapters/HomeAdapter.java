@@ -78,21 +78,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         void setItemData(MusicModel md, LayoutStyle style) {
             songName.setText(md.getSongName());
             artist.setText(md.getArtist());
-            if (style == LayoutStyle.ROUNDED_RECTANGLE)
-                GlideApp.with(albumArt)
-                        .load(md.getAlbumArtUrl())
-                        .error(R.drawable.album_art_error)
-                        .transform(GlideConstantArtifacts.getDefaultRoundingRadius())
-                        .transition(GenericTransitionOptions.with(R.anim.fade_in_image))
-                        .into(albumArt);
-
-            else //if (style == LayoutStyle.CIRCLE)
-                GlideApp.with(albumArt)
-                        .load(md.getAlbumArtUrl())
-                        .error(R.drawable.album_art_error_circle)
-                        .circleCrop()
-                        .transition(GenericTransitionOptions.with(R.anim.fade_in_image))
-                        .into(albumArt);
+            GlideApp.with(albumArt)
+                    .load(md.getAlbumArtUrl())
+                    .error(R.drawable.ic_album_art)
+                    .transform(style == LayoutStyle.ROUNDED_RECTANGLE ?
+                            GlideConstantArtifacts.getDefaultRoundingRadius() : GlideConstantArtifacts.getCircleCrop())
+                    .transition(GenericTransitionOptions.with(R.anim.fade_in_image))
+                    .into(albumArt);
         }
     }
 
