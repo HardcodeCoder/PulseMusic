@@ -15,12 +15,11 @@
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:background="@drawable/bck_circle_border_artist"
-        android:paddingStart="12dp"
-        android:paddingEnd="4dp"
-        android:src="@drawable/ic_artist"
-        android:tint="?secondaryColor"
-        tools:ignore="contentDescription"
-        android:transitionName="@string/home_iv_st"/>
+        android:padding="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_artist_art"
+        android:transitionName="@string/home_iv_st"
+        tools:ignore="contentDescription" />
 
     <include layout="@layout/rv_home_item_title_text_view" />
 

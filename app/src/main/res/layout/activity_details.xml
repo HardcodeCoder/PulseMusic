@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="16dp">
+    android:clipToPadding="false"
+    android:paddingTop="24dp">
 
     <ImageView
         android:id="@+id/details_activity_btn_close"
@@ -12,33 +13,23 @@
         android:layout_marginStart="16dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/iv_btn_close_description"
-        android:padding="12dp"
         android:src="@drawable/ic_close"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/details_activity_art_card"
-        android:layout_width="172dp"
-        android:layout_height="172dp"
-        android:background="@android:color/transparent"
-        app:cardBackgroundColor="@android:color/transparent"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="4dp"
+    <ImageView
+        android:id="@+id/details_activity_art"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:padding="@dimen/bck_iv_sh_src_padding"
+        android:background="?imageViewBackgroundDrawable"
+        android:contentDescription="@string/iv_content_desc"
+        android:scaleType="centerCrop"
+        android:transitionName="@string/home_iv_st"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/details_activity_art"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/iv_content_desc"
-            android:scaleType="centerCrop"
-            android:transitionName="@string/home_iv_st"
-            tools:src="@drawable/album_art_error" />
-
-    </com.google.android.material.card.MaterialCardView>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_artist_art" />
 
     <TextView
         android:id="@+id/details_activity_title"
@@ -47,10 +38,11 @@
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:maxLines="2"
-        android:textAppearance="@style/Headline20TextAppearance"
+        android:textAppearance="@style/ItemTitleTextAppearance"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/details_activity_art_card"
+        app:layout_constraintTop_toBottomOf="@id/details_activity_art"
         tools:text="Text can be very long but not greater than 300dp" />
 
     <TextView

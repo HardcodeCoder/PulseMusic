@@ -20,6 +20,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.hardcodecoder.pulsemusic.GlideApp;
+import com.hardcodecoder.pulsemusic.GlideConstantArtifacts;
 import com.hardcodecoder.pulsemusic.R;
 import com.hardcodecoder.pulsemusic.adapters.DetailsAdapter;
 import com.hardcodecoder.pulsemusic.interfaces.AsyncTaskCallback;
@@ -55,29 +56,24 @@ public class DetailsActivity extends MediaSessionActivity implements AsyncTaskCa
 
         ImageView iv = findViewById(R.id.details_activity_art);
 
-        if (mCategory == CATEGORY_ALBUM) {
-            GlideApp.with(this)
-                    .load(art)
-                    .error(getDrawable(R.drawable.album_art_error))
-                    .addListener(new RequestListener<Drawable>() {
-                        @Override
-                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                            supportStartPostponedEnterTransition();
-                            return false;
-                        }
+        GlideApp.with(this)
+                .load(art)
+                .error(getDrawable(mCategory == CATEGORY_ALBUM ? R.drawable.ic_album_art : R.drawable.ic_artist_art))
+                .addListener(new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                        supportStartPostponedEnterTransition();
+                        return false;
+                    }
 
-                        @Override
-                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                            supportStartPostponedEnterTransition();
-                            return false;
-                        }
-                    })
-                    .into(iv);
-        }
-        else if (mCategory == CATEGORY_ARTIST) {
-            iv.setImageResource(R.drawable.artist_art_error);
-            supportStartPostponedEnterTransition();
-        }
+                    @Override
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                        supportStartPostponedEnterTransition();
+                        return false;
+                    }
+                })
+                .transform(GlideConstantArtifacts.getDefaultRoundingRadius())
+                .into(iv);
 
         findViewById(R.id.details_activity_btn_close).setOnClickListener(v -> finishAfterTransition());
         loadItems();
@@ -95,7 +91,7 @@ public class DetailsActivity extends MediaSessionActivity implements AsyncTaskCa
             TextView temp = findViewById(R.id.details_activity_title);
             temp.setText(title);
             temp = findViewById(R.id.details_activity_title_sub);
-            temp.setText(getString(R.string.num_tracks).concat(String.valueOf(mList.size())));
+            temp.setText(getString(R.string.num_tracks).concat(" "+mList.size() + " ").concat(getString(R.string.tracks_num)));
 
             RecyclerView rv = findViewById(R.id.details_activity_rv);
             rv.setVisibility(View.VISIBLE);
@@ -113,7 +109,6 @@ public class DetailsActivity extends MediaSessionActivity implements AsyncTaskCa
     public void onItemClick(int pos) {
         if (null != mList) {
             tm.buildDataList(mList, pos);
-            //getMediaController().getTransportControls().play();
             playMedia();
         }
     }
@@ -143,30 +138,6 @@ public class DetailsActivity extends MediaSessionActivity implements AsyncTaskCa
         bottomSheetDialog.show();
     }
 
-    /*private void connectToSession() {
-        mMediaBrowser = new MediaBrowser(this, new ComponentName(DetailsActivity.this, PMS.class),
-                // Which MediaBrowserService
-                new MediaBrowser.ConnectionCallback() {
-                    @Override
-                    public void onConnected() {
-                        try {
-                            // Ah, here’s our Token again
-                            MediaSession.Token token = mMediaBrowser.getSessionToken();
-                            // This is what gives us access to everything
-                            MediaController mController = new MediaController(DetailsActivity.this, token);
-                            // Convenience method to allow you to use
-                            // MediaControllerCompat.getMediaController() anywhere
-                            setMediaController(mController);
-                            //mController.registerCallback(mCallback);
-                        } catch (Exception e) {
-                            Log.e(MainActivity.class.getSimpleName(), "Error creating controller", e);
-                        }
-                    }
-
-                }, null); // optional Bundle
-        mMediaBrowser.connect();
-    }*/
-
     @Override
     public void onMediaServiceConnected(MediaController controller) {
     }
@@ -180,8 +151,6 @@ public class DetailsActivity extends MediaSessionActivity implements AsyncTaskCa
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        /*if (mMediaBrowser != null)
-            mMediaBrowser.disconnect();*/
         disconnectFromMediaSession();
     }
 }
