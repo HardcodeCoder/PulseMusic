@@ -135,7 +135,7 @@ public class PlaybackManager implements Playback.Callback {
             return BitmapFactory.decodeStream(is);
         } catch (Exception e) {
             Log.w(TAG, "Album art not found");
-            return BitmapFactory.decodeResource(mContext.getResources(), R.drawable.album_art_error);
+            return BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_album_art);
         }
     }
 

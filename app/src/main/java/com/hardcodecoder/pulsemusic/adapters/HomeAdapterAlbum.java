@@ -65,7 +65,7 @@ public class HomeAdapterAlbum extends RecyclerView.Adapter<HomeAdapterAlbum.Adap
             GlideApp.with(iv)
                     .load(am.getAlbumArt())
                     .transform(new CenterCrop(), GlideConstantArtifacts.getDefaultRoundingRadius())
-                    .error(R.drawable.album_art_error_card)
+                    .error(R.drawable.ic_album_art)
                     .transition(GenericTransitionOptions.with(R.anim.fade_in_image))
                     .into(iv);
             tv.setText(am.getAlbumName());

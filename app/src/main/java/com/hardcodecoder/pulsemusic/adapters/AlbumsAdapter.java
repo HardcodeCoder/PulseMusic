@@ -63,7 +63,7 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.AlbumsSVH>
             GlideApp
                     .with(itemView)
                     .load(am.getAlbumArt())
-                    .error(R.drawable.album_art_error)
+                    .error(R.drawable.ic_album_art)
                     .transform(GlideConstantArtifacts.getDefaultRoundingRadius())
                     .into(art);
 

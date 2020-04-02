@@ -97,8 +97,8 @@ public class TrackPickerAdapter extends RecyclerView.Adapter<TrackPickerAdapter.
         void updateViewData(MusicModel md, boolean selected) {
             GlideApp.with(itemView)
                     .load(md.getAlbumArtUrl())
-                    .error(R.drawable.album_art_error)
-                    .transform(GlideConstantArtifacts.getDefaultRoundingRadius())
+                    .error(R.drawable.ic_album_art)
+                    .transform(GlideConstantArtifacts.getRoundingRadiusSmall())
                     .into(art);
             title.setText(md.getSongName());
             artist.setText(md.getArtist());

@@ -169,7 +169,7 @@ public class ArtistFragment extends Fragment implements ItemClickListener.Single
     @Override
     public void onClickItem(int pos) {
         Intent i = new Intent(getContext(), DetailsActivity.class);
-        i.putExtra(DetailsActivity.KEY_ART_URL, String.valueOf(R.drawable.album_art_error));
+        i.putExtra(DetailsActivity.KEY_ART_URL, String.valueOf(R.drawable.ic_album_art));
         i.putExtra(DetailsActivity.KEY_TITLE, mList.get(pos).getArtistName());
         i.putExtra(DetailsActivity.KEY_ITEM_CATEGORY, DetailsActivity.CATEGORY_ARTIST);
         startActivity(i);

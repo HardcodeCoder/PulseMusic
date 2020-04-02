@@ -94,7 +94,7 @@ public class PlaylistDataAdapter extends RecyclerView.Adapter<PlaylistDataAdapte
             GlideApp
                     .with(itemView.getContext())
                     .load(md.getAlbumArtUrl())
-                    .error(R.drawable.album_art_error)
+                    .error(R.drawable.ic_album_art)
                     .transform(GlideConstantArtifacts.getDefaultRoundingRadius())
                     .into(art);
         }

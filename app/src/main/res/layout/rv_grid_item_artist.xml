@@ -14,7 +14,7 @@
         android:contentDescription="@string/iv_content_desc"
         android:padding="@dimen/bck_iv_sh_src_padding"
         android:scaleType="fitXY"
-        android:src="@drawable/artist_art_error"
+        android:src="@drawable/ic_artist_art"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintTop_toTopOf="parent" />
 

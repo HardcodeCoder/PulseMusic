@@ -82,7 +82,7 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.MyLibrar
             artist.setText(md.getArtist());
             GlideApp.with(itemView)
                     .load(md.getAlbumArtUrl())
-                    .error(R.drawable.album_art_error)
+                    .error(R.drawable.ic_album_art)
                     .transform(GlideConstantArtifacts.getRoundingRadiusSmall())
                     .into(albumArt);
         }
