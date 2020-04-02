@@ -21,7 +21,7 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_done"
-        android:tint="?attr/colorOnSecondary"
+        app:backgroundTint="?secondaryColor"
         app:layout_anchorGravity="bottom" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

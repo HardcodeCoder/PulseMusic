@@ -2,9 +2,9 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/bottom_sheet_rounded_corners"
     android:clipToPadding="false"
     android:paddingStart="16dp"
@@ -43,7 +43,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/cancel_btn"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
+        style="@style/MaterialButtonStyle.Outlined"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -51,12 +51,11 @@
         app:layout_constraintEnd_toStartOf="@+id/confirm_btn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        android:fontFamily="@font/product_regular"
         app:layout_constraintTop_toBottomOf="@id/edit_text_container" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/confirm_btn"
-        style="@style/Widget.MaterialComponents.Button"
+        style="@style/MaterialButtonStyle.Default"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -64,7 +63,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/cancel_btn"
-        android:fontFamily="@font/product_regular"
         app:layout_constraintTop_toBottomOf="@id/edit_text_container" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
