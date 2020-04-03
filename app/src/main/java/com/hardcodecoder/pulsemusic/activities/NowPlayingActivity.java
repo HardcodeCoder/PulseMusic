@@ -270,7 +270,7 @@ public class NowPlayingActivity extends MediaSessionActivity {
             mPlayPause.setOnClickListener(v -> {
                 if (mState.getState() == PlaybackState.STATE_PLAYING) {
                     mController.getTransportControls().pause();
-                    Drawable d = getDrawable(R.drawable.pause_to_play_linear_out_slow_in);
+                    Drawable d = getDrawable(R.drawable.pause_to_play);
                     mPlayPause.setImageDrawable(d);
                     if (d instanceof AnimatedVectorDrawable) ((AnimatedVectorDrawable) d).start();
                 }
