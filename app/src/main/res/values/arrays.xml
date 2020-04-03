@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="album_art_colors">
+        <item>#74b9ff</item>
+        <item>#a29bfe</item>
+        <item>#6c5ce7</item>
+        <item>#cd84f1</item>
+        <item>#ff9ff3</item>
+        <item>#fd79a8</item>
+        <item>#ff7675</item>
+        <item>#55efc4</item>
+        <item>#00d2d3</item>
+        <item>#fdcb6e</item>
+    </array>
+</resources>
