@@ -147,22 +147,24 @@ public class HomeFragment extends Fragment {
 
         if(null == mArtistList && null != getContext()){
             new ArtistFetcher(getContext().getContentResolver(), data -> {
-                mArtistList = data.subList(0, ((int) (data.size()*0.10))); // sublist top 10%
+                Collections.shuffle(data);
+                mArtistList = data.subList(0, ((int) (data.size()*0.15))); // sublist top 15%
                 Collections.shuffle(mArtistList);
                mModel.setArtistList(mArtistList);
                loadArtistRv(view);
-            }, ArtistFetcher.SORT.NUM_OF_TRACKS_DESC).execute();
+            }, null).execute();
         }
         else loadArtistRv(view);
 
 
         if(null == mAlbumList && null != getContext()) {
             new AlbumFetcher(getContext().getContentResolver(), data -> {
-                mAlbumList = data.subList(0, ((int) (data.size()*0.10))); // sublist top 10%
+                Collections.shuffle(data);
+                mAlbumList = data.subList(0, ((int) (data.size()*0.15))); // sublist top 15%
                 Collections.shuffle(mAlbumList);
                 mModel.setAlbumsList(mAlbumList);
                 loadAlbumCard(view);
-            }, AlbumFetcher.SORT.TITLE_ASC).execute();
+            }, null).execute();
         }
         else loadAlbumCard(view);
     }

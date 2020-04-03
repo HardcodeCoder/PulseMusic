@@ -16,7 +16,7 @@ public class ArtistFetcher extends AsyncTask<Void, Void, List<ArtistModel>> {
     private ArtistDataFetchCompletionCallback mCallback;
     private List<ArtistModel> data = new ArrayList<>();
     private ContentResolver mContentResolver;
-    private String mSort;
+    private String mSort = null;
 
     public ArtistFetcher(ContentResolver mContentResolver, ArtistDataFetchCompletionCallback mCallback, SORT sort) {
         this.mCallback = mCallback;

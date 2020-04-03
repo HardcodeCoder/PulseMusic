@@ -18,7 +18,7 @@ public class AlbumFetcher extends AsyncTask<Void, Void, List<AlbumModel>> {
     private AlbumDataFetchCompletionCallback mCallback;
     private List<AlbumModel> data = new ArrayList<>();
     private ContentResolver mContentResolver;
-    private String mSort;
+    private String mSort = null;
 
     public AlbumFetcher(ContentResolver mContentResolver, AlbumDataFetchCompletionCallback mCallback, SORT sort) {
         this.mCallback = mCallback;
