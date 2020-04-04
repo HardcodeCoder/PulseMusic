@@ -138,7 +138,7 @@
         android:background="@drawable/bck_play_pause_btn"
         android:padding="8dp"
         android:stateListAnimator="@animator/focused_elevation_up"
-        android:tint="?attr/colorOnSecondary"
+        android:tint="?attr/colorOnPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/activity_np_skip_next_btn"
         app:layout_constraintStart_toEndOf="@+id/activity_np_skip_prev_btn"

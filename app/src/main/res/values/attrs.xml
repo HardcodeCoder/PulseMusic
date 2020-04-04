@@ -2,10 +2,7 @@
 <resources>
     <declare-styleable name="Base">
         <attr name="primaryColor" format="color|reference" />
-        <attr name="primaryVariantColor" format="color|reference" />
-
-        <attr name="secondaryColor" format="color|reference" />
-        <attr name="colorOnSecondary" format="color|reference" />
+        <attr name="colorOnPrimary" format="color|reference" />
 
         <attr name="primaryTextColor" format="color|reference" />
         <attr name="secondaryTextColor" format="color|reference" />

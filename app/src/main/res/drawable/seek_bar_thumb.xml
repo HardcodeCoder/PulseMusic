@@ -29,7 +29,7 @@
         android:left="6dp"
         android:right="6.8dp">
         <shape android:shape="oval">
-            <solid android:color="?secondaryColor"/>
+            <solid android:color="?attr/primaryColor"/>
         </shape>
     </item>
 

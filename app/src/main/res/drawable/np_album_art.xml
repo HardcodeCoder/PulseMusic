@@ -15,15 +15,15 @@
         android:translateY="2">
 
         <path
-            android:fillColor="?secondaryColor"
+            android:fillColor="?attr/primaryColor"
             android:pathData="M12.5,1L12.5,1A1.5,1.5 0,0 1,14 2.5L14,20.5A1.5,1.5 0,0 1,12.5 22L12.5,22A1.5,1.5 0,0 1,11 20.5L11,2.5A1.5,1.5 0,0 1,12.5 1z" />
         <path
-            android:fillColor="?secondaryColor"
+            android:fillColor="?attr/primaryColor"
             android:pathData="M11.6226,1.2214L11.6226,1.2214A1.5,1.5 127.9478,0 1,13.7436 1.1843L17.3403,4.6576A1.5,1.5 127.0524,0 1,17.3774 6.7786L17.3774,6.7786A1.5,1.5 127.0524,0 1,15.2564 6.8157L11.6597,3.3424A1.5,1.5 127.9478,0 1,11.6226 1.2214z" />
         <path
             android:pathData="M7,20m-5.5,0a5.5,5.5 0,1 1,11 0a5.5,5.5 0,1 1,-11 0"
             android:strokeWidth="3.0"
-            android:strokeColor="?secondaryColor" />
+            android:strokeColor="?attr/primaryColor" />
 
     </group>
 </vector>

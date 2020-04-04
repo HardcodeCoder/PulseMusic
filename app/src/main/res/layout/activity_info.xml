@@ -95,7 +95,7 @@
             android:fontFamily="@font/product_black"
             android:gravity="center"
             android:text="@string/donate_title"
-            android:textColor="?secondaryColor"
+            android:textColor="?attr/primaryColor"
             android:textSize="16sp" />
 
         <com.google.android.material.button.MaterialButton

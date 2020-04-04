@@ -19,7 +19,7 @@
             <scale android:scaleWidth="75%">
                 <shape android:shape="rectangle">
                     <corners android:radius="3dp" />
-                    <solid android:color="?attr/secondaryColor" />
+                    <solid android:color="?attr/primaryColor" />
                     <size android:height="5dp" />
                 </shape>
             </scale>

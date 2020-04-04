@@ -1,13 +1,13 @@
 <resources>
 
     <!-- Specific Feed activity theme -->
-    <style name="ActivityThemeLight" parent="PulseMusic.Theme.Light" />
+    <style name="ActivityThemeLight" parent="AppTheme.Light" />
 
-    <style name="ActivityThemeDark" parent="PulseMusic.Theme.Dark" />
+    <style name="ActivityThemeDark" parent="AppTheme.Dark" />
 
-    <style name="ActivityThemeKindaDark" parent="PulseMusic.Theme.Dark.Kinda" />
+    <style name="ActivityThemeKindaDark" parent="AppTheme.Dark.Kinda" />
 
-    <style name="ActivityThemeBlack" parent="PulseMusic.Theme.Dark.Black" />
+    <style name="ActivityThemeBlack" parent="AppTheme.Dark.Black" />
 
     <style name="PopupMenu">
         <item name="android:textColor">?colorOnSurface</item>
@@ -197,6 +197,16 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">?secondaryTextColor</item>
         <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="MaterialButtonStyle">
+        <item name="android:fontFamily">@font/product_regular</item>
+    </style>
+
+    <style name="MaterialButtonStyle.Default" parent="Widget.MaterialComponents.Button">
+    </style>
+
+    <style name="MaterialButtonStyle.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
     </style>
 
 </resources>
