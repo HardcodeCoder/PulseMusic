@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Generator: Gravit.io -->
+<svg style="isolation:isolate" height="512pt" viewBox="0 0 512 512" width="512pt"
+    xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <clipPath id="_clipPath_qNkXTlHYe8DJCgURHkkZ21FfgI7Q9Bkk">
+            <rect height="512" width="512" />
+        </clipPath>
+    </defs>
+    <g clip-path="url(#_clipPath_qNkXTlHYe8DJCgURHkkZ21FfgI7Q9Bkk)">
+        <circle cx="256" cy="256" fill="rgb(108,92,231)" r="256"
+            vector-effect="non-scaling-stroke" />
+        <defs>
+            <filter color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" height="400%"
+                id="1QlHdFQpFpLYdiSG1gab3FjDU8t6AkuW" width="400%" x="-200%" y="-200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="8.587218125678056"
+                    xmlns="http://www.w3.org/2000/svg" />
+                <feOffset dx="4" dy="4" result="pf_100_offsetBlur"
+                    xmlns="http://www.w3.org/2000/svg" />
+                <feFlood flood-color="#000000" flood-opacity="0.35"
+                    xmlns="http://www.w3.org/2000/svg" />
+                <feComposite in2="pf_100_offsetBlur" operator="in" result="pf_100_dropShadow"
+                    xmlns="http://www.w3.org/2000/svg" />
+                <feBlend in="SourceGraphic" in2="pf_100_dropShadow" mode="normal"
+                    xmlns="http://www.w3.org/2000/svg" />
+            </filter>
+        </defs>
+        <g filter="url(#1QlHdFQpFpLYdiSG1gab3FjDU8t6AkuW)">
+            <clipPath id="_clipPath_5uSFAernAm3JEQ43JGjUkTL8onNfMICA">
+                <rect fill="rgb(255,255,255)" height="260" transform="matrix(1,0,0,1,0,0)"
+                    width="260" x="126" y="126" />
+            </clipPath>
+            <g clip-path="url(#_clipPath_5uSFAernAm3JEQ43JGjUkTL8onNfMICA)">
+                <g>
+                    <path
+                        d=" M 126 169.333 L 288.5 169.333 Q 386 170.688 386 266.833 Q 379.229 364.333 277.667 364.333 Q 198.442 356.208 176.917 264.45 L 225.667 264.45 Q 236.359 315.583 288.5 315.583 Q 337.25 312.875 337.25 264.667 Q 337.25 219.6 288.5 218.083 L 176.917 218.083 L 176.917 260.333 L 126 218.083 L 126 169.333 Z "
+                        fill="rgb(255,255,255)" />
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
