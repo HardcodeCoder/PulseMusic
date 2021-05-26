@@ -19,3 +19,5 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-keep class !com.hardcodecoder.pulsemusic.loaders.TrackFetcherFromStorage.java
+-keep class !com.hardcodecoder.pulsemusic.model.MusicModel.java

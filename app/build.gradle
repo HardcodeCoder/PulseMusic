@@ -1,18 +1,18 @@
 apply plugin: 'com.android.application'
 
-ext.versionMajor = 1
-ext.versionMinor = 1
-ext.versionPatch = 5
+ext.versionMajor = 4
+ext.versionMinor = 2
+ext.versionPatch = 1
 ext.minimumSdkVersion = 21
 ext.isSnapshot = true
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion '29.0.3'
+    compileSdkVersion 30
+    buildToolsVersion '30.0.3'
     defaultConfig {
         applicationId "com.hardcodecoder.pulsemusic"
         minSdkVersion project.ext.minimumSdkVersion
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode generateVersionCode()
         versionName generateVersionName()
         vectorDrawables.useSupportLibrary = true
